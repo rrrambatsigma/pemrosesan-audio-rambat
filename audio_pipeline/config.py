@@ -36,6 +36,7 @@ LOCK_FILE = DATA_DIR / ".scrape.lock"
 SOURCE_INVENTORY = REPORTS_DIR / "source_inventory.csv"
 SOURCE_PLAYLISTS = REPORTS_DIR / "source_playlists.csv"
 SOURCE_COVERAGE = REPORTS_DIR / "source_coverage.csv"
+SOURCE_PLAN = REPORTS_DIR / "source_plan.csv"
 QUALITY_CSV = REPORTS_DIR / "audio_quality.csv"
 LINKS_CHECK = REPORTS_DIR / "links_check.csv"
 

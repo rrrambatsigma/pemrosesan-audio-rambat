@@ -19,8 +19,9 @@ from collections import Counter, defaultdict
 
 import _bootstrap  # noqa: F401
 from audio_pipeline.config import (MAX_CHANNEL_FRAC, REPORTS_DIR, SOURCE_COVERAGE,
-                                   SOURCE_INVENTORY, SOURCE_PLAYLISTS,
-                                   TARGET_PER_LABEL, ensure_dirs, setup_console)
+                                   SOURCE_INVENTORY, SOURCE_PLAN,
+                                   SOURCE_PLAYLISTS, TARGET_PER_LABEL,
+                                   ensure_dirs, setup_console)
 from audio_pipeline.planner import cells_for, select_label
 from audio_pipeline.registry import discover_files, load
 from audio_pipeline.search import expand, expand_items, load_cache, save_cache
@@ -104,6 +105,7 @@ def main(argv=None) -> None:
 
     gaps: list[str] = []
     gap_rows: list[dict] = []
+    plan_rows: list[dict] = []
     for slug in sorted(files, key=lambda s: labels[s].no):
         meta = labels[slug]
         part = by_label.get(slug, [])
@@ -119,6 +121,15 @@ def main(argv=None) -> None:
         print(f"{meta.no:>3} {slug:<24}{len(part):>7}{planned:>8}{ch:>8}"
               f"{kur['k13']:>6}{kur['kurmerdeka']:>6}{kur['ktsp2006']:>6}  "
               + ("; ".join(status) if status else "siap"))
+        plan_rows.append({
+            "label_no": meta.no, "label": slug, "rumpun": meta.rumpun,
+            "layak": len(part), "rencana": planned, "channel": ch,
+            "k13": kur["k13"], "kurmerdeka": kur["kurmerdeka"],
+            "ktsp2006": kur["ktsp2006"],
+            "target": a.target_per_label,
+            "kurang": max(0, a.target_per_label - planned),
+            "status": "siap" if not status else "; ".join(status),
+        })
         if status:
             gaps.append(f"{slug}: " + "; ".join(status))
             gap_rows.append({
@@ -190,6 +201,9 @@ def main(argv=None) -> None:
                         "gap": cells.get((kelas, kur), 0) - len(part),
                     })
         _write(SOURCE_COVERAGE, cov)
+        if plan_rows:
+            _write(SOURCE_PLAN, plan_rows)
+            print(f"[i] rencana   : {SOURCE_PLAN.name}")
         if gap_rows:
             _write(REPORTS_DIR / "source_gaps.csv", gap_rows)
             print(f"[i] kekurangan : {(REPORTS_DIR / 'source_gaps.csv').name}")
