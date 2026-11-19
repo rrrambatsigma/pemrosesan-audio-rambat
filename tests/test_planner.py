@@ -40,3 +40,18 @@ def test_cells_sum_to_target():
         cells = cells_for(target)
         assert sum(cells.values()) == target
         assert all(v >= 0 for v in cells.values())
+
+
+def test_rollover_mengisi_target_saat_sel_kosong():
+    # semua kandidat hanya di satu sel (kelas 10 / k13); sel lain kosong
+    cands = [_c(f"vid{i:08d}", 10, "Fisika SMA", ch=f"UC{i % 15}")
+             for i in range(120)]
+    plan = select_label(cands, target=100)
+    assert len(plan) == 100
+
+
+def test_batas_channel_tetap_dihormati():
+    import math
+    cands = [_c(f"vid{i:08d}", 10, "Fisika SMA", ch="UC1") for i in range(60)]
+    plan = select_label(cands, target=20, max_channel_frac=0.20)
+    assert len(plan) <= max(3, math.ceil(20 * 0.20))
