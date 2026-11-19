@@ -1,43 +1,70 @@
 ﻿label,kelas,kurikulum,bab,kind,value,hasil
-fisika,10,k13,Besaran dan Pengukuran,search,fisika sma kelas 10 Besaran dan Pengukuran,12
-fisika,10,k13,Besaran dan Pengukuran,search,pembahasan soal Besaran dan Pengukuran fisika sma kelas 10,12
-fisika,10,kurmerdeka,Besaran dan Pengukuran,search,fisika kelas 10 kurikulum merdeka Besaran dan Pengukuran,12
-fisika,10,k13,Vektor,search,fisika sma kelas 10 Vektor,12
-fisika,10,k13,Vektor,search,pembahasan soal Vektor fisika sma kelas 10,12
-fisika,10,kurmerdeka,Vektor,search,fisika kelas 10 kurikulum merdeka Vektor,12
-fisika,10,k13,Gerak Lurus,search,fisika sma kelas 10 Gerak Lurus,12
-fisika,10,k13,Gerak Lurus,search,pembahasan soal Gerak Lurus fisika sma kelas 10,12
-fisika,10,kurmerdeka,Gerak Lurus,search,fisika kelas 10 kurikulum merdeka Gerak Lurus,12
-fisika,10,k13,Hukum Newton,search,fisika sma kelas 10 Hukum Newton,12
-fisika,10,k13,Hukum Newton,search,pembahasan soal Hukum Newton fisika sma kelas 10,12
-fisika,10,kurmerdeka,Hukum Newton,search,fisika kelas 10 kurikulum merdeka Hukum Newton,12
-fisika,10,ktsp2006,materi kelas 10,search,fisika dasar kelas 10 ktsp,12
-fisika,10,ktsp2006,materi kelas 10,search,fisika dasar kelas 10 ktsp 2006,12
-fisika,11,k13,Fluida,search,fisika sma kelas 11 Fluida,12
-fisika,11,k13,Fluida,search,pembahasan soal Fluida fisika sma kelas 11,12
-fisika,11,kurmerdeka,Fluida,search,fisika kelas 11 kurikulum merdeka Fluida,12
-fisika,11,k13,Suhu dan Kalor,search,fisika sma kelas 11 Suhu dan Kalor,12
-fisika,11,k13,Suhu dan Kalor,search,pembahasan soal Suhu dan Kalor fisika sma kelas 11,12
-fisika,11,kurmerdeka,Suhu dan Kalor,search,fisika kelas 11 kurikulum merdeka Suhu dan Kalor,12
-fisika,11,k13,Gelombang,search,fisika sma kelas 11 Gelombang,12
-fisika,11,k13,Gelombang,search,pembahasan soal Gelombang fisika sma kelas 11,12
-fisika,11,kurmerdeka,Gelombang,search,fisika kelas 11 kurikulum merdeka Gelombang,12
-fisika,11,k13,Termodinamika,search,fisika sma kelas 11 Termodinamika,12
-fisika,11,k13,Termodinamika,search,pembahasan soal Termodinamika fisika sma kelas 11,12
-fisika,11,kurmerdeka,Termodinamika,search,fisika kelas 11 kurikulum merdeka Termodinamika,12
-fisika,11,ktsp2006,materi kelas 11,search,fisika dasar kelas 11 ktsp,12
-fisika,11,ktsp2006,materi kelas 11,search,fisika dasar kelas 11 ktsp 2006,12
-fisika,12,k13,Listrik Statis,search,fisika sma kelas 12 Listrik Statis,12
-fisika,12,k13,Listrik Statis,search,pembahasan soal Listrik Statis fisika sma kelas 12,12
-fisika,12,kurmerdeka,Listrik Statis,search,fisika kelas 12 kurikulum merdeka Listrik Statis,12
-fisika,12,k13,Induksi Elektromagnetik,search,fisika sma kelas 12 Induksi Elektromagnetik,12
-fisika,12,k13,Induksi Elektromagnetik,search,pembahasan soal Induksi Elektromagnetik fisika sma kelas 12,12
-fisika,12,kurmerdeka,Induksi Elektromagnetik,search,fisika kelas 12 kurikulum merdeka Induksi Elektromagnetik,12
-fisika,12,k13,Fisika Modern,search,fisika sma kelas 12 Fisika Modern,12
-fisika,12,k13,Fisika Modern,search,pembahasan soal Fisika Modern fisika sma kelas 12,12
-fisika,12,kurmerdeka,Fisika Modern,search,fisika kelas 12 kurikulum merdeka Fisika Modern,12
-fisika,12,ktsp2006,materi kelas 12,search,fisika dasar kelas 12 ktsp,12
-fisika,12,ktsp2006,materi kelas 12,search,fisika dasar kelas 12 ktsp 2006,12
+ppkn,10,k13,Pancasila dan UUD 1945,search,ppkn sma kelas 10 Pancasila dan UUD 1945,12
+ppkn,10,k13,Pancasila dan UUD 1945,search,pembahasan soal Pancasila dan UUD 1945 ppkn sma kelas 10,12
+ppkn,10,kurmerdeka,Pancasila dan UUD 1945,search,pkn sma kelas 10 kurikulum merdeka Pancasila dan UUD 1945,12
+ppkn,10,k13,Hak dan Kewajiban Warga Negara,search,ppkn sma kelas 10 Hak dan Kewajiban Warga Negara,12
+ppkn,10,k13,Hak dan Kewajiban Warga Negara,search,pembahasan soal Hak dan Kewajiban Warga Negara ppkn sma kelas 10,12
+ppkn,10,kurmerdeka,Hak dan Kewajiban Warga Negara,search,pkn sma kelas 10 kurikulum merdeka Hak dan Kewajiban Warga Negara,12
+ppkn,10,k13,Bhinneka Tunggal Ika,search,ppkn sma kelas 10 Bhinneka Tunggal Ika,12
+ppkn,10,k13,Bhinneka Tunggal Ika,search,pembahasan soal Bhinneka Tunggal Ika ppkn sma kelas 10,12
+ppkn,10,kurmerdeka,Bhinneka Tunggal Ika,search,pkn sma kelas 10 kurikulum merdeka Bhinneka Tunggal Ika,12
+ppkn,10,ktsp2006,materi kelas 10,search,pkn kelas 10 ktsp,12
+ppkn,10,ktsp2006,materi kelas 10,search,pkn kelas 10 ktsp 2006,12
+ppkn,11,k13,Demokrasi dan HAM,search,ppkn sma kelas 11 Demokrasi dan HAM,12
+ppkn,11,k13,Demokrasi dan HAM,search,pembahasan soal Demokrasi dan HAM ppkn sma kelas 11,12
+ppkn,11,kurmerdeka,Demokrasi dan HAM,search,pkn sma kelas 11 kurikulum merdeka Demokrasi dan HAM,12
+ppkn,11,k13,Sistem Hukum Indonesia,search,ppkn sma kelas 11 Sistem Hukum Indonesia,12
+ppkn,11,k13,Sistem Hukum Indonesia,search,pembahasan soal Sistem Hukum Indonesia ppkn sma kelas 11,12
+ppkn,11,kurmerdeka,Sistem Hukum Indonesia,search,pkn sma kelas 11 kurikulum merdeka Sistem Hukum Indonesia,12
+ppkn,11,k13,Wawasan Nusantara,search,ppkn sma kelas 11 Wawasan Nusantara,12
+ppkn,11,k13,Wawasan Nusantara,search,pembahasan soal Wawasan Nusantara ppkn sma kelas 11,12
+ppkn,11,kurmerdeka,Wawasan Nusantara,search,pkn sma kelas 11 kurikulum merdeka Wawasan Nusantara,12
+ppkn,11,ktsp2006,materi kelas 11,search,pkn kelas 11 ktsp,12
+ppkn,11,ktsp2006,materi kelas 11,search,pkn kelas 11 ktsp 2006,12
+ppkn,12,k13,Ketahanan Nasional,search,ppkn sma kelas 12 Ketahanan Nasional,12
+ppkn,12,k13,Ketahanan Nasional,search,pembahasan soal Ketahanan Nasional ppkn sma kelas 12,12
+ppkn,12,kurmerdeka,Ketahanan Nasional,search,pkn sma kelas 12 kurikulum merdeka Ketahanan Nasional,12
+ppkn,12,k13,Globalisasi,search,ppkn sma kelas 12 Globalisasi,12
+ppkn,12,k13,Globalisasi,search,pembahasan soal Globalisasi ppkn sma kelas 12,12
+ppkn,12,kurmerdeka,Globalisasi,search,pkn sma kelas 12 kurikulum merdeka Globalisasi,12
+ppkn,12,k13,Demokrasi Pancasila,search,ppkn sma kelas 12 Demokrasi Pancasila,12
+ppkn,12,k13,Demokrasi Pancasila,search,pembahasan soal Demokrasi Pancasila ppkn sma kelas 12,12
+ppkn,12,kurmerdeka,Demokrasi Pancasila,search,pkn sma kelas 12 kurikulum merdeka Demokrasi Pancasila,12
+ppkn,12,ktsp2006,materi kelas 12,search,pkn kelas 12 ktsp,12
+ppkn,12,ktsp2006,materi kelas 12,search,pkn kelas 12 ktsp 2006,12
+informatika,10,k13,Berpikir Komputasional,search,informatika sma kelas 10 Berpikir Komputasional,12
+informatika,10,k13,Berpikir Komputasional,search,pembahasan soal Berpikir Komputasional informatika sma kelas 10,12
+informatika,10,kurmerdeka,Berpikir Komputasional,search,tik sma kelas 10 kurikulum merdeka Berpikir Komputasional,12
+informatika,10,k13,Algoritma Pemrograman,search,informatika sma kelas 10 Algoritma Pemrograman,12
+informatika,10,k13,Algoritma Pemrograman,search,pembahasan soal Algoritma Pemrograman informatika sma kelas 10,12
+informatika,10,kurmerdeka,Algoritma Pemrograman,search,tik sma kelas 10 kurikulum merdeka Algoritma Pemrograman,12
+informatika,10,k13,Sistem Komputer,search,informatika sma kelas 10 Sistem Komputer,12
+informatika,10,k13,Sistem Komputer,search,pembahasan soal Sistem Komputer informatika sma kelas 10,12
+informatika,10,kurmerdeka,Sistem Komputer,search,tik sma kelas 10 kurikulum merdeka Sistem Komputer,12
+informatika,10,ktsp2006,materi kelas 10,search,tik kelas 10 ktsp,12
+informatika,10,ktsp2006,materi kelas 10,search,tik kelas 10 ktsp 2006,12
+informatika,11,k13,Jaringan Komputer,search,informatika sma kelas 11 Jaringan Komputer,12
+informatika,11,k13,Jaringan Komputer,search,pembahasan soal Jaringan Komputer informatika sma kelas 11,12
+informatika,11,kurmerdeka,Jaringan Komputer,search,tik sma kelas 11 kurikulum merdeka Jaringan Komputer,12
+informatika,11,k13,Basis Data,search,informatika sma kelas 11 Basis Data,12
+informatika,11,k13,Basis Data,search,pembahasan soal Basis Data informatika sma kelas 11,12
+informatika,11,kurmerdeka,Basis Data,search,tik sma kelas 11 kurikulum merdeka Basis Data,12
+informatika,11,k13,Analisis Data,search,informatika sma kelas 11 Analisis Data,12
+informatika,11,k13,Analisis Data,search,pembahasan soal Analisis Data informatika sma kelas 11,12
+informatika,11,kurmerdeka,Analisis Data,search,tik sma kelas 11 kurikulum merdeka Analisis Data,12
+informatika,11,ktsp2006,materi kelas 11,search,tik kelas 11 ktsp,12
+informatika,11,ktsp2006,materi kelas 11,search,tik kelas 11 ktsp 2006,12
+informatika,12,k13,Kecerdasan Buatan,search,informatika sma kelas 12 Kecerdasan Buatan,12
+informatika,12,k13,Kecerdasan Buatan,search,pembahasan soal Kecerdasan Buatan informatika sma kelas 12,12
+informatika,12,kurmerdeka,Kecerdasan Buatan,search,tik sma kelas 12 kurikulum merdeka Kecerdasan Buatan,12
+informatika,12,k13,Keamanan Siber,search,informatika sma kelas 12 Keamanan Siber,12
+informatika,12,k13,Keamanan Siber,search,pembahasan soal Keamanan Siber informatika sma kelas 12,12
+informatika,12,kurmerdeka,Keamanan Siber,search,tik sma kelas 12 kurikulum merdeka Keamanan Siber,12
+informatika,12,k13,Proyek Informatika,search,informatika sma kelas 12 Proyek Informatika,12
+informatika,12,k13,Proyek Informatika,search,pembahasan soal Proyek Informatika informatika sma kelas 12,12
+informatika,12,kurmerdeka,Proyek Informatika,search,tik sma kelas 12 kurikulum merdeka Proyek Informatika,12
+informatika,12,ktsp2006,materi kelas 12,search,tik kelas 12 ktsp,12
+informatika,12,ktsp2006,materi kelas 12,search,tik kelas 12 ktsp 2006,12
 antropologi,10,k13,Konsep Antropologi,search,antropologi sma kelas 10 Konsep Antropologi,12
 antropologi,10,k13,Konsep Antropologi,search,pembahasan soal Konsep Antropologi antropologi sma kelas 10,12
 antropologi,10,kurmerdeka,Konsep Antropologi,search,antropologi kelas 10 kurikulum merdeka Konsep Antropologi,12
@@ -47,6 +74,10 @@ antropologi,10,kurmerdeka,Kebudayaan,search,antropologi kelas 10 kurikulum merde
 antropologi,10,k13,Etnografi,search,antropologi sma kelas 10 Etnografi,12
 antropologi,10,k13,Etnografi,search,pembahasan soal Etnografi antropologi sma kelas 10,12
 antropologi,10,kurmerdeka,Etnografi,search,antropologi kelas 10 kurikulum merdeka Etnografi,12
+antropologi,10,k13,Antropologi Ragawi,search,antropologi ragawi manusia purba kelas 10,12
+antropologi,10,k13,Antropologi Ragawi,search,materi antropologi ragawi kelas 10,12
+antropologi,10,k13,Manusia dan Kebudayaan,search,antropologi manusia dan kebudayaan kelas 10,12
+antropologi,10,k13,Manusia dan Kebudayaan,search,pengantar antropologi budaya kelas 10,12
 antropologi,10,ktsp2006,materi kelas 10,search,antropologi peminatan kelas 10 ktsp,1
 antropologi,10,ktsp2006,materi kelas 10,search,antropologi peminatan kelas 10 ktsp 2006,0
 antropologi,11,k13,Keanekaragaman Budaya,search,antropologi sma kelas 11 Keanekaragaman Budaya,12
@@ -58,6 +89,10 @@ antropologi,11,kurmerdeka,Sistem Kekerabatan,search,antropologi kelas 11 kurikul
 antropologi,11,k13,Religi dan Kepercayaan,search,antropologi sma kelas 11 Religi dan Kepercayaan,12
 antropologi,11,k13,Religi dan Kepercayaan,search,pembahasan soal Religi dan Kepercayaan antropologi sma kelas 11,11
 antropologi,11,kurmerdeka,Religi dan Kepercayaan,search,antropologi kelas 11 kurikulum merdeka Religi dan Kepercayaan,12
+antropologi,11,k13,Sistem Kekerabatan dan Perkawinan,search,sistem kekerabatan dan perkawinan antropologi kelas 11,12
+antropologi,11,k13,Sistem Kekerabatan dan Perkawinan,search,antropologi kekerabatan kelas 11,12
+antropologi,11,k13,Sistem Mata Pencaharian,search,sistem mata pencaharian antropologi kelas 11,12
+antropologi,11,k13,Sistem Mata Pencaharian,search,antropologi ekonomi mata pencaharian kelas 11,12
 antropologi,11,ktsp2006,materi kelas 11,search,antropologi peminatan kelas 11 ktsp,0
 antropologi,11,ktsp2006,materi kelas 11,search,antropologi peminatan kelas 11 ktsp 2006,0
 antropologi,12,k13,Perubahan Budaya,search,antropologi sma kelas 12 Perubahan Budaya,12
@@ -69,71 +104,9 @@ antropologi,12,kurmerdeka,Globalisasi Budaya,search,antropologi kelas 12 kurikul
 antropologi,12,k13,Antropologi Terapan,search,antropologi sma kelas 12 Antropologi Terapan,12
 antropologi,12,k13,Antropologi Terapan,search,pembahasan soal Antropologi Terapan antropologi sma kelas 12,12
 antropologi,12,kurmerdeka,Antropologi Terapan,search,antropologi kelas 12 kurikulum merdeka Antropologi Terapan,12
+antropologi,12,k13,Antropologi Kesehatan,search,antropologi kesehatan kelas 12,12
+antropologi,12,k13,Antropologi Kesehatan,search,antropologi kesehatan masyarakat kelas 12,12
+antropologi,12,k13,Etnografi Indonesia,search,etnografi masyarakat indonesia kelas 12,12
+antropologi,12,k13,Etnografi Indonesia,search,contoh penelitian etnografi kelas 12,12
 antropologi,12,ktsp2006,materi kelas 12,search,antropologi peminatan kelas 12 ktsp,0
 antropologi,12,ktsp2006,materi kelas 12,search,antropologi peminatan kelas 12 ktsp 2006,0
-sastra_indonesia,10,k13,Puisi,search,sastra indonesia kelas 10 Puisi,12
-sastra_indonesia,10,k13,Puisi,search,pembahasan soal Puisi sastra indonesia kelas 10,12
-sastra_indonesia,10,kurmerdeka,Puisi,search,bahasa indonesia tingkat lanjut kelas 10 kurikulum merdeka Puisi,12
-sastra_indonesia,10,k13,Cerpen,search,sastra indonesia kelas 10 Cerpen,12
-sastra_indonesia,10,k13,Cerpen,search,pembahasan soal Cerpen sastra indonesia kelas 10,12
-sastra_indonesia,10,kurmerdeka,Cerpen,search,bahasa indonesia tingkat lanjut kelas 10 kurikulum merdeka Cerpen,12
-sastra_indonesia,10,k13,Pantun,search,sastra indonesia kelas 10 Pantun,12
-sastra_indonesia,10,k13,Pantun,search,pembahasan soal Pantun sastra indonesia kelas 10,12
-sastra_indonesia,10,kurmerdeka,Pantun,search,bahasa indonesia tingkat lanjut kelas 10 kurikulum merdeka Pantun,12
-sastra_indonesia,10,ktsp2006,materi kelas 10,search,sastra sma kelas 10 ktsp,12
-sastra_indonesia,10,ktsp2006,materi kelas 10,search,sastra sma kelas 10 ktsp 2006,12
-sastra_indonesia,11,k13,Hikayat,search,sastra indonesia kelas 11 Hikayat,12
-sastra_indonesia,11,k13,Hikayat,search,pembahasan soal Hikayat sastra indonesia kelas 11,12
-sastra_indonesia,11,kurmerdeka,Hikayat,search,bahasa indonesia tingkat lanjut kelas 11 kurikulum merdeka Hikayat,12
-sastra_indonesia,11,k13,Drama,search,sastra indonesia kelas 11 Drama,12
-sastra_indonesia,11,k13,Drama,search,pembahasan soal Drama sastra indonesia kelas 11,12
-sastra_indonesia,11,kurmerdeka,Drama,search,bahasa indonesia tingkat lanjut kelas 11 kurikulum merdeka Drama,12
-sastra_indonesia,11,k13,Resensi Buku,search,sastra indonesia kelas 11 Resensi Buku,12
-sastra_indonesia,11,k13,Resensi Buku,search,pembahasan soal Resensi Buku sastra indonesia kelas 11,12
-sastra_indonesia,11,kurmerdeka,Resensi Buku,search,bahasa indonesia tingkat lanjut kelas 11 kurikulum merdeka Resensi Buku,12
-sastra_indonesia,11,ktsp2006,materi kelas 11,search,sastra sma kelas 11 ktsp,12
-sastra_indonesia,11,ktsp2006,materi kelas 11,search,sastra sma kelas 11 ktsp 2006,12
-sastra_indonesia,12,k13,Novel,search,sastra indonesia kelas 12 Novel,12
-sastra_indonesia,12,k13,Novel,search,pembahasan soal Novel sastra indonesia kelas 12,12
-sastra_indonesia,12,kurmerdeka,Novel,search,bahasa indonesia tingkat lanjut kelas 12 kurikulum merdeka Novel,12
-sastra_indonesia,12,k13,Kritik Sastra,search,sastra indonesia kelas 12 Kritik Sastra,12
-sastra_indonesia,12,k13,Kritik Sastra,search,pembahasan soal Kritik Sastra sastra indonesia kelas 12,12
-sastra_indonesia,12,kurmerdeka,Kritik Sastra,search,bahasa indonesia tingkat lanjut kelas 12 kurikulum merdeka Kritik Sastra,12
-sastra_indonesia,12,k13,Esai Sastra,search,sastra indonesia kelas 12 Esai Sastra,12
-sastra_indonesia,12,k13,Esai Sastra,search,pembahasan soal Esai Sastra sastra indonesia kelas 12,12
-sastra_indonesia,12,kurmerdeka,Esai Sastra,search,bahasa indonesia tingkat lanjut kelas 12 kurikulum merdeka Esai Sastra,12
-sastra_indonesia,12,ktsp2006,materi kelas 12,search,sastra sma kelas 12 ktsp,12
-sastra_indonesia,12,ktsp2006,materi kelas 12,search,sastra sma kelas 12 ktsp 2006,12
-bahasa_jawa,10,k13,Tembang Macapat,search,bahasa jawa sma kelas 10 Tembang Macapat,12
-bahasa_jawa,10,k13,Tembang Macapat,search,pembahasan soal Tembang Macapat bahasa jawa sma kelas 10,12
-bahasa_jawa,10,kurmerdeka,Tembang Macapat,search,bahasa jawa kelas 10 kurikulum merdeka Tembang Macapat,12
-bahasa_jawa,10,k13,Geguritan,search,bahasa jawa sma kelas 10 Geguritan,12
-bahasa_jawa,10,k13,Geguritan,search,pembahasan soal Geguritan bahasa jawa sma kelas 10,12
-bahasa_jawa,10,kurmerdeka,Geguritan,search,bahasa jawa kelas 10 kurikulum merdeka Geguritan,12
-bahasa_jawa,10,k13,Aksara Jawa,search,bahasa jawa sma kelas 10 Aksara Jawa,12
-bahasa_jawa,10,k13,Aksara Jawa,search,pembahasan soal Aksara Jawa bahasa jawa sma kelas 10,12
-bahasa_jawa,10,kurmerdeka,Aksara Jawa,search,bahasa jawa kelas 10 kurikulum merdeka Aksara Jawa,12
-bahasa_jawa,10,ktsp2006,materi kelas 10,search,basa jawa kelas 10 ktsp,12
-bahasa_jawa,10,ktsp2006,materi kelas 10,search,basa jawa kelas 10 ktsp 2006,12
-bahasa_jawa,11,k13,Wayang,search,bahasa jawa sma kelas 11 Wayang,12
-bahasa_jawa,11,k13,Wayang,search,pembahasan soal Wayang bahasa jawa sma kelas 11,12
-bahasa_jawa,11,kurmerdeka,Wayang,search,bahasa jawa kelas 11 kurikulum merdeka Wayang,12
-bahasa_jawa,11,k13,Serat Wedhatama,search,bahasa jawa sma kelas 11 Serat Wedhatama,12
-bahasa_jawa,11,k13,Serat Wedhatama,search,pembahasan soal Serat Wedhatama bahasa jawa sma kelas 11,12
-bahasa_jawa,11,kurmerdeka,Serat Wedhatama,search,bahasa jawa kelas 11 kurikulum merdeka Serat Wedhatama,12
-bahasa_jawa,11,k13,Parikan,search,bahasa jawa sma kelas 11 Parikan,12
-bahasa_jawa,11,k13,Parikan,search,pembahasan soal Parikan bahasa jawa sma kelas 11,12
-bahasa_jawa,11,kurmerdeka,Parikan,search,bahasa jawa kelas 11 kurikulum merdeka Parikan,12
-bahasa_jawa,11,ktsp2006,materi kelas 11,search,basa jawa kelas 11 ktsp,12
-bahasa_jawa,11,ktsp2006,materi kelas 11,search,basa jawa kelas 11 ktsp 2006,12
-bahasa_jawa,12,k13,Teks Eksposisi Bahasa Jawa,search,bahasa jawa sma kelas 12 Teks Eksposisi Bahasa Jawa,12
-bahasa_jawa,12,k13,Teks Eksposisi Bahasa Jawa,search,pembahasan soal Teks Eksposisi Bahasa Jawa bahasa jawa sma kelas 12,12
-bahasa_jawa,12,kurmerdeka,Teks Eksposisi Bahasa Jawa,search,bahasa jawa kelas 12 kurikulum merdeka Teks Eksposisi Bahasa Jawa,12
-bahasa_jawa,12,k13,Sesorah,search,bahasa jawa sma kelas 12 Sesorah,12
-bahasa_jawa,12,k13,Sesorah,search,pembahasan soal Sesorah bahasa jawa sma kelas 12,12
-bahasa_jawa,12,kurmerdeka,Sesorah,search,bahasa jawa kelas 12 kurikulum merdeka Sesorah,12
-bahasa_jawa,12,k13,Sastra Jawa Modern,search,bahasa jawa sma kelas 12 Sastra Jawa Modern,12
-bahasa_jawa,12,k13,Sastra Jawa Modern,search,pembahasan soal Sastra Jawa Modern bahasa jawa sma kelas 12,12
-bahasa_jawa,12,kurmerdeka,Sastra Jawa Modern,search,bahasa jawa kelas 12 kurikulum merdeka Sastra Jawa Modern,12
-bahasa_jawa,12,ktsp2006,materi kelas 12,search,basa jawa kelas 12 ktsp,12
-bahasa_jawa,12,ktsp2006,materi kelas 12,search,basa jawa kelas 12 ktsp 2006,12

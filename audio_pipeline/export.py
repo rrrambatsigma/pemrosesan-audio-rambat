@@ -12,7 +12,7 @@ import hashlib
 from collections import Counter
 from pathlib import Path
 
-from .config import KELAS, KURIKULUM, LINKS_DIR, LINKS_TXT, ROOT
+from .config import KELAS, KURIKULUM, LINKS_DIR, LINKS_TXT, ROOT, TARGET_PER_LABEL
 from .registry import Label
 from .youtube import sha256_file
 
@@ -175,7 +175,7 @@ def write_coverage(rows: dict[str, dict], labels: dict[str, Label],
                         len({r.get("channel_id") for r in part}),
                         round(sum(float(r.get("clip_sec") or 0) for r in part) / 3600, 2),
                         per_label[slug],
-                        round(100 * per_label[slug] / max(1, 143), 1),
+                        round(100 * per_label[slug] / max(1, TARGET_PER_LABEL), 1),
                     ])
     tmp.replace(out)
     return out

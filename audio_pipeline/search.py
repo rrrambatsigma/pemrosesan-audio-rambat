@@ -83,6 +83,10 @@ def _opts(browser: str | None, extra: dict | None = None) -> dict:
         "extract_flat": "in_playlist",
         "ignoreerrors": True,
         "noplaylist": False,
+        # jangan pernah menggantung: satu query maksimal ±20 detik per percobaan
+        "socket_timeout": 20,
+        "retries": 2,
+        "extractor_retries": 1,
         **POLITE,
     }
     if browser:

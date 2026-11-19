@@ -15,10 +15,11 @@ from __future__ import annotations
 
 import argparse
 import csv
+import re
 import sys
 
 import _bootstrap  # noqa: F401
-from audio_pipeline.config import REGISTRY, SRC_DIR, ensure_dirs, setup_console
+from audio_pipeline.config import REGISTRY, SRC_DIR, TARGET_PER_LABEL, ensure_dirs, setup_console
 
 META = [
     {
@@ -37,6 +38,7 @@ META = [
         "kelompok": "Umum / Wajib", "bahasa": "id",
         "display": "Pendidikan Pancasila / PPKn",
         "q": ["ppkn sma", "pkn sma", "pendidikan pancasila"],
+        "ktsp_q": "pkn",
         "topics": {
             10: ["Pancasila dan UUD 1945", "Hak dan Kewajiban Warga Negara",
                  "Bhinneka Tunggal Ika"],
@@ -201,6 +203,7 @@ META = [
         "kelompok": "Teknologi", "bahasa": "id",
         "display": "TIK / Informatika",
         "q": ["informatika sma", "tik sma", "informatika"],
+        "ktsp_q": "tik",
         "topics": {
             10: ["Berpikir Komputasional", "Algoritma Pemrograman",
                  "Sistem Komputer"],
@@ -303,6 +306,7 @@ def render_file(meta: dict) -> str:
         q0 = meta["q"][0]
         q1 = meta["q"][1 % len(meta["q"])]
         q2 = meta["q"][2 % len(meta["q"])]
+        ktsp_q = meta.get("ktsp_q", q2)
         for topic in meta["topics"][kelas]:
             lines += [
                 f"## k13 | kelas {kelas} | {topic}",
@@ -317,12 +321,14 @@ def render_file(meta: dict) -> str:
         for bab, queries in meta.get("extra", {}).get(kelas, []):
             lines.append(f"## k13 | kelas {kelas} | {bab}")
             for q in queries:
-                lines.append(f"ytsearch12:{q}")
+                qq = q if re.search(r"kelas\s*(10|11|12)", q.lower()) \
+                    else f"{q} kelas {kelas}"
+                lines.append(f"ytsearch12:{qq}")
             lines.append("")
         lines += [
             f"## ktsp2006 | kelas {kelas} | materi kelas {kelas}",
-            f"ytsearch12:{q2} kelas {kelas} ktsp",
-            f"ytsearch12:{q2} kelas {kelas} ktsp 2006",
+            f"ytsearch12:{ktsp_q} kelas {kelas} ktsp",
+            f"ytsearch12:{ktsp_q} kelas {kelas} ktsp 2006",
             "",
         ]
     return "\n".join(lines)
@@ -396,7 +402,8 @@ def main(argv=None) -> None:
     )
     print(f"[ok] file sumber: {n_new} dibuat/diisi, {n_skip} dilewati, "
           f"{total} total, {n_query} query")
-    print("Langkah berikut: python scripts/sources_audit.py --target-per-label 143")
+    print(f"Langkah berikut: python scripts/sources_audit.py "
+          f"--target-per-label {TARGET_PER_LABEL}")
 
 
 if __name__ == "__main__":

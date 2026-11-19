@@ -2,7 +2,8 @@
 
 Pipeline akuisisi: YouTube → audio sumber → klip 60 detik → manifest → jejak audit `links_yt.txt`.
 
-Target: **3.003 video** (143 × 21 label), masing-masing 1 klip inti + 3 klip bonus,
+Target: **2.100 video rencana** (100 x 21 label) → ±2.000 hasil bersih setelah
+sebagian video gagal. Tiap video menghasilkan 1 klip inti + 3 klip bonus,
 tersebar di kelas 10–12 dan kurikulum K13 / Kurikulum Merdeka / KTSP 2006.
 
 ## Environment

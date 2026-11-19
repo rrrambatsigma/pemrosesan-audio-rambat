@@ -54,7 +54,7 @@ MAX_VIDEO_SEC = 4 * 3600
 # --------------------------------------------------------------------------- #
 # Target dataset
 # --------------------------------------------------------------------------- #
-TARGET_PER_LABEL = 143     # 143 x 21 = 3003 video
+TARGET_PER_LABEL = 100     # 100 x 21 = 2.100 video rencana -> ~2.000 hasil bersih
 MAX_CHANNEL_FRAC = 0.20    # maksimum 20% video satu label dari satu channel
 MIN_CHANNELS_PER_LABEL = 12
 KELAS = (10, 11, 12)

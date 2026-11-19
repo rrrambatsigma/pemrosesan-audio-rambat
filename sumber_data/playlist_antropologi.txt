@@ -26,12 +26,12 @@ ytsearch12:pembahasan soal Etnografi antropologi sma kelas 10
 ytsearch12:antropologi kelas 10 kurikulum merdeka Etnografi
 
 ## k13 | kelas 10 | Antropologi Ragawi
-ytsearch12:antropologi ragawi manusia purba
+ytsearch12:antropologi ragawi manusia purba kelas 10
 ytsearch12:materi antropologi ragawi kelas 10
 
 ## k13 | kelas 10 | Manusia dan Kebudayaan
-ytsearch12:antropologi manusia dan kebudayaan
-ytsearch12:pengantar antropologi budaya
+ytsearch12:antropologi manusia dan kebudayaan kelas 10
+ytsearch12:pengantar antropologi budaya kelas 10
 
 ## ktsp2006 | kelas 10 | materi kelas 10
 ytsearch12:antropologi peminatan kelas 10 ktsp
@@ -59,12 +59,12 @@ ytsearch12:pembahasan soal Religi dan Kepercayaan antropologi sma kelas 11
 ytsearch12:antropologi kelas 11 kurikulum merdeka Religi dan Kepercayaan
 
 ## k13 | kelas 11 | Sistem Kekerabatan dan Perkawinan
-ytsearch12:sistem kekerabatan dan perkawinan antropologi
-ytsearch12:antropologi kekerabatan
+ytsearch12:sistem kekerabatan dan perkawinan antropologi kelas 11
+ytsearch12:antropologi kekerabatan kelas 11
 
 ## k13 | kelas 11 | Sistem Mata Pencaharian
-ytsearch12:sistem mata pencaharian antropologi
-ytsearch12:antropologi ekonomi mata pencaharian
+ytsearch12:sistem mata pencaharian antropologi kelas 11
+ytsearch12:antropologi ekonomi mata pencaharian kelas 11
 
 ## ktsp2006 | kelas 11 | materi kelas 11
 ytsearch12:antropologi peminatan kelas 11 ktsp
@@ -92,12 +92,12 @@ ytsearch12:pembahasan soal Antropologi Terapan antropologi sma kelas 12
 ytsearch12:antropologi kelas 12 kurikulum merdeka Antropologi Terapan
 
 ## k13 | kelas 12 | Antropologi Kesehatan
-ytsearch12:antropologi kesehatan
-ytsearch12:antropologi kesehatan masyarakat
+ytsearch12:antropologi kesehatan kelas 12
+ytsearch12:antropologi kesehatan masyarakat kelas 12
 
 ## k13 | kelas 12 | Etnografi Indonesia
-ytsearch12:etnografi masyarakat indonesia
-ytsearch12:contoh penelitian etnografi
+ytsearch12:etnografi masyarakat indonesia kelas 12
+ytsearch12:contoh penelitian etnografi kelas 12
 
 ## ktsp2006 | kelas 12 | materi kelas 12
 ytsearch12:antropologi peminatan kelas 12 ktsp

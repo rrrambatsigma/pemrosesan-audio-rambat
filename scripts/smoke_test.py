@@ -16,6 +16,7 @@ from pathlib import Path
 import _bootstrap  # noqa: F401
 from audio_pipeline import export, manifest
 from audio_pipeline.config import LINKS_TXT, MANIFEST, SRC_DIR, setup_console
+from audio_pipeline.config import TARGET_PER_LABEL
 from audio_pipeline.planner import build_plan
 from audio_pipeline.registry import discover_files, load
 from audio_pipeline.sources import parse_file
@@ -110,8 +111,8 @@ def main(argv=None) -> int:
             channel_url="", url="", label="fisika", kelas=k,
             kurikulum=kur[(i // 3) % 3], bab="materi",
             source_url="ytsearch:x", source_kind="search", source_query="q"))
-    plan = build_plan(fake, labels, 143, only=["fisika"])
-    check("planner mengisi target", len(plan["fisika"]) >= 120,
+    plan = build_plan(fake, labels, TARGET_PER_LABEL, only=["fisika"])
+    check("planner mengisi target", len(plan["fisika"]) >= TARGET_PER_LABEL * 0.85,
           f"{len(plan['fisika'])} video")
 
     # 7. export deterministik

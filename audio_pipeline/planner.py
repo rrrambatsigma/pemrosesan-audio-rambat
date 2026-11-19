@@ -2,7 +2,7 @@
 
 Kuota berlapis supaya dataset tidak miring:
 
-1. per label  : ``target_per_label`` (default 143)
+1. per label  : ``target_per_label`` (default dari konfigurasi)
 2. per kelas  : dibagi rata (10/11/12)
 3. per kurikulum: k13 / kurmerdeka / ktsp2006 sesuai bobot
 4. per channel: maksimum ``MAX_CHANNEL_FRAC`` dari kuota label, dipilih
@@ -122,6 +122,21 @@ def select_label(cands: list[Candidate], target: int,
                 used.add(c.video_id)
                 per_channel[ch] += 1
                 taken += 1
+
+    # putaran penutup: kalau ada sel yang kandidatnya kurang, kuota sel lain
+    # dipakai untuk mengejar target (tetap hormati batas channel)
+    if len(chosen) < target:
+        rest = [c for c in pool if c.video_id not in used]
+        rest.sort(key=lambda c: (c.rank, c.channel_id, c.video_id))
+        for c in rest:
+            if len(chosen) >= target:
+                break
+            ch = c.channel_id or c.channel
+            if per_channel[ch] >= cap:
+                continue
+            chosen.append(c)
+            used.add(c.video_id)
+            per_channel[ch] += 1
     return chosen
 
 
@@ -162,8 +177,11 @@ def flatten(plan: dict[str, list[Candidate]]) -> list[Candidate]:
     return out
 
 
-def describe(plan: dict[str, list[Candidate]], labels: dict[str, Label]) -> str:
+def describe(plan: dict[str, list[Candidate]], labels: dict[str, Label],
+             target: int | None = None) -> str:
     """Ringkasan teks: target vs kandidat vs channel per label."""
+    from .config import TARGET_PER_LABEL
+    target = target or TARGET_PER_LABEL
     lines = [f"{'label':<24}{'rencana':>8}{'channel':>9}{'k13':>6}"
              f"{'km':>6}{'ktsp':>6}   catatan"]
     for slug in sorted(plan, key=lambda s: labels[s].no):
@@ -171,8 +189,8 @@ def describe(plan: dict[str, list[Candidate]], labels: dict[str, Label]) -> str:
         kur = Counter(c.kurikulum for c in items)
         ch = len({c.channel_id or c.channel for c in items})
         note = ""
-        if len(items) < 100:
-            note = "KURANG"
+        if len(items) < target:
+            note = f"KURANG {target - len(items)}"
         lines.append(f"{slug:<24}{len(items):>8}{ch:>9}{kur['k13']:>6}"
                      f"{kur['kurmerdeka']:>6}{kur['ktsp2006']:>6}   {note}")
     return "\n".join(lines)

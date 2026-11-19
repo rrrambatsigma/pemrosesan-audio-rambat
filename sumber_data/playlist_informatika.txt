@@ -26,8 +26,8 @@ ytsearch12:pembahasan soal Sistem Komputer informatika sma kelas 10
 ytsearch12:tik sma kelas 10 kurikulum merdeka Sistem Komputer
 
 ## ktsp2006 | kelas 10 | materi kelas 10
-ytsearch12:informatika kelas 10 ktsp
-ytsearch12:informatika kelas 10 ktsp 2006
+ytsearch12:tik kelas 10 ktsp
+ytsearch12:tik kelas 10 ktsp 2006
 
 ## k13 | kelas 11 | Jaringan Komputer
 ytsearch12:informatika sma kelas 11 Jaringan Komputer
@@ -51,8 +51,8 @@ ytsearch12:pembahasan soal Analisis Data informatika sma kelas 11
 ytsearch12:tik sma kelas 11 kurikulum merdeka Analisis Data
 
 ## ktsp2006 | kelas 11 | materi kelas 11
-ytsearch12:informatika kelas 11 ktsp
-ytsearch12:informatika kelas 11 ktsp 2006
+ytsearch12:tik kelas 11 ktsp
+ytsearch12:tik kelas 11 ktsp 2006
 
 ## k13 | kelas 12 | Kecerdasan Buatan
 ytsearch12:informatika sma kelas 12 Kecerdasan Buatan
@@ -76,5 +76,5 @@ ytsearch12:pembahasan soal Proyek Informatika informatika sma kelas 12
 ytsearch12:tik sma kelas 12 kurikulum merdeka Proyek Informatika
 
 ## ktsp2006 | kelas 12 | materi kelas 12
-ytsearch12:informatika kelas 12 ktsp
-ytsearch12:informatika kelas 12 ktsp 2006
+ytsearch12:tik kelas 12 ktsp
+ytsearch12:tik kelas 12 ktsp 2006

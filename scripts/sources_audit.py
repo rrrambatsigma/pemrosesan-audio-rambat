@@ -6,7 +6,7 @@ Tidak mengunduh audio, hanya metadata (dan memakai cache). Hasil:
     data/reports/source_coverage.csv    matriks label x kelas x kurikulum
 
 Contoh:
-    python scripts/sources_audit.py --target-per-label 143
+    python scripts/sources_audit.py --target-per-label 100
     python scripts/sources_audit.py --only fisika kimia --limit-queries 4
 """
 
@@ -21,7 +21,7 @@ import _bootstrap  # noqa: F401
 from audio_pipeline.config import (MAX_CHANNEL_FRAC, REPORTS_DIR, SOURCE_COVERAGE,
                                    SOURCE_INVENTORY, SOURCE_PLAYLISTS,
                                    TARGET_PER_LABEL, ensure_dirs, setup_console)
-from audio_pipeline.planner import cells_for
+from audio_pipeline.planner import cells_for, select_label
 from audio_pipeline.registry import discover_files, load
 from audio_pipeline.search import expand, expand_items, load_cache, save_cache
 from audio_pipeline.sources import parse_file, parse_many
@@ -97,27 +97,48 @@ def main(argv=None) -> None:
     print(f"TARGET {a.target_per_label}/label | batas {cap} video/channel | "
           f"min {a.min_channels} channel/label")
     print("=" * 96)
-    hdr = (f"{'no':>3} {'label':<24}{'layak':>7}{'channel':>8}"
+    hdr = (f"{'no':>3} {'label':<24}{'layak':>7}{'rencana':>8}{'channel':>8}"
            f"{'k13':>6}{'km':>6}{'ktsp':>6}  status")
     print(hdr)
     print("-" * len(hdr))
 
     gaps: list[str] = []
+    gap_rows: list[dict] = []
     for slug in sorted(files, key=lambda s: labels[s].no):
         meta = labels[slug]
         part = by_label.get(slug, [])
         ch = len({c.channel_id or c.channel for c in part})
         kur = Counter(c.kurikulum for c in part)
+        planned = len(select_label(part, a.target_per_label,
+                                   MAX_CHANNEL_FRAC, min_sec))
         status = []
-        if len(part) < a.target_per_label:
-            status.append(f"KURANG {a.target_per_label - len(part)} video")
+        if planned < a.target_per_label:
+            status.append(f"KURANG {a.target_per_label - planned} video")
         if ch < a.min_channels:
             status.append(f"channel {ch}<{a.min_channels}")
-        print(f"{meta.no:>3} {slug:<24}{len(part):>7}{ch:>8}"
+        print(f"{meta.no:>3} {slug:<24}{len(part):>7}{planned:>8}{ch:>8}"
               f"{kur['k13']:>6}{kur['kurmerdeka']:>6}{kur['ktsp2006']:>6}  "
               + ("; ".join(status) if status else "siap"))
         if status:
             gaps.append(f"{slug}: " + "; ".join(status))
+            gap_rows.append({
+                "label_no": meta.no,
+                "label": slug,
+                "kandidat_layak": len(part),
+                "bisa_dipilih": planned,
+                "channel": ch,
+                "kurang_video": max(0, a.target_per_label - planned),
+                "kurang_channel": max(0, a.min_channels - ch),
+                "sel_kurang": ";".join(
+                    f"k{kelas}/{kur}={sum(1 for c in part if c.kelas == kelas and c.kurikulum == kur)}"
+                    f"/{cells.get((kelas, kur), 0)}"
+                    for kelas in (10, 11, 12)
+                    for kur in ("k13", "kurmerdeka", "ktsp2006")
+                    if sum(1 for c in part
+                           if c.kelas == kelas and c.kurikulum == kur)
+                    < cells.get((kelas, kur), 0)
+                ),
+            })
 
         over = Counter(c.channel_id or c.channel for c in part)
         for channel, n_ch in over.items():
@@ -169,6 +190,9 @@ def main(argv=None) -> None:
                         "gap": cells.get((kelas, kur), 0) - len(part),
                     })
         _write(SOURCE_COVERAGE, cov)
+        if gap_rows:
+            _write(REPORTS_DIR / "source_gaps.csv", gap_rows)
+            print(f"[i] kekurangan : {(REPORTS_DIR / 'source_gaps.csv').name}")
         print(f"\n[i] laporan: {SOURCE_INVENTORY.name}, "
               f"{SOURCE_PLAYLISTS.name}, {SOURCE_COVERAGE.name}")
 
