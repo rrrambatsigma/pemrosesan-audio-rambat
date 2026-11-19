@@ -43,3 +43,19 @@ def test_unknown_duration():
 def test_skips_intro():
     w = pick_windows(1800, 2, CLIP, seed=3)
     assert w[0] >= 90
+
+
+def test_tanpa_seed_tidak_error():
+    """Regresi: dulu seed=None mengirim objek fungsi ke random.Random."""
+    w = pick_windows(1800, 4, CLIP)
+    assert len(w) == 4
+    assert all(0 <= s <= 1800 - CLIP for s in w)
+
+
+def test_seed_dari_video_id():
+    """scrape.py memakai video_id sebagai seed -> deterministik per video."""
+    a = pick_windows(1800, 4, CLIP, seed="abcdefghijk")
+    b = pick_windows(1800, 4, CLIP, seed="abcdefghijk")
+    c = pick_windows(1800, 4, CLIP, seed="zyxwvutsrqp")
+    assert a == b
+    assert a != c

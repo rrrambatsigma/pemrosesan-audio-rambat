@@ -122,3 +122,20 @@ def test_partial_resume_keeps_clip_id(tmp_path, monkeypatch):
     assert sorted(rows2) == ids          # clip_id tidak berubah
     for cid in rows2:
         assert rows2[cid]["status"] == "ok"
+
+
+def test_catatan_gagal_lama_dibersihkan(tmp_path, monkeypatch):
+    _setup(tmp_path, monkeypatch)
+    _patch(monkeypatch)
+    kwargs = dict(clip_sec=2, sleep=(0, 0), batch_size=0,
+                  progress=lambda *a, **k: None)
+    scrape.run([CAND], LABELS, **kwargs)
+
+    manifest.save_failures({CAND.video_id: {
+        "video_id": CAND.video_id, "label": "fisika", "stage": "process",
+        "error": "percobaan lama", "attempts": "1", "last_at": "",
+    }})
+    assert manifest.load_failures()
+
+    scrape.run([CAND], LABELS, **kwargs)
+    assert manifest.load_failures() == {}

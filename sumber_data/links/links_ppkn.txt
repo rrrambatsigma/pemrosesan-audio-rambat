@@ -1,0 +1,28 @@
+# ==========================================================================
+# Dataset: Klasifikasi Mata Pelajaran SMA dari Audio
+# Skrip   : scripts/export_links.py
+# Isi     : 12 klip | 3 video | 0.2 jam | 21 label
+# Manifest: data/manifest.csv  sha256 2e6606d328f461e5
+# Format  : URL?t=<detik>  # mm:ss-mm:ss | judul | channel | lisensi | status | qc | sha256(8)
+# ==========================================================================
+
+
+## [2] ppkn  ·  kewargaan_seni  ·  12 klip / 3 video
+### k13 | kelas 10 | Bhinneka Tunggal Ika, Hak dan Kewajiban Warga Negara, Pancasila dan UU   (12 klip / 3 video)
+https://youtu.be/HOxKNTMUU8g?t=57  # 00:57-01:57 | "Hak Asasi Manusia (HAM), Hak, dan Kewajiban Warga Negara" (PPKn / Pendidikan Pa | Channel Edukasi EKSIS | - | ok | qc - | 4c7e3d8c
+https://youtu.be/HOxKNTMUU8g?t=154  # 02:34-03:34 | "Hak Asasi Manusia (HAM), Hak, dan Kewajiban Warga Negara" (PPKn / Pendidikan Pa | Channel Edukasi EKSIS | - | ok | qc - | 280c1236
+https://youtu.be/HOxKNTMUU8g?t=259  # 04:19-05:19 | "Hak Asasi Manusia (HAM), Hak, dan Kewajiban Warga Negara" (PPKn / Pendidikan Pa | Channel Edukasi EKSIS | - | ok | qc - | 3590b7e5
+https://youtu.be/HOxKNTMUU8g?t=355  # 05:55-06:55 | "Hak Asasi Manusia (HAM), Hak, dan Kewajiban Warga Negara" (PPKn / Pendidikan Pa | Channel Edukasi EKSIS | - | ok | qc - | 08e4bfda
+https://youtu.be/3zJpPOpGd9o?t=83  # 01:23-02:23 | Pendidikan Pancasila Kelas 10 BAB 2 // Unit 3 Hubungan Erat Pancasila dengan UUD | Indra Edu | - | ok | qc - | 992647f8
+https://youtu.be/3zJpPOpGd9o?t=206  # 03:26-04:26 | Pendidikan Pancasila Kelas 10 BAB 2 // Unit 3 Hubungan Erat Pancasila dengan UUD | Indra Edu | - | ok | qc - | d0faa73a
+https://youtu.be/3zJpPOpGd9o?t=310  # 05:10-06:10 | Pendidikan Pancasila Kelas 10 BAB 2 // Unit 3 Hubungan Erat Pancasila dengan UUD | Indra Edu | - | ok | qc - | d712ccda
+https://youtu.be/3zJpPOpGd9o?t=450  # 07:30-08:30 | Pendidikan Pancasila Kelas 10 BAB 2 // Unit 3 Hubungan Erat Pancasila dengan UUD | Indra Edu | - | ok | qc - | c3788d1c
+https://youtu.be/9Eu733Q7PhU?t=43  # 00:43-01:43 | Materi Pendidikan Pancasila Kelas 10 Semester 2 A. Asal Usul dan Makna Semboyan  | Indra Edu | - | ok | qc - | fdc4545c
+https://youtu.be/9Eu733Q7PhU?t=128  # 02:08-03:08 | Materi Pendidikan Pancasila Kelas 10 Semester 2 A. Asal Usul dan Makna Semboyan  | Indra Edu | - | ok | qc - | b532c694
+https://youtu.be/9Eu733Q7PhU?t=232  # 03:52-04:52 | Materi Pendidikan Pancasila Kelas 10 Semester 2 A. Asal Usul dan Makna Semboyan  | Indra Edu | - | ok | qc - | ad514386
+https://youtu.be/9Eu733Q7PhU?t=312  # 05:12-06:12 | Materi Pendidikan Pancasila Kelas 10 Semester 2 A. Asal Usul dan Makna Semboyan  | Indra Edu | - | ok | qc - | 739d065e
+
+# ==========================================================================
+# RINGKASAN CAKUPAN
+# ==========================================================================
+# ppkn                     klip   12 | video    3 | channel   2 | k10:12 k11:0 k12:0 | k13:12 kurmerdeka:0 ktsp2006:0

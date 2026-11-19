@@ -127,7 +127,8 @@ def process_video(cand: Candidate, meta: Label, rows: dict[str, dict],
         return stat
 
     windows = youtube.pick_windows(duration, n=clips_per_video, clip_sec=clip_sec,
-                                   intro=INTRO_SKIP_S, outro=OUTRO_SKIP_S)
+                                   intro=INTRO_SKIP_S, outro=OUTRO_SKIP_S,
+                                   seed=vid)
     if not windows:
         stat.update(failed=True, error="tidak ada jendela layak")
         return stat
@@ -253,6 +254,15 @@ def run(plan: list[Candidate], labels: dict[str, Label], *,
     ensure_dirs()
     rows = load()
     failures = load_failures()
+    # bersihkan catatan gagal untuk video yang ternyata sudah selesai
+    done_now = {r["video_id"] for r in rows.values()
+                if r.get("status") == "ok"}
+    stale = [vid for vid in failures if vid in done_now]
+    for vid in stale:
+        failures.pop(vid, None)
+    if stale:
+        save_failures(failures)
+        progress(f"[i] {len(stale)} catatan gagal lama dibersihkan")
     if not retry_failed:
         blocked = set(failures)
     else:
@@ -306,6 +316,8 @@ def run(plan: list[Candidate], labels: dict[str, Label], *,
 
         consec = 0
         stats["videos_ok"] += 1
+        if failures.pop(cand.video_id, None) is not None:
+            save_failures(failures)
         stats["clips_new"] += st["new_clips"]
         stats["clips_reused"] += st["reused_clips"]
         if st["skipped"]:

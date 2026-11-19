@@ -199,7 +199,7 @@ def pick_windows(duration: float, n: int = 4, clip_sec: float = 60.0,
 
     fit = int((span + min_gap) // (clip_sec + min_gap))
     n = max(1, min(int(n), fit))
-    rng = random.Random(_seed if seed is None else seed)
+    rng = random.Random(0 if seed is None else seed)
 
     slack = max(0.0, span - (n * clip_sec + (n - 1) * min_gap))
     slot = slack / n
@@ -236,13 +236,14 @@ def cut(src: str | Path, out: str | Path, start: float, sec: float,
     """
     src, out = Path(src), Path(out)
     out.parent.mkdir(parents=True, exist_ok=True)
-    tmp = out.with_suffix(".wav.part")
+    # nama sementara harus tetap berakhiran .wav supaya ffmpeg tahu formatnya
+    tmp = out.with_name(out.stem + ".part.wav")
     tmp.unlink(missing_ok=True)
     cmd = [
         shutil.which("ffmpeg") or "ffmpeg", "-hide_banner", "-loglevel", "error",
         "-nostdin", "-ss", f"{max(0.0, float(start)):.3f}", "-i", str(src),
         "-t", f"{float(sec):.3f}", "-vn", "-ac", "1", "-ar", str(sample_rate),
-        "-c:a", "pcm_s16le", "-y", str(tmp),
+        "-c:a", "pcm_s16le", "-f", "wav", "-y", str(tmp),
     ]
     r = subprocess.run(cmd, capture_output=True, text=True)
     if r.returncode != 0 or not tmp.exists() or tmp.stat().st_size < 1000:
