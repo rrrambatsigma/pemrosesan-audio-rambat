@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Rahasia
+.env
+*.key
+
+# Data besar (jangan masuk git)
+data/*
+!data/manifest.csv
+!data/failures.csv
+!data/reports/
+data/reports/*
+!data/reports/*.csv
+!data/reports/*.md
+*.wav
+*.opus
+*.flac
+*.m4a
+
+# Sementara
+data/_tmp/
+*.tmp
+*.part
+
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Notebook checkpoint
+.ipynb_checkpoints/

@@ -1,0 +1,24 @@
+# Dataset scraping audio 21 mapel SMA — dependensi minimum
+# Python 3.11 (env: audio-ds)
+#
+# Instal:
+#   C:\Users\Asus\miniconda3\envs\audio-ds\python.exe -m pip install -r requirements.txt
+
+# --- akuisisi ---
+yt-dlp>=2026.10.26      # pembaca metadata + unduh; update bila kena bot-check
+soundfile>=0.14.0       # WAV I/O
+numpy>=2.0
+
+# --- QC audio (scripts/qc.py) ---
+librosa>=0.11.0
+pyloudnorm>=0.1.1
+silero-vad>=6.0
+pandas>=2.0
+
+# --- opsional (stage qc lanjutan) ---
+# torch>=2.6
+# transformers>=4.40
+# faster-whisper>=1.0
+
+# --- uji ---
+pytest>=8.0
