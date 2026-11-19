@@ -1,45 +1,79 @@
 # label: sastra_indonesia | no: 18 | rumpun: bahasa
 # mapel: Sastra Indonesia
 # aturan: '## <kurikulum> | kelas <10-12> | <bab>' lalu 'ytsearchN:query' atau URL
+# kurikulum yang dikenal: k13, kurmerdeka, ktsp2006
 # silakan tambah playlist/video manual di bawah seksi yang sesuai
 
-## k13 | kelas 10 | materi kelas 10
-ytsearch18:sastra indonesia kelas 10 kurikulum 2013
-ytsearch18:sastra indonesia kelas 10 k13 pembahasan soal
-ytsearch15:materi sastra indonesia kelas 10 semester 1
+## k13 | kelas 10 | Puisi
+ytsearch12:sastra indonesia kelas 10 Puisi
+ytsearch12:pembahasan soal Puisi sastra indonesia kelas 10
 
-## kurmerdeka | kelas 10 | materi kelas 10
-ytsearch18:bahasa indonesia tingkat lanjut kelas 10 kurikulum merdeka
-ytsearch18:bahasa indonesia tingkat lanjut kelas 10 merdeka belajar
-ytsearch15:materi bahasa indonesia tingkat lanjut kelas 10 semester 2
+## kurmerdeka | kelas 10 | Puisi
+ytsearch12:bahasa indonesia tingkat lanjut kelas 10 kurikulum merdeka Puisi
+
+## k13 | kelas 10 | Cerpen
+ytsearch12:sastra indonesia kelas 10 Cerpen
+ytsearch12:pembahasan soal Cerpen sastra indonesia kelas 10
+
+## kurmerdeka | kelas 10 | Cerpen
+ytsearch12:bahasa indonesia tingkat lanjut kelas 10 kurikulum merdeka Cerpen
+
+## k13 | kelas 10 | Pantun
+ytsearch12:sastra indonesia kelas 10 Pantun
+ytsearch12:pembahasan soal Pantun sastra indonesia kelas 10
+
+## kurmerdeka | kelas 10 | Pantun
+ytsearch12:bahasa indonesia tingkat lanjut kelas 10 kurikulum merdeka Pantun
 
 ## ktsp2006 | kelas 10 | materi kelas 10
 ytsearch12:sastra sma kelas 10 ktsp
 ytsearch12:sastra sma kelas 10 ktsp 2006
 
-## k13 | kelas 11 | materi kelas 11
-ytsearch18:sastra indonesia kelas 11 kurikulum 2013
-ytsearch18:sastra indonesia kelas 11 k13 pembahasan soal
-ytsearch15:materi sastra indonesia kelas 11 semester 1
+## k13 | kelas 11 | Hikayat
+ytsearch12:sastra indonesia kelas 11 Hikayat
+ytsearch12:pembahasan soal Hikayat sastra indonesia kelas 11
 
-## kurmerdeka | kelas 11 | materi kelas 11
-ytsearch18:bahasa indonesia tingkat lanjut kelas 11 kurikulum merdeka
-ytsearch18:bahasa indonesia tingkat lanjut kelas 11 merdeka belajar
-ytsearch15:materi bahasa indonesia tingkat lanjut kelas 11 semester 2
+## kurmerdeka | kelas 11 | Hikayat
+ytsearch12:bahasa indonesia tingkat lanjut kelas 11 kurikulum merdeka Hikayat
+
+## k13 | kelas 11 | Drama
+ytsearch12:sastra indonesia kelas 11 Drama
+ytsearch12:pembahasan soal Drama sastra indonesia kelas 11
+
+## kurmerdeka | kelas 11 | Drama
+ytsearch12:bahasa indonesia tingkat lanjut kelas 11 kurikulum merdeka Drama
+
+## k13 | kelas 11 | Resensi Buku
+ytsearch12:sastra indonesia kelas 11 Resensi Buku
+ytsearch12:pembahasan soal Resensi Buku sastra indonesia kelas 11
+
+## kurmerdeka | kelas 11 | Resensi Buku
+ytsearch12:bahasa indonesia tingkat lanjut kelas 11 kurikulum merdeka Resensi Buku
 
 ## ktsp2006 | kelas 11 | materi kelas 11
 ytsearch12:sastra sma kelas 11 ktsp
 ytsearch12:sastra sma kelas 11 ktsp 2006
 
-## k13 | kelas 12 | materi kelas 12
-ytsearch18:sastra indonesia kelas 12 kurikulum 2013
-ytsearch18:sastra indonesia kelas 12 k13 pembahasan soal
-ytsearch15:materi sastra indonesia kelas 12 semester 1
+## k13 | kelas 12 | Novel
+ytsearch12:sastra indonesia kelas 12 Novel
+ytsearch12:pembahasan soal Novel sastra indonesia kelas 12
 
-## kurmerdeka | kelas 12 | materi kelas 12
-ytsearch18:bahasa indonesia tingkat lanjut kelas 12 kurikulum merdeka
-ytsearch18:bahasa indonesia tingkat lanjut kelas 12 merdeka belajar
-ytsearch15:materi bahasa indonesia tingkat lanjut kelas 12 semester 2
+## kurmerdeka | kelas 12 | Novel
+ytsearch12:bahasa indonesia tingkat lanjut kelas 12 kurikulum merdeka Novel
+
+## k13 | kelas 12 | Kritik Sastra
+ytsearch12:sastra indonesia kelas 12 Kritik Sastra
+ytsearch12:pembahasan soal Kritik Sastra sastra indonesia kelas 12
+
+## kurmerdeka | kelas 12 | Kritik Sastra
+ytsearch12:bahasa indonesia tingkat lanjut kelas 12 kurikulum merdeka Kritik Sastra
+
+## k13 | kelas 12 | Esai Sastra
+ytsearch12:sastra indonesia kelas 12 Esai Sastra
+ytsearch12:pembahasan soal Esai Sastra sastra indonesia kelas 12
+
+## kurmerdeka | kelas 12 | Esai Sastra
+ytsearch12:bahasa indonesia tingkat lanjut kelas 12 kurikulum merdeka Esai Sastra
 
 ## ktsp2006 | kelas 12 | materi kelas 12
 ytsearch12:sastra sma kelas 12 ktsp

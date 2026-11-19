@@ -1,45 +1,79 @@
 # label: bahasa_jawa | no: 21 | rumpun: bahasa
 # mapel: Bahasa Jawa
 # aturan: '## <kurikulum> | kelas <10-12> | <bab>' lalu 'ytsearchN:query' atau URL
+# kurikulum yang dikenal: k13, kurmerdeka, ktsp2006
 # silakan tambah playlist/video manual di bawah seksi yang sesuai
 
-## k13 | kelas 10 | materi kelas 10
-ytsearch18:bahasa jawa sma kelas 10 kurikulum 2013
-ytsearch18:bahasa jawa sma kelas 10 k13 pembahasan soal
-ytsearch15:materi bahasa jawa sma kelas 10 semester 1
+## k13 | kelas 10 | Tembang Macapat
+ytsearch12:bahasa jawa sma kelas 10 Tembang Macapat
+ytsearch12:pembahasan soal Tembang Macapat bahasa jawa sma kelas 10
 
-## kurmerdeka | kelas 10 | materi kelas 10
-ytsearch18:bahasa jawa kelas 10 kurikulum merdeka
-ytsearch18:bahasa jawa kelas 10 merdeka belajar
-ytsearch15:materi bahasa jawa kelas 10 semester 2
+## kurmerdeka | kelas 10 | Tembang Macapat
+ytsearch12:bahasa jawa kelas 10 kurikulum merdeka Tembang Macapat
+
+## k13 | kelas 10 | Geguritan
+ytsearch12:bahasa jawa sma kelas 10 Geguritan
+ytsearch12:pembahasan soal Geguritan bahasa jawa sma kelas 10
+
+## kurmerdeka | kelas 10 | Geguritan
+ytsearch12:bahasa jawa kelas 10 kurikulum merdeka Geguritan
+
+## k13 | kelas 10 | Aksara Jawa
+ytsearch12:bahasa jawa sma kelas 10 Aksara Jawa
+ytsearch12:pembahasan soal Aksara Jawa bahasa jawa sma kelas 10
+
+## kurmerdeka | kelas 10 | Aksara Jawa
+ytsearch12:bahasa jawa kelas 10 kurikulum merdeka Aksara Jawa
 
 ## ktsp2006 | kelas 10 | materi kelas 10
 ytsearch12:basa jawa kelas 10 ktsp
 ytsearch12:basa jawa kelas 10 ktsp 2006
 
-## k13 | kelas 11 | materi kelas 11
-ytsearch18:bahasa jawa sma kelas 11 kurikulum 2013
-ytsearch18:bahasa jawa sma kelas 11 k13 pembahasan soal
-ytsearch15:materi bahasa jawa sma kelas 11 semester 1
+## k13 | kelas 11 | Wayang
+ytsearch12:bahasa jawa sma kelas 11 Wayang
+ytsearch12:pembahasan soal Wayang bahasa jawa sma kelas 11
 
-## kurmerdeka | kelas 11 | materi kelas 11
-ytsearch18:bahasa jawa kelas 11 kurikulum merdeka
-ytsearch18:bahasa jawa kelas 11 merdeka belajar
-ytsearch15:materi bahasa jawa kelas 11 semester 2
+## kurmerdeka | kelas 11 | Wayang
+ytsearch12:bahasa jawa kelas 11 kurikulum merdeka Wayang
+
+## k13 | kelas 11 | Serat Wedhatama
+ytsearch12:bahasa jawa sma kelas 11 Serat Wedhatama
+ytsearch12:pembahasan soal Serat Wedhatama bahasa jawa sma kelas 11
+
+## kurmerdeka | kelas 11 | Serat Wedhatama
+ytsearch12:bahasa jawa kelas 11 kurikulum merdeka Serat Wedhatama
+
+## k13 | kelas 11 | Parikan
+ytsearch12:bahasa jawa sma kelas 11 Parikan
+ytsearch12:pembahasan soal Parikan bahasa jawa sma kelas 11
+
+## kurmerdeka | kelas 11 | Parikan
+ytsearch12:bahasa jawa kelas 11 kurikulum merdeka Parikan
 
 ## ktsp2006 | kelas 11 | materi kelas 11
 ytsearch12:basa jawa kelas 11 ktsp
 ytsearch12:basa jawa kelas 11 ktsp 2006
 
-## k13 | kelas 12 | materi kelas 12
-ytsearch18:bahasa jawa sma kelas 12 kurikulum 2013
-ytsearch18:bahasa jawa sma kelas 12 k13 pembahasan soal
-ytsearch15:materi bahasa jawa sma kelas 12 semester 1
+## k13 | kelas 12 | Teks Eksposisi Bahasa Jawa
+ytsearch12:bahasa jawa sma kelas 12 Teks Eksposisi Bahasa Jawa
+ytsearch12:pembahasan soal Teks Eksposisi Bahasa Jawa bahasa jawa sma kelas 12
 
-## kurmerdeka | kelas 12 | materi kelas 12
-ytsearch18:bahasa jawa kelas 12 kurikulum merdeka
-ytsearch18:bahasa jawa kelas 12 merdeka belajar
-ytsearch15:materi bahasa jawa kelas 12 semester 2
+## kurmerdeka | kelas 12 | Teks Eksposisi Bahasa Jawa
+ytsearch12:bahasa jawa kelas 12 kurikulum merdeka Teks Eksposisi Bahasa Jawa
+
+## k13 | kelas 12 | Sesorah
+ytsearch12:bahasa jawa sma kelas 12 Sesorah
+ytsearch12:pembahasan soal Sesorah bahasa jawa sma kelas 12
+
+## kurmerdeka | kelas 12 | Sesorah
+ytsearch12:bahasa jawa kelas 12 kurikulum merdeka Sesorah
+
+## k13 | kelas 12 | Sastra Jawa Modern
+ytsearch12:bahasa jawa sma kelas 12 Sastra Jawa Modern
+ytsearch12:pembahasan soal Sastra Jawa Modern bahasa jawa sma kelas 12
+
+## kurmerdeka | kelas 12 | Sastra Jawa Modern
+ytsearch12:bahasa jawa kelas 12 kurikulum merdeka Sastra Jawa Modern
 
 ## ktsp2006 | kelas 12 | materi kelas 12
 ytsearch12:basa jawa kelas 12 ktsp

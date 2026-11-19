@@ -1,45 +1,79 @@
 # label: ppkn | no: 2 | rumpun: kewargaan_seni
 # mapel: Pendidikan Pancasila / PPKn
 # aturan: '## <kurikulum> | kelas <10-12> | <bab>' lalu 'ytsearchN:query' atau URL
+# kurikulum yang dikenal: k13, kurmerdeka, ktsp2006
 # silakan tambah playlist/video manual di bawah seksi yang sesuai
 
-## k13 | kelas 10 | materi kelas 10
-ytsearch18:ppkn sma kelas 10 kurikulum 2013
-ytsearch18:ppkn sma kelas 10 k13 pembahasan soal
-ytsearch15:materi ppkn sma kelas 10 semester 1
+## k13 | kelas 10 | Pancasila dan UUD 1945
+ytsearch12:ppkn sma kelas 10 Pancasila dan UUD 1945
+ytsearch12:pembahasan soal Pancasila dan UUD 1945 ppkn sma kelas 10
 
-## kurmerdeka | kelas 10 | materi kelas 10
-ytsearch18:pkn sma kelas 10 kurikulum merdeka
-ytsearch18:pkn sma kelas 10 merdeka belajar
-ytsearch15:materi pkn sma kelas 10 semester 2
+## kurmerdeka | kelas 10 | Pancasila dan UUD 1945
+ytsearch12:pkn sma kelas 10 kurikulum merdeka Pancasila dan UUD 1945
+
+## k13 | kelas 10 | Hak dan Kewajiban Warga Negara
+ytsearch12:ppkn sma kelas 10 Hak dan Kewajiban Warga Negara
+ytsearch12:pembahasan soal Hak dan Kewajiban Warga Negara ppkn sma kelas 10
+
+## kurmerdeka | kelas 10 | Hak dan Kewajiban Warga Negara
+ytsearch12:pkn sma kelas 10 kurikulum merdeka Hak dan Kewajiban Warga Negara
+
+## k13 | kelas 10 | Bhinneka Tunggal Ika
+ytsearch12:ppkn sma kelas 10 Bhinneka Tunggal Ika
+ytsearch12:pembahasan soal Bhinneka Tunggal Ika ppkn sma kelas 10
+
+## kurmerdeka | kelas 10 | Bhinneka Tunggal Ika
+ytsearch12:pkn sma kelas 10 kurikulum merdeka Bhinneka Tunggal Ika
 
 ## ktsp2006 | kelas 10 | materi kelas 10
 ytsearch12:pendidikan pancasila kelas 10 ktsp
 ytsearch12:pendidikan pancasila kelas 10 ktsp 2006
 
-## k13 | kelas 11 | materi kelas 11
-ytsearch18:ppkn sma kelas 11 kurikulum 2013
-ytsearch18:ppkn sma kelas 11 k13 pembahasan soal
-ytsearch15:materi ppkn sma kelas 11 semester 1
+## k13 | kelas 11 | Demokrasi dan HAM
+ytsearch12:ppkn sma kelas 11 Demokrasi dan HAM
+ytsearch12:pembahasan soal Demokrasi dan HAM ppkn sma kelas 11
 
-## kurmerdeka | kelas 11 | materi kelas 11
-ytsearch18:pkn sma kelas 11 kurikulum merdeka
-ytsearch18:pkn sma kelas 11 merdeka belajar
-ytsearch15:materi pkn sma kelas 11 semester 2
+## kurmerdeka | kelas 11 | Demokrasi dan HAM
+ytsearch12:pkn sma kelas 11 kurikulum merdeka Demokrasi dan HAM
+
+## k13 | kelas 11 | Sistem Hukum Indonesia
+ytsearch12:ppkn sma kelas 11 Sistem Hukum Indonesia
+ytsearch12:pembahasan soal Sistem Hukum Indonesia ppkn sma kelas 11
+
+## kurmerdeka | kelas 11 | Sistem Hukum Indonesia
+ytsearch12:pkn sma kelas 11 kurikulum merdeka Sistem Hukum Indonesia
+
+## k13 | kelas 11 | Wawasan Nusantara
+ytsearch12:ppkn sma kelas 11 Wawasan Nusantara
+ytsearch12:pembahasan soal Wawasan Nusantara ppkn sma kelas 11
+
+## kurmerdeka | kelas 11 | Wawasan Nusantara
+ytsearch12:pkn sma kelas 11 kurikulum merdeka Wawasan Nusantara
 
 ## ktsp2006 | kelas 11 | materi kelas 11
 ytsearch12:pendidikan pancasila kelas 11 ktsp
 ytsearch12:pendidikan pancasila kelas 11 ktsp 2006
 
-## k13 | kelas 12 | materi kelas 12
-ytsearch18:ppkn sma kelas 12 kurikulum 2013
-ytsearch18:ppkn sma kelas 12 k13 pembahasan soal
-ytsearch15:materi ppkn sma kelas 12 semester 1
+## k13 | kelas 12 | Ketahanan Nasional
+ytsearch12:ppkn sma kelas 12 Ketahanan Nasional
+ytsearch12:pembahasan soal Ketahanan Nasional ppkn sma kelas 12
 
-## kurmerdeka | kelas 12 | materi kelas 12
-ytsearch18:pkn sma kelas 12 kurikulum merdeka
-ytsearch18:pkn sma kelas 12 merdeka belajar
-ytsearch15:materi pkn sma kelas 12 semester 2
+## kurmerdeka | kelas 12 | Ketahanan Nasional
+ytsearch12:pkn sma kelas 12 kurikulum merdeka Ketahanan Nasional
+
+## k13 | kelas 12 | Globalisasi
+ytsearch12:ppkn sma kelas 12 Globalisasi
+ytsearch12:pembahasan soal Globalisasi ppkn sma kelas 12
+
+## kurmerdeka | kelas 12 | Globalisasi
+ytsearch12:pkn sma kelas 12 kurikulum merdeka Globalisasi
+
+## k13 | kelas 12 | Demokrasi Pancasila
+ytsearch12:ppkn sma kelas 12 Demokrasi Pancasila
+ytsearch12:pembahasan soal Demokrasi Pancasila ppkn sma kelas 12
+
+## kurmerdeka | kelas 12 | Demokrasi Pancasila
+ytsearch12:pkn sma kelas 12 kurikulum merdeka Demokrasi Pancasila
 
 ## ktsp2006 | kelas 12 | materi kelas 12
 ytsearch12:pendidikan pancasila kelas 12 ktsp

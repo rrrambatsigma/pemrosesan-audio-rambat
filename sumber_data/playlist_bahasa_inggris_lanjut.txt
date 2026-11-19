@@ -1,45 +1,79 @@
 # label: bahasa_inggris_lanjut | no: 20 | rumpun: bahasa
 # mapel: Bahasa Inggris Tingkat Lanjut
 # aturan: '## <kurikulum> | kelas <10-12> | <bab>' lalu 'ytsearchN:query' atau URL
+# kurikulum yang dikenal: k13, kurmerdeka, ktsp2006
 # silakan tambah playlist/video manual di bawah seksi yang sesuai
 
-## k13 | kelas 10 | materi kelas 10
-ytsearch18:bahasa inggris tingkat lanjut kelas 10 kurikulum 2013
-ytsearch18:bahasa inggris tingkat lanjut kelas 10 k13 pembahasan soal
-ytsearch15:materi bahasa inggris tingkat lanjut kelas 10 semester 1
+## k13 | kelas 10 | Argumentative Essay
+ytsearch12:bahasa inggris tingkat lanjut kelas 10 Argumentative Essay
+ytsearch12:pembahasan soal Argumentative Essay bahasa inggris tingkat lanjut kelas 10
 
-## kurmerdeka | kelas 10 | materi kelas 10
-ytsearch18:english advanced sma kelas 10 kurikulum merdeka
-ytsearch18:english advanced sma kelas 10 merdeka belajar
-ytsearch15:materi english advanced sma kelas 10 semester 2
+## kurmerdeka | kelas 10 | Argumentative Essay
+ytsearch12:english advanced sma kelas 10 kurikulum merdeka Argumentative Essay
+
+## k13 | kelas 10 | Short Story Analysis
+ytsearch12:bahasa inggris tingkat lanjut kelas 10 Short Story Analysis
+ytsearch12:pembahasan soal Short Story Analysis bahasa inggris tingkat lanjut kelas 10
+
+## kurmerdeka | kelas 10 | Short Story Analysis
+ytsearch12:english advanced sma kelas 10 kurikulum merdeka Short Story Analysis
+
+## k13 | kelas 10 | Poetry Analysis
+ytsearch12:bahasa inggris tingkat lanjut kelas 10 Poetry Analysis
+ytsearch12:pembahasan soal Poetry Analysis bahasa inggris tingkat lanjut kelas 10
+
+## kurmerdeka | kelas 10 | Poetry Analysis
+ytsearch12:english advanced sma kelas 10 kurikulum merdeka Poetry Analysis
 
 ## ktsp2006 | kelas 10 | materi kelas 10
 ytsearch12:bahasa inggris peminatan kelas 10 ktsp
 ytsearch12:bahasa inggris peminatan kelas 10 ktsp 2006
 
-## k13 | kelas 11 | materi kelas 11
-ytsearch18:bahasa inggris tingkat lanjut kelas 11 kurikulum 2013
-ytsearch18:bahasa inggris tingkat lanjut kelas 11 k13 pembahasan soal
-ytsearch15:materi bahasa inggris tingkat lanjut kelas 11 semester 1
+## k13 | kelas 11 | Formal Letter
+ytsearch12:bahasa inggris tingkat lanjut kelas 11 Formal Letter
+ytsearch12:pembahasan soal Formal Letter bahasa inggris tingkat lanjut kelas 11
 
-## kurmerdeka | kelas 11 | materi kelas 11
-ytsearch18:english advanced sma kelas 11 kurikulum merdeka
-ytsearch18:english advanced sma kelas 11 merdeka belajar
-ytsearch15:materi english advanced sma kelas 11 semester 2
+## kurmerdeka | kelas 11 | Formal Letter
+ytsearch12:english advanced sma kelas 11 kurikulum merdeka Formal Letter
+
+## k13 | kelas 11 | Presentation Skills
+ytsearch12:bahasa inggris tingkat lanjut kelas 11 Presentation Skills
+ytsearch12:pembahasan soal Presentation Skills bahasa inggris tingkat lanjut kelas 11
+
+## kurmerdeka | kelas 11 | Presentation Skills
+ytsearch12:english advanced sma kelas 11 kurikulum merdeka Presentation Skills
+
+## k13 | kelas 11 | Debate
+ytsearch12:bahasa inggris tingkat lanjut kelas 11 Debate
+ytsearch12:pembahasan soal Debate bahasa inggris tingkat lanjut kelas 11
+
+## kurmerdeka | kelas 11 | Debate
+ytsearch12:english advanced sma kelas 11 kurikulum merdeka Debate
 
 ## ktsp2006 | kelas 11 | materi kelas 11
 ytsearch12:bahasa inggris peminatan kelas 11 ktsp
 ytsearch12:bahasa inggris peminatan kelas 11 ktsp 2006
 
-## k13 | kelas 12 | materi kelas 12
-ytsearch18:bahasa inggris tingkat lanjut kelas 12 kurikulum 2013
-ytsearch18:bahasa inggris tingkat lanjut kelas 12 k13 pembahasan soal
-ytsearch15:materi bahasa inggris tingkat lanjut kelas 12 semester 1
+## k13 | kelas 12 | Literary Analysis
+ytsearch12:bahasa inggris tingkat lanjut kelas 12 Literary Analysis
+ytsearch12:pembahasan soal Literary Analysis bahasa inggris tingkat lanjut kelas 12
 
-## kurmerdeka | kelas 12 | materi kelas 12
-ytsearch18:english advanced sma kelas 12 kurikulum merdeka
-ytsearch18:english advanced sma kelas 12 merdeka belajar
-ytsearch15:materi english advanced sma kelas 12 semester 2
+## kurmerdeka | kelas 12 | Literary Analysis
+ytsearch12:english advanced sma kelas 12 kurikulum merdeka Literary Analysis
+
+## k13 | kelas 12 | Research Report
+ytsearch12:bahasa inggris tingkat lanjut kelas 12 Research Report
+ytsearch12:pembahasan soal Research Report bahasa inggris tingkat lanjut kelas 12
+
+## kurmerdeka | kelas 12 | Research Report
+ytsearch12:english advanced sma kelas 12 kurikulum merdeka Research Report
+
+## k13 | kelas 12 | Academic Writing
+ytsearch12:bahasa inggris tingkat lanjut kelas 12 Academic Writing
+ytsearch12:pembahasan soal Academic Writing bahasa inggris tingkat lanjut kelas 12
+
+## kurmerdeka | kelas 12 | Academic Writing
+ytsearch12:english advanced sma kelas 12 kurikulum merdeka Academic Writing
 
 ## ktsp2006 | kelas 12 | materi kelas 12
 ytsearch12:bahasa inggris peminatan kelas 12 ktsp

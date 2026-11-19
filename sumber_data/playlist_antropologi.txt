@@ -1,45 +1,103 @@
 # label: antropologi | no: 17 | rumpun: sosial_ekonomi
 # mapel: Antropologi
 # aturan: '## <kurikulum> | kelas <10-12> | <bab>' lalu 'ytsearchN:query' atau URL
+# kurikulum yang dikenal: k13, kurmerdeka, ktsp2006
 # silakan tambah playlist/video manual di bawah seksi yang sesuai
 
-## k13 | kelas 10 | materi kelas 10
-ytsearch18:antropologi sma kelas 10 kurikulum 2013
-ytsearch18:antropologi sma kelas 10 k13 pembahasan soal
-ytsearch15:materi antropologi sma kelas 10 semester 1
+## k13 | kelas 10 | Konsep Antropologi
+ytsearch12:antropologi sma kelas 10 Konsep Antropologi
+ytsearch12:pembahasan soal Konsep Antropologi antropologi sma kelas 10
 
-## kurmerdeka | kelas 10 | materi kelas 10
-ytsearch18:antropologi kelas 10 kurikulum merdeka
-ytsearch18:antropologi kelas 10 merdeka belajar
-ytsearch15:materi antropologi kelas 10 semester 2
+## kurmerdeka | kelas 10 | Konsep Antropologi
+ytsearch12:antropologi kelas 10 kurikulum merdeka Konsep Antropologi
+
+## k13 | kelas 10 | Kebudayaan
+ytsearch12:antropologi sma kelas 10 Kebudayaan
+ytsearch12:pembahasan soal Kebudayaan antropologi sma kelas 10
+
+## kurmerdeka | kelas 10 | Kebudayaan
+ytsearch12:antropologi kelas 10 kurikulum merdeka Kebudayaan
+
+## k13 | kelas 10 | Etnografi
+ytsearch12:antropologi sma kelas 10 Etnografi
+ytsearch12:pembahasan soal Etnografi antropologi sma kelas 10
+
+## kurmerdeka | kelas 10 | Etnografi
+ytsearch12:antropologi kelas 10 kurikulum merdeka Etnografi
+
+## k13 | kelas 10 | Antropologi Ragawi
+ytsearch12:antropologi ragawi manusia purba
+ytsearch12:materi antropologi ragawi kelas 10
+
+## k13 | kelas 10 | Manusia dan Kebudayaan
+ytsearch12:antropologi manusia dan kebudayaan
+ytsearch12:pengantar antropologi budaya
 
 ## ktsp2006 | kelas 10 | materi kelas 10
 ytsearch12:antropologi peminatan kelas 10 ktsp
 ytsearch12:antropologi peminatan kelas 10 ktsp 2006
 
-## k13 | kelas 11 | materi kelas 11
-ytsearch18:antropologi sma kelas 11 kurikulum 2013
-ytsearch18:antropologi sma kelas 11 k13 pembahasan soal
-ytsearch15:materi antropologi sma kelas 11 semester 1
+## k13 | kelas 11 | Keanekaragaman Budaya
+ytsearch12:antropologi sma kelas 11 Keanekaragaman Budaya
+ytsearch12:pembahasan soal Keanekaragaman Budaya antropologi sma kelas 11
 
-## kurmerdeka | kelas 11 | materi kelas 11
-ytsearch18:antropologi kelas 11 kurikulum merdeka
-ytsearch18:antropologi kelas 11 merdeka belajar
-ytsearch15:materi antropologi kelas 11 semester 2
+## kurmerdeka | kelas 11 | Keanekaragaman Budaya
+ytsearch12:antropologi kelas 11 kurikulum merdeka Keanekaragaman Budaya
+
+## k13 | kelas 11 | Sistem Kekerabatan
+ytsearch12:antropologi sma kelas 11 Sistem Kekerabatan
+ytsearch12:pembahasan soal Sistem Kekerabatan antropologi sma kelas 11
+
+## kurmerdeka | kelas 11 | Sistem Kekerabatan
+ytsearch12:antropologi kelas 11 kurikulum merdeka Sistem Kekerabatan
+
+## k13 | kelas 11 | Religi dan Kepercayaan
+ytsearch12:antropologi sma kelas 11 Religi dan Kepercayaan
+ytsearch12:pembahasan soal Religi dan Kepercayaan antropologi sma kelas 11
+
+## kurmerdeka | kelas 11 | Religi dan Kepercayaan
+ytsearch12:antropologi kelas 11 kurikulum merdeka Religi dan Kepercayaan
+
+## k13 | kelas 11 | Sistem Kekerabatan dan Perkawinan
+ytsearch12:sistem kekerabatan dan perkawinan antropologi
+ytsearch12:antropologi kekerabatan
+
+## k13 | kelas 11 | Sistem Mata Pencaharian
+ytsearch12:sistem mata pencaharian antropologi
+ytsearch12:antropologi ekonomi mata pencaharian
 
 ## ktsp2006 | kelas 11 | materi kelas 11
 ytsearch12:antropologi peminatan kelas 11 ktsp
 ytsearch12:antropologi peminatan kelas 11 ktsp 2006
 
-## k13 | kelas 12 | materi kelas 12
-ytsearch18:antropologi sma kelas 12 kurikulum 2013
-ytsearch18:antropologi sma kelas 12 k13 pembahasan soal
-ytsearch15:materi antropologi sma kelas 12 semester 1
+## k13 | kelas 12 | Perubahan Budaya
+ytsearch12:antropologi sma kelas 12 Perubahan Budaya
+ytsearch12:pembahasan soal Perubahan Budaya antropologi sma kelas 12
 
-## kurmerdeka | kelas 12 | materi kelas 12
-ytsearch18:antropologi kelas 12 kurikulum merdeka
-ytsearch18:antropologi kelas 12 merdeka belajar
-ytsearch15:materi antropologi kelas 12 semester 2
+## kurmerdeka | kelas 12 | Perubahan Budaya
+ytsearch12:antropologi kelas 12 kurikulum merdeka Perubahan Budaya
+
+## k13 | kelas 12 | Globalisasi Budaya
+ytsearch12:antropologi sma kelas 12 Globalisasi Budaya
+ytsearch12:pembahasan soal Globalisasi Budaya antropologi sma kelas 12
+
+## kurmerdeka | kelas 12 | Globalisasi Budaya
+ytsearch12:antropologi kelas 12 kurikulum merdeka Globalisasi Budaya
+
+## k13 | kelas 12 | Antropologi Terapan
+ytsearch12:antropologi sma kelas 12 Antropologi Terapan
+ytsearch12:pembahasan soal Antropologi Terapan antropologi sma kelas 12
+
+## kurmerdeka | kelas 12 | Antropologi Terapan
+ytsearch12:antropologi kelas 12 kurikulum merdeka Antropologi Terapan
+
+## k13 | kelas 12 | Antropologi Kesehatan
+ytsearch12:antropologi kesehatan
+ytsearch12:antropologi kesehatan masyarakat
+
+## k13 | kelas 12 | Etnografi Indonesia
+ytsearch12:etnografi masyarakat indonesia
+ytsearch12:contoh penelitian etnografi
 
 ## ktsp2006 | kelas 12 | materi kelas 12
 ytsearch12:antropologi peminatan kelas 12 ktsp

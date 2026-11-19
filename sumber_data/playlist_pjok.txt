@@ -1,45 +1,79 @@
 # label: pjok | no: 6 | rumpun: kewargaan_seni
 # mapel: PJOK / Penjasorkes
 # aturan: '## <kurikulum> | kelas <10-12> | <bab>' lalu 'ytsearchN:query' atau URL
+# kurikulum yang dikenal: k13, kurmerdeka, ktsp2006
 # silakan tambah playlist/video manual di bawah seksi yang sesuai
 
-## k13 | kelas 10 | materi kelas 10
-ytsearch18:pjok sma kelas 10 kurikulum 2013
-ytsearch18:pjok sma kelas 10 k13 pembahasan soal
-ytsearch15:materi pjok sma kelas 10 semester 1
+## k13 | kelas 10 | Sepak Bola dan Bola Voli
+ytsearch12:pjok sma kelas 10 Sepak Bola dan Bola Voli
+ytsearch12:pembahasan soal Sepak Bola dan Bola Voli pjok sma kelas 10
 
-## kurmerdeka | kelas 10 | materi kelas 10
-ytsearch18:penjasorkes kelas 10 kurikulum merdeka
-ytsearch18:penjasorkes kelas 10 merdeka belajar
-ytsearch15:materi penjasorkes kelas 10 semester 2
+## kurmerdeka | kelas 10 | Sepak Bola dan Bola Voli
+ytsearch12:penjasorkes kelas 10 kurikulum merdeka Sepak Bola dan Bola Voli
+
+## k13 | kelas 10 | Atletik
+ytsearch12:pjok sma kelas 10 Atletik
+ytsearch12:pembahasan soal Atletik pjok sma kelas 10
+
+## kurmerdeka | kelas 10 | Atletik
+ytsearch12:penjasorkes kelas 10 kurikulum merdeka Atletik
+
+## k13 | kelas 10 | Kebugaran Jasmani
+ytsearch12:pjok sma kelas 10 Kebugaran Jasmani
+ytsearch12:pembahasan soal Kebugaran Jasmani pjok sma kelas 10
+
+## kurmerdeka | kelas 10 | Kebugaran Jasmani
+ytsearch12:penjasorkes kelas 10 kurikulum merdeka Kebugaran Jasmani
 
 ## ktsp2006 | kelas 10 | materi kelas 10
 ytsearch12:pendidikan jasmani kelas 10 ktsp
 ytsearch12:pendidikan jasmani kelas 10 ktsp 2006
 
-## k13 | kelas 11 | materi kelas 11
-ytsearch18:pjok sma kelas 11 kurikulum 2013
-ytsearch18:pjok sma kelas 11 k13 pembahasan soal
-ytsearch15:materi pjok sma kelas 11 semester 1
+## k13 | kelas 11 | Bola Basket
+ytsearch12:pjok sma kelas 11 Bola Basket
+ytsearch12:pembahasan soal Bola Basket pjok sma kelas 11
 
-## kurmerdeka | kelas 11 | materi kelas 11
-ytsearch18:penjasorkes kelas 11 kurikulum merdeka
-ytsearch18:penjasorkes kelas 11 merdeka belajar
-ytsearch15:materi penjasorkes kelas 11 semester 2
+## kurmerdeka | kelas 11 | Bola Basket
+ytsearch12:penjasorkes kelas 11 kurikulum merdeka Bola Basket
+
+## k13 | kelas 11 | Bulu Tangkis
+ytsearch12:pjok sma kelas 11 Bulu Tangkis
+ytsearch12:pembahasan soal Bulu Tangkis pjok sma kelas 11
+
+## kurmerdeka | kelas 11 | Bulu Tangkis
+ytsearch12:penjasorkes kelas 11 kurikulum merdeka Bulu Tangkis
+
+## k13 | kelas 11 | Senam Lantai
+ytsearch12:pjok sma kelas 11 Senam Lantai
+ytsearch12:pembahasan soal Senam Lantai pjok sma kelas 11
+
+## kurmerdeka | kelas 11 | Senam Lantai
+ytsearch12:penjasorkes kelas 11 kurikulum merdeka Senam Lantai
 
 ## ktsp2006 | kelas 11 | materi kelas 11
 ytsearch12:pendidikan jasmani kelas 11 ktsp
 ytsearch12:pendidikan jasmani kelas 11 ktsp 2006
 
-## k13 | kelas 12 | materi kelas 12
-ytsearch18:pjok sma kelas 12 kurikulum 2013
-ytsearch18:pjok sma kelas 12 k13 pembahasan soal
-ytsearch15:materi pjok sma kelas 12 semester 1
+## k13 | kelas 12 | Renang
+ytsearch12:pjok sma kelas 12 Renang
+ytsearch12:pembahasan soal Renang pjok sma kelas 12
 
-## kurmerdeka | kelas 12 | materi kelas 12
-ytsearch18:penjasorkes kelas 12 kurikulum merdeka
-ytsearch18:penjasorkes kelas 12 merdeka belajar
-ytsearch15:materi penjasorkes kelas 12 semester 2
+## kurmerdeka | kelas 12 | Renang
+ytsearch12:penjasorkes kelas 12 kurikulum merdeka Renang
+
+## k13 | kelas 12 | Pencak Silat
+ytsearch12:pjok sma kelas 12 Pencak Silat
+ytsearch12:pembahasan soal Pencak Silat pjok sma kelas 12
+
+## kurmerdeka | kelas 12 | Pencak Silat
+ytsearch12:penjasorkes kelas 12 kurikulum merdeka Pencak Silat
+
+## k13 | kelas 12 | Pola Hidup Sehat
+ytsearch12:pjok sma kelas 12 Pola Hidup Sehat
+ytsearch12:pembahasan soal Pola Hidup Sehat pjok sma kelas 12
+
+## kurmerdeka | kelas 12 | Pola Hidup Sehat
+ytsearch12:penjasorkes kelas 12 kurikulum merdeka Pola Hidup Sehat
 
 ## ktsp2006 | kelas 12 | materi kelas 12
 ytsearch12:pendidikan jasmani kelas 12 ktsp

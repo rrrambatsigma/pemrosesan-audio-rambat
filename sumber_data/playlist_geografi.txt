@@ -1,45 +1,79 @@
 # label: geografi | no: 14 | rumpun: sosial_ekonomi
 # mapel: Geografi
 # aturan: '## <kurikulum> | kelas <10-12> | <bab>' lalu 'ytsearchN:query' atau URL
+# kurikulum yang dikenal: k13, kurmerdeka, ktsp2006
 # silakan tambah playlist/video manual di bawah seksi yang sesuai
 
-## k13 | kelas 10 | materi kelas 10
-ytsearch18:geografi sma kelas 10 kurikulum 2013
-ytsearch18:geografi sma kelas 10 k13 pembahasan soal
-ytsearch15:materi geografi sma kelas 10 semester 1
+## k13 | kelas 10 | Peta dan Penginderaan Jauh
+ytsearch12:geografi sma kelas 10 Peta dan Penginderaan Jauh
+ytsearch12:pembahasan soal Peta dan Penginderaan Jauh geografi sma kelas 10
 
-## kurmerdeka | kelas 10 | materi kelas 10
-ytsearch18:geografi kelas 10 kurikulum merdeka
-ytsearch18:geografi kelas 10 merdeka belajar
-ytsearch15:materi geografi kelas 10 semester 2
+## kurmerdeka | kelas 10 | Peta dan Penginderaan Jauh
+ytsearch12:geografi kelas 10 kurikulum merdeka Peta dan Penginderaan Jauh
+
+## k13 | kelas 10 | Sejarah Pembentukan Bumi
+ytsearch12:geografi sma kelas 10 Sejarah Pembentukan Bumi
+ytsearch12:pembahasan soal Sejarah Pembentukan Bumi geografi sma kelas 10
+
+## kurmerdeka | kelas 10 | Sejarah Pembentukan Bumi
+ytsearch12:geografi kelas 10 kurikulum merdeka Sejarah Pembentukan Bumi
+
+## k13 | kelas 10 | Atmosfer
+ytsearch12:geografi sma kelas 10 Atmosfer
+ytsearch12:pembahasan soal Atmosfer geografi sma kelas 10
+
+## kurmerdeka | kelas 10 | Atmosfer
+ytsearch12:geografi kelas 10 kurikulum merdeka Atmosfer
 
 ## ktsp2006 | kelas 10 | materi kelas 10
 ytsearch12:geografi peminatan kelas 10 ktsp
 ytsearch12:geografi peminatan kelas 10 ktsp 2006
 
-## k13 | kelas 11 | materi kelas 11
-ytsearch18:geografi sma kelas 11 kurikulum 2013
-ytsearch18:geografi sma kelas 11 k13 pembahasan soal
-ytsearch15:materi geografi sma kelas 11 semester 1
+## k13 | kelas 11 | Biosfer
+ytsearch12:geografi sma kelas 11 Biosfer
+ytsearch12:pembahasan soal Biosfer geografi sma kelas 11
 
-## kurmerdeka | kelas 11 | materi kelas 11
-ytsearch18:geografi kelas 11 kurikulum merdeka
-ytsearch18:geografi kelas 11 merdeka belajar
-ytsearch15:materi geografi kelas 11 semester 2
+## kurmerdeka | kelas 11 | Biosfer
+ytsearch12:geografi kelas 11 kurikulum merdeka Biosfer
+
+## k13 | kelas 11 | Sumber Daya Alam
+ytsearch12:geografi sma kelas 11 Sumber Daya Alam
+ytsearch12:pembahasan soal Sumber Daya Alam geografi sma kelas 11
+
+## kurmerdeka | kelas 11 | Sumber Daya Alam
+ytsearch12:geografi kelas 11 kurikulum merdeka Sumber Daya Alam
+
+## k13 | kelas 11 | Mitigasi Bencana
+ytsearch12:geografi sma kelas 11 Mitigasi Bencana
+ytsearch12:pembahasan soal Mitigasi Bencana geografi sma kelas 11
+
+## kurmerdeka | kelas 11 | Mitigasi Bencana
+ytsearch12:geografi kelas 11 kurikulum merdeka Mitigasi Bencana
 
 ## ktsp2006 | kelas 11 | materi kelas 11
 ytsearch12:geografi peminatan kelas 11 ktsp
 ytsearch12:geografi peminatan kelas 11 ktsp 2006
 
-## k13 | kelas 12 | materi kelas 12
-ytsearch18:geografi sma kelas 12 kurikulum 2013
-ytsearch18:geografi sma kelas 12 k13 pembahasan soal
-ytsearch15:materi geografi sma kelas 12 semester 1
+## k13 | kelas 12 | Wilayah dan Tata Ruang
+ytsearch12:geografi sma kelas 12 Wilayah dan Tata Ruang
+ytsearch12:pembahasan soal Wilayah dan Tata Ruang geografi sma kelas 12
 
-## kurmerdeka | kelas 12 | materi kelas 12
-ytsearch18:geografi kelas 12 kurikulum merdeka
-ytsearch18:geografi kelas 12 merdeka belajar
-ytsearch15:materi geografi kelas 12 semester 2
+## kurmerdeka | kelas 12 | Wilayah dan Tata Ruang
+ytsearch12:geografi kelas 12 kurikulum merdeka Wilayah dan Tata Ruang
+
+## k13 | kelas 12 | Pasar Bebas
+ytsearch12:geografi sma kelas 12 Pasar Bebas
+ytsearch12:pembahasan soal Pasar Bebas geografi sma kelas 12
+
+## kurmerdeka | kelas 12 | Pasar Bebas
+ytsearch12:geografi kelas 12 kurikulum merdeka Pasar Bebas
+
+## k13 | kelas 12 | Kerja Sama Internasional
+ytsearch12:geografi sma kelas 12 Kerja Sama Internasional
+ytsearch12:pembahasan soal Kerja Sama Internasional geografi sma kelas 12
+
+## kurmerdeka | kelas 12 | Kerja Sama Internasional
+ytsearch12:geografi kelas 12 kurikulum merdeka Kerja Sama Internasional
 
 ## ktsp2006 | kelas 12 | materi kelas 12
 ytsearch12:geografi peminatan kelas 12 ktsp

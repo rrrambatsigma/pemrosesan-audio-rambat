@@ -1,45 +1,79 @@
 # label: sosiologi | no: 15 | rumpun: sosial_ekonomi
 # mapel: Sosiologi
 # aturan: '## <kurikulum> | kelas <10-12> | <bab>' lalu 'ytsearchN:query' atau URL
+# kurikulum yang dikenal: k13, kurmerdeka, ktsp2006
 # silakan tambah playlist/video manual di bawah seksi yang sesuai
 
-## k13 | kelas 10 | materi kelas 10
-ytsearch18:sosiologi sma kelas 10 kurikulum 2013
-ytsearch18:sosiologi sma kelas 10 k13 pembahasan soal
-ytsearch15:materi sosiologi sma kelas 10 semester 1
+## k13 | kelas 10 | Fungsi Sosiologi
+ytsearch12:sosiologi sma kelas 10 Fungsi Sosiologi
+ytsearch12:pembahasan soal Fungsi Sosiologi sosiologi sma kelas 10
 
-## kurmerdeka | kelas 10 | materi kelas 10
-ytsearch18:sosiologi kelas 10 kurikulum merdeka
-ytsearch18:sosiologi kelas 10 merdeka belajar
-ytsearch15:materi sosiologi kelas 10 semester 2
+## kurmerdeka | kelas 10 | Fungsi Sosiologi
+ytsearch12:sosiologi kelas 10 kurikulum merdeka Fungsi Sosiologi
+
+## k13 | kelas 10 | Interaksi Sosial
+ytsearch12:sosiologi sma kelas 10 Interaksi Sosial
+ytsearch12:pembahasan soal Interaksi Sosial sosiologi sma kelas 10
+
+## kurmerdeka | kelas 10 | Interaksi Sosial
+ytsearch12:sosiologi kelas 10 kurikulum merdeka Interaksi Sosial
+
+## k13 | kelas 10 | Sosialisasi
+ytsearch12:sosiologi sma kelas 10 Sosialisasi
+ytsearch12:pembahasan soal Sosialisasi sosiologi sma kelas 10
+
+## kurmerdeka | kelas 10 | Sosialisasi
+ytsearch12:sosiologi kelas 10 kurikulum merdeka Sosialisasi
 
 ## ktsp2006 | kelas 10 | materi kelas 10
 ytsearch12:sosiologi peminatan kelas 10 ktsp
 ytsearch12:sosiologi peminatan kelas 10 ktsp 2006
 
-## k13 | kelas 11 | materi kelas 11
-ytsearch18:sosiologi sma kelas 11 kurikulum 2013
-ytsearch18:sosiologi sma kelas 11 k13 pembahasan soal
-ytsearch15:materi sosiologi sma kelas 11 semester 1
+## k13 | kelas 11 | Konflik Sosial
+ytsearch12:sosiologi sma kelas 11 Konflik Sosial
+ytsearch12:pembahasan soal Konflik Sosial sosiologi sma kelas 11
 
-## kurmerdeka | kelas 11 | materi kelas 11
-ytsearch18:sosiologi kelas 11 kurikulum merdeka
-ytsearch18:sosiologi kelas 11 merdeka belajar
-ytsearch15:materi sosiologi kelas 11 semester 2
+## kurmerdeka | kelas 11 | Konflik Sosial
+ytsearch12:sosiologi kelas 11 kurikulum merdeka Konflik Sosial
+
+## k13 | kelas 11 | Stratifikasi Sosial
+ytsearch12:sosiologi sma kelas 11 Stratifikasi Sosial
+ytsearch12:pembahasan soal Stratifikasi Sosial sosiologi sma kelas 11
+
+## kurmerdeka | kelas 11 | Stratifikasi Sosial
+ytsearch12:sosiologi kelas 11 kurikulum merdeka Stratifikasi Sosial
+
+## k13 | kelas 11 | Diferensiasi Sosial
+ytsearch12:sosiologi sma kelas 11 Diferensiasi Sosial
+ytsearch12:pembahasan soal Diferensiasi Sosial sosiologi sma kelas 11
+
+## kurmerdeka | kelas 11 | Diferensiasi Sosial
+ytsearch12:sosiologi kelas 11 kurikulum merdeka Diferensiasi Sosial
 
 ## ktsp2006 | kelas 11 | materi kelas 11
 ytsearch12:sosiologi peminatan kelas 11 ktsp
 ytsearch12:sosiologi peminatan kelas 11 ktsp 2006
 
-## k13 | kelas 12 | materi kelas 12
-ytsearch18:sosiologi sma kelas 12 kurikulum 2013
-ytsearch18:sosiologi sma kelas 12 k13 pembahasan soal
-ytsearch15:materi sosiologi sma kelas 12 semester 1
+## k13 | kelas 12 | Perubahan Sosial
+ytsearch12:sosiologi sma kelas 12 Perubahan Sosial
+ytsearch12:pembahasan soal Perubahan Sosial sosiologi sma kelas 12
 
-## kurmerdeka | kelas 12 | materi kelas 12
-ytsearch18:sosiologi kelas 12 kurikulum merdeka
-ytsearch18:sosiologi kelas 12 merdeka belajar
-ytsearch15:materi sosiologi kelas 12 semester 2
+## kurmerdeka | kelas 12 | Perubahan Sosial
+ytsearch12:sosiologi kelas 12 kurikulum merdeka Perubahan Sosial
+
+## k13 | kelas 12 | Modernisasi
+ytsearch12:sosiologi sma kelas 12 Modernisasi
+ytsearch12:pembahasan soal Modernisasi sosiologi sma kelas 12
+
+## kurmerdeka | kelas 12 | Modernisasi
+ytsearch12:sosiologi kelas 12 kurikulum merdeka Modernisasi
+
+## k13 | kelas 12 | Ketimpangan Sosial
+ytsearch12:sosiologi sma kelas 12 Ketimpangan Sosial
+ytsearch12:pembahasan soal Ketimpangan Sosial sosiologi sma kelas 12
+
+## kurmerdeka | kelas 12 | Ketimpangan Sosial
+ytsearch12:sosiologi kelas 12 kurikulum merdeka Ketimpangan Sosial
 
 ## ktsp2006 | kelas 12 | materi kelas 12
 ytsearch12:sosiologi peminatan kelas 12 ktsp

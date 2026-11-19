@@ -1,46 +1,80 @@
 # label: prakarya | no: 8 | rumpun: kewargaan_seni
 # mapel: Prakarya & Kewirausahaan
 # aturan: '## <kurikulum> | kelas <10-12> | <bab>' lalu 'ytsearchN:query' atau URL
+# kurikulum yang dikenal: k13, kurmerdeka, ktsp2006
 # silakan tambah playlist/video manual di bawah seksi yang sesuai
 
-## k13 | kelas 10 | materi kelas 10
-ytsearch18:prakarya dan kewirausahaan kelas 10 kurikulum 2013
-ytsearch18:prakarya dan kewirausahaan kelas 10 k13 pembahasan soal
-ytsearch15:materi prakarya dan kewirausahaan kelas 10 semester 1
+## k13 | kelas 10 | Kerajinan Bahan Lunak
+ytsearch12:prakarya dan kewirausahaan kelas 10 Kerajinan Bahan Lunak
+ytsearch12:pembahasan soal Kerajinan Bahan Lunak prakarya dan kewirausahaan kelas 10
 
-## kurmerdeka | kelas 10 | materi kelas 10
-ytsearch18:pkwu sma kelas 10 kurikulum merdeka
-ytsearch18:pkwu sma kelas 10 merdeka belajar
-ytsearch15:materi pkwu sma kelas 10 semester 2
+## kurmerdeka | kelas 10 | Kerajinan Bahan Lunak
+ytsearch12:pkwu sma kelas 10 kurikulum merdeka Kerajinan Bahan Lunak
+
+## k13 | kelas 10 | Budidaya Tanaman
+ytsearch12:prakarya dan kewirausahaan kelas 10 Budidaya Tanaman
+ytsearch12:pembahasan soal Budidaya Tanaman prakarya dan kewirausahaan kelas 10
+
+## kurmerdeka | kelas 10 | Budidaya Tanaman
+ytsearch12:pkwu sma kelas 10 kurikulum merdeka Budidaya Tanaman
+
+## k13 | kelas 10 | Pengolahan Makanan
+ytsearch12:prakarya dan kewirausahaan kelas 10 Pengolahan Makanan
+ytsearch12:pembahasan soal Pengolahan Makanan prakarya dan kewirausahaan kelas 10
+
+## kurmerdeka | kelas 10 | Pengolahan Makanan
+ytsearch12:pkwu sma kelas 10 kurikulum merdeka Pengolahan Makanan
 
 ## ktsp2006 | kelas 10 | materi kelas 10
-ytsearch12:kewirausahaan sma kelas 10 ktsp
-ytsearch12:kewirausahaan sma kelas 10 ktsp 2006
+ytsearch12:prakarya sma kelas 10 ktsp
+ytsearch12:prakarya sma kelas 10 ktsp 2006
 
-## k13 | kelas 11 | materi kelas 11
-ytsearch18:prakarya dan kewirausahaan kelas 11 kurikulum 2013
-ytsearch18:prakarya dan kewirausahaan kelas 11 k13 pembahasan soal
-ytsearch15:materi prakarya dan kewirausahaan kelas 11 semester 1
+## k13 | kelas 11 | Kerajinan Bahan Keras
+ytsearch12:prakarya dan kewirausahaan kelas 11 Kerajinan Bahan Keras
+ytsearch12:pembahasan soal Kerajinan Bahan Keras prakarya dan kewirausahaan kelas 11
 
-## kurmerdeka | kelas 11 | materi kelas 11
-ytsearch18:pkwu sma kelas 11 kurikulum merdeka
-ytsearch18:pkwu sma kelas 11 merdeka belajar
-ytsearch15:materi pkwu sma kelas 11 semester 2
+## kurmerdeka | kelas 11 | Kerajinan Bahan Keras
+ytsearch12:pkwu sma kelas 11 kurikulum merdeka Kerajinan Bahan Keras
+
+## k13 | kelas 11 | Budidaya Ikan
+ytsearch12:prakarya dan kewirausahaan kelas 11 Budidaya Ikan
+ytsearch12:pembahasan soal Budidaya Ikan prakarya dan kewirausahaan kelas 11
+
+## kurmerdeka | kelas 11 | Budidaya Ikan
+ytsearch12:pkwu sma kelas 11 kurikulum merdeka Budidaya Ikan
+
+## k13 | kelas 11 | Rekayasa Teknologi
+ytsearch12:prakarya dan kewirausahaan kelas 11 Rekayasa Teknologi
+ytsearch12:pembahasan soal Rekayasa Teknologi prakarya dan kewirausahaan kelas 11
+
+## kurmerdeka | kelas 11 | Rekayasa Teknologi
+ytsearch12:pkwu sma kelas 11 kurikulum merdeka Rekayasa Teknologi
 
 ## ktsp2006 | kelas 11 | materi kelas 11
-ytsearch12:kewirausahaan sma kelas 11 ktsp
-ytsearch12:kewirausahaan sma kelas 11 ktsp 2006
+ytsearch12:prakarya sma kelas 11 ktsp
+ytsearch12:prakarya sma kelas 11 ktsp 2006
 
-## k13 | kelas 12 | materi kelas 12
-ytsearch18:prakarya dan kewirausahaan kelas 12 kurikulum 2013
-ytsearch18:prakarya dan kewirausahaan kelas 12 k13 pembahasan soal
-ytsearch15:materi prakarya dan kewirausahaan kelas 12 semester 1
+## k13 | kelas 12 | Wirausaha Kerajinan
+ytsearch12:prakarya dan kewirausahaan kelas 12 Wirausaha Kerajinan
+ytsearch12:pembahasan soal Wirausaha Kerajinan prakarya dan kewirausahaan kelas 12
 
-## kurmerdeka | kelas 12 | materi kelas 12
-ytsearch18:pkwu sma kelas 12 kurikulum merdeka
-ytsearch18:pkwu sma kelas 12 merdeka belajar
-ytsearch15:materi pkwu sma kelas 12 semester 2
+## kurmerdeka | kelas 12 | Wirausaha Kerajinan
+ytsearch12:pkwu sma kelas 12 kurikulum merdeka Wirausaha Kerajinan
+
+## k13 | kelas 12 | Pengolahan Pangan
+ytsearch12:prakarya dan kewirausahaan kelas 12 Pengolahan Pangan
+ytsearch12:pembahasan soal Pengolahan Pangan prakarya dan kewirausahaan kelas 12
+
+## kurmerdeka | kelas 12 | Pengolahan Pangan
+ytsearch12:pkwu sma kelas 12 kurikulum merdeka Pengolahan Pangan
+
+## k13 | kelas 12 | Rekayasa Produk
+ytsearch12:prakarya dan kewirausahaan kelas 12 Rekayasa Produk
+ytsearch12:pembahasan soal Rekayasa Produk prakarya dan kewirausahaan kelas 12
+
+## kurmerdeka | kelas 12 | Rekayasa Produk
+ytsearch12:pkwu sma kelas 12 kurikulum merdeka Rekayasa Produk
 
 ## ktsp2006 | kelas 12 | materi kelas 12
-ytsearch12:kewirausahaan sma kelas 12 ktsp
-ytsearch12:kewirausahaan sma kelas 12 ktsp 2006
+ytsearch12:prakarya sma kelas 12 ktsp
+ytsearch12:prakarya sma kelas 12 ktsp 2006

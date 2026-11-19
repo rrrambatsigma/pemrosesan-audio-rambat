@@ -1,46 +1,80 @@
 # label: matematika_lanjut | no: 12 | rumpun: eksakta_teknologi
 # mapel: Matematika Tingkat Lanjut
 # aturan: '## <kurikulum> | kelas <10-12> | <bab>' lalu 'ytsearchN:query' atau URL
+# kurikulum yang dikenal: k13, kurmerdeka, ktsp2006
 # silakan tambah playlist/video manual di bawah seksi yang sesuai
 
-## k13 | kelas 10 | materi kelas 10
-ytsearch18:matematika tingkat lanjut kelas 10 kurikulum 2013
-ytsearch18:matematika tingkat lanjut kelas 10 k13 pembahasan soal
-ytsearch15:materi matematika tingkat lanjut kelas 10 semester 1
+## k13 | kelas 10 | Fungsi Eksponen dan Logaritma
+ytsearch12:matematika tingkat lanjut kelas 10 Fungsi Eksponen dan Logaritma
+ytsearch12:pembahasan soal Fungsi Eksponen dan Logaritma matematika tingkat lanjut kelas 10
 
-## kurmerdeka | kelas 10 | materi kelas 10
-ytsearch18:matematika peminatan kelas 10 kurikulum merdeka
-ytsearch18:matematika peminatan kelas 10 merdeka belajar
-ytsearch15:materi matematika peminatan kelas 10 semester 2
+## kurmerdeka | kelas 10 | Fungsi Eksponen dan Logaritma
+ytsearch12:matematika peminatan kelas 10 kurikulum merdeka Fungsi Eksponen dan Logaritma
+
+## k13 | kelas 10 | Sistem Persamaan
+ytsearch12:matematika tingkat lanjut kelas 10 Sistem Persamaan
+ytsearch12:pembahasan soal Sistem Persamaan matematika tingkat lanjut kelas 10
+
+## kurmerdeka | kelas 10 | Sistem Persamaan
+ytsearch12:matematika peminatan kelas 10 kurikulum merdeka Sistem Persamaan
+
+## k13 | kelas 10 | Polinomial
+ytsearch12:matematika tingkat lanjut kelas 10 Polinomial
+ytsearch12:pembahasan soal Polinomial matematika tingkat lanjut kelas 10
+
+## kurmerdeka | kelas 10 | Polinomial
+ytsearch12:matematika peminatan kelas 10 kurikulum merdeka Polinomial
 
 ## ktsp2006 | kelas 10 | materi kelas 10
-ytsearch12:matematika lanjut sma kelas 10 ktsp
-ytsearch12:matematika lanjut sma kelas 10 ktsp 2006
+ytsearch12:matematika lanjut kelas 10 ktsp
+ytsearch12:matematika lanjut kelas 10 ktsp 2006
 
-## k13 | kelas 11 | materi kelas 11
-ytsearch18:matematika tingkat lanjut kelas 11 kurikulum 2013
-ytsearch18:matematika tingkat lanjut kelas 11 k13 pembahasan soal
-ytsearch15:materi matematika tingkat lanjut kelas 11 semester 1
+## k13 | kelas 11 | Matriks
+ytsearch12:matematika tingkat lanjut kelas 11 Matriks
+ytsearch12:pembahasan soal Matriks matematika tingkat lanjut kelas 11
 
-## kurmerdeka | kelas 11 | materi kelas 11
-ytsearch18:matematika peminatan kelas 11 kurikulum merdeka
-ytsearch18:matematika peminatan kelas 11 merdeka belajar
-ytsearch15:materi matematika peminatan kelas 11 semester 2
+## kurmerdeka | kelas 11 | Matriks
+ytsearch12:matematika peminatan kelas 11 kurikulum merdeka Matriks
+
+## k13 | kelas 11 | Vektor Tingkat Lanjut
+ytsearch12:matematika tingkat lanjut kelas 11 Vektor Tingkat Lanjut
+ytsearch12:pembahasan soal Vektor Tingkat Lanjut matematika tingkat lanjut kelas 11
+
+## kurmerdeka | kelas 11 | Vektor Tingkat Lanjut
+ytsearch12:matematika peminatan kelas 11 kurikulum merdeka Vektor Tingkat Lanjut
+
+## k13 | kelas 11 | Transformasi Geometri
+ytsearch12:matematika tingkat lanjut kelas 11 Transformasi Geometri
+ytsearch12:pembahasan soal Transformasi Geometri matematika tingkat lanjut kelas 11
+
+## kurmerdeka | kelas 11 | Transformasi Geometri
+ytsearch12:matematika peminatan kelas 11 kurikulum merdeka Transformasi Geometri
 
 ## ktsp2006 | kelas 11 | materi kelas 11
-ytsearch12:matematika lanjut sma kelas 11 ktsp
-ytsearch12:matematika lanjut sma kelas 11 ktsp 2006
+ytsearch12:matematika lanjut kelas 11 ktsp
+ytsearch12:matematika lanjut kelas 11 ktsp 2006
 
-## k13 | kelas 12 | materi kelas 12
-ytsearch18:matematika tingkat lanjut kelas 12 kurikulum 2013
-ytsearch18:matematika tingkat lanjut kelas 12 k13 pembahasan soal
-ytsearch15:materi matematika tingkat lanjut kelas 12 semester 1
+## k13 | kelas 12 | Limit Tingkat Lanjut
+ytsearch12:matematika tingkat lanjut kelas 12 Limit Tingkat Lanjut
+ytsearch12:pembahasan soal Limit Tingkat Lanjut matematika tingkat lanjut kelas 12
 
-## kurmerdeka | kelas 12 | materi kelas 12
-ytsearch18:matematika peminatan kelas 12 kurikulum merdeka
-ytsearch18:matematika peminatan kelas 12 merdeka belajar
-ytsearch15:materi matematika peminatan kelas 12 semester 2
+## kurmerdeka | kelas 12 | Limit Tingkat Lanjut
+ytsearch12:matematika peminatan kelas 12 kurikulum merdeka Limit Tingkat Lanjut
+
+## k13 | kelas 12 | Turunan Tingkat Lanjut
+ytsearch12:matematika tingkat lanjut kelas 12 Turunan Tingkat Lanjut
+ytsearch12:pembahasan soal Turunan Tingkat Lanjut matematika tingkat lanjut kelas 12
+
+## kurmerdeka | kelas 12 | Turunan Tingkat Lanjut
+ytsearch12:matematika peminatan kelas 12 kurikulum merdeka Turunan Tingkat Lanjut
+
+## k13 | kelas 12 | Integral Tingkat Lanjut
+ytsearch12:matematika tingkat lanjut kelas 12 Integral Tingkat Lanjut
+ytsearch12:pembahasan soal Integral Tingkat Lanjut matematika tingkat lanjut kelas 12
+
+## kurmerdeka | kelas 12 | Integral Tingkat Lanjut
+ytsearch12:matematika peminatan kelas 12 kurikulum merdeka Integral Tingkat Lanjut
 
 ## ktsp2006 | kelas 12 | materi kelas 12
-ytsearch12:matematika lanjut sma kelas 12 ktsp
-ytsearch12:matematika lanjut sma kelas 12 ktsp 2006
+ytsearch12:matematika lanjut kelas 12 ktsp
+ytsearch12:matematika lanjut kelas 12 ktsp 2006

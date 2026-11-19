@@ -45,6 +45,7 @@ $py = "C:\Users\Asus\miniconda3\envs\audio-ds\python.exe"
 
 & $py scripts/check_env.py
 & $py scripts/init_sources.py --check          # 21 file sumber lengkap?
+& $py scripts/verify_sources.py                # isi & bab tiap file
 & $py scripts/sources_audit.py                 # kandidat cukup per label?
 & $py scripts/scrape.py --only fisika --limit-videos 1 --yes   # uji 1 video
 & $py scripts/scrape.py --all --max-per-run 180 --yes          # sesi harian
@@ -95,15 +96,20 @@ data/reports/       audit sumber, cakupan, QC, link check
 
 ## Format file sumber
 
+Setiap file berisi seksi per **kurikulum | kelas | bab**, sehingga query
+pencarian spesifik ke bab dan kolom `bab` di manifest berisi topik nyata
+(bukan "materi kelas 10").
+
 ```
 # label: fisika | no: 9 | rumpun: eksakta_teknologi
 
 ## k13 | kelas 10 | Vektor
-ytsearch12:fisika sma kelas 10 kurikulum 2013
+ytsearch12:fisika sma kelas 10 Vektor
+ytsearch12:pembahasan soal Vektor fisika sma kelas 10
 https://www.youtube.com/playlist?list=PLxxxx
 
-## kurmerdeka | kelas 10 | Pengukuran
-ytsearch12:fisika kelas 10 kurikulum merdeka
+## kurmerdeka | kelas 10 | Vektor
+ytsearch12:fisika kelas 10 kurikulum merdeka Vektor
 ```
 
 - `##` = header seksi (kurikulum wajib dikenal: `k13`, `kurmerdeka`, `ktsp2006`)

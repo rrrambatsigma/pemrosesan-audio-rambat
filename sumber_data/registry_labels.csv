@@ -1,16 +1,16 @@
 ﻿no,label,rumpun,kelompok_tabel,bahasa,query
-1,pendidikan_agama,kewargaan_seni,Umum / Wajib,id,pendidikan agama islam;budi pekerti;pendidikan agama kristen
+1,pendidikan_agama,kewargaan_seni,Umum / Wajib,id,pendidikan agama islam;budi pekerti;pendidikan agama
 2,ppkn,kewargaan_seni,Umum / Wajib,id,ppkn sma;pkn sma;pendidikan pancasila
 3,bahasa_indonesia,bahasa,Umum / Wajib,id,bahasa indonesia sma;bahasa indonesia;materi bahasa indonesia
 4,matematika,eksakta_teknologi,Umum / Wajib,id,matematika wajib sma;matematika sma;matematika
-5,sejarah,sosial_ekonomi,Umum / Wajib,id,sejarah indonesia sma;sejarah peminatan;sejarah dunia sma
+5,sejarah,sosial_ekonomi,Umum / Wajib,id,sejarah indonesia sma;sejarah peminatan;sejarah sma
 6,pjok,kewargaan_seni,Umum / Wajib,id,pjok sma;penjasorkes;pendidikan jasmani
-7,seni_budaya,kewargaan_seni,Umum / Wajib,id,seni budaya sma;seni rupa sma;seni musik sma
-8,prakarya,kewargaan_seni,Umum / Wajib,id,prakarya dan kewirausahaan;pkwu sma;kewirausahaan sma
+7,seni_budaya,kewargaan_seni,Umum / Wajib,id,seni budaya sma;seni budaya;materi seni budaya
+8,prakarya,kewargaan_seni,Umum / Wajib,id,prakarya dan kewirausahaan;pkwu sma;prakarya sma
 9,fisika,eksakta_teknologi,IPA / MIPA,id,fisika sma;fisika;fisika dasar
 10,kimia,eksakta_teknologi,IPA / MIPA,id,kimia sma;kimia;kimia dasar
 11,biologi,eksakta_teknologi,IPA / MIPA,id,biologi sma;biologi;biologi dasar
-12,matematika_lanjut,eksakta_teknologi,IPA / MIPA,id,matematika tingkat lanjut;matematika peminatan;matematika lanjut sma
+12,matematika_lanjut,eksakta_teknologi,IPA / MIPA,id,matematika tingkat lanjut;matematika peminatan;matematika lanjut
 13,ekonomi,sosial_ekonomi,IPS,id,ekonomi sma;akuntansi sma;ekonomi
 14,geografi,sosial_ekonomi,IPS,id,geografi sma;geografi;geografi peminatan
 15,sosiologi,sosial_ekonomi,IPS,id,sosiologi sma;sosiologi;sosiologi peminatan

@@ -1,45 +1,79 @@
 # label: informatika | no: 16 | rumpun: eksakta_teknologi
 # mapel: TIK / Informatika
 # aturan: '## <kurikulum> | kelas <10-12> | <bab>' lalu 'ytsearchN:query' atau URL
+# kurikulum yang dikenal: k13, kurmerdeka, ktsp2006
 # silakan tambah playlist/video manual di bawah seksi yang sesuai
 
-## k13 | kelas 10 | materi kelas 10
-ytsearch18:informatika sma kelas 10 kurikulum 2013
-ytsearch18:informatika sma kelas 10 k13 pembahasan soal
-ytsearch15:materi informatika sma kelas 10 semester 1
+## k13 | kelas 10 | Berpikir Komputasional
+ytsearch12:informatika sma kelas 10 Berpikir Komputasional
+ytsearch12:pembahasan soal Berpikir Komputasional informatika sma kelas 10
 
-## kurmerdeka | kelas 10 | materi kelas 10
-ytsearch18:tik sma kelas 10 kurikulum merdeka
-ytsearch18:tik sma kelas 10 merdeka belajar
-ytsearch15:materi tik sma kelas 10 semester 2
+## kurmerdeka | kelas 10 | Berpikir Komputasional
+ytsearch12:tik sma kelas 10 kurikulum merdeka Berpikir Komputasional
+
+## k13 | kelas 10 | Algoritma Pemrograman
+ytsearch12:informatika sma kelas 10 Algoritma Pemrograman
+ytsearch12:pembahasan soal Algoritma Pemrograman informatika sma kelas 10
+
+## kurmerdeka | kelas 10 | Algoritma Pemrograman
+ytsearch12:tik sma kelas 10 kurikulum merdeka Algoritma Pemrograman
+
+## k13 | kelas 10 | Sistem Komputer
+ytsearch12:informatika sma kelas 10 Sistem Komputer
+ytsearch12:pembahasan soal Sistem Komputer informatika sma kelas 10
+
+## kurmerdeka | kelas 10 | Sistem Komputer
+ytsearch12:tik sma kelas 10 kurikulum merdeka Sistem Komputer
 
 ## ktsp2006 | kelas 10 | materi kelas 10
 ytsearch12:informatika kelas 10 ktsp
 ytsearch12:informatika kelas 10 ktsp 2006
 
-## k13 | kelas 11 | materi kelas 11
-ytsearch18:informatika sma kelas 11 kurikulum 2013
-ytsearch18:informatika sma kelas 11 k13 pembahasan soal
-ytsearch15:materi informatika sma kelas 11 semester 1
+## k13 | kelas 11 | Jaringan Komputer
+ytsearch12:informatika sma kelas 11 Jaringan Komputer
+ytsearch12:pembahasan soal Jaringan Komputer informatika sma kelas 11
 
-## kurmerdeka | kelas 11 | materi kelas 11
-ytsearch18:tik sma kelas 11 kurikulum merdeka
-ytsearch18:tik sma kelas 11 merdeka belajar
-ytsearch15:materi tik sma kelas 11 semester 2
+## kurmerdeka | kelas 11 | Jaringan Komputer
+ytsearch12:tik sma kelas 11 kurikulum merdeka Jaringan Komputer
+
+## k13 | kelas 11 | Basis Data
+ytsearch12:informatika sma kelas 11 Basis Data
+ytsearch12:pembahasan soal Basis Data informatika sma kelas 11
+
+## kurmerdeka | kelas 11 | Basis Data
+ytsearch12:tik sma kelas 11 kurikulum merdeka Basis Data
+
+## k13 | kelas 11 | Analisis Data
+ytsearch12:informatika sma kelas 11 Analisis Data
+ytsearch12:pembahasan soal Analisis Data informatika sma kelas 11
+
+## kurmerdeka | kelas 11 | Analisis Data
+ytsearch12:tik sma kelas 11 kurikulum merdeka Analisis Data
 
 ## ktsp2006 | kelas 11 | materi kelas 11
 ytsearch12:informatika kelas 11 ktsp
 ytsearch12:informatika kelas 11 ktsp 2006
 
-## k13 | kelas 12 | materi kelas 12
-ytsearch18:informatika sma kelas 12 kurikulum 2013
-ytsearch18:informatika sma kelas 12 k13 pembahasan soal
-ytsearch15:materi informatika sma kelas 12 semester 1
+## k13 | kelas 12 | Kecerdasan Buatan
+ytsearch12:informatika sma kelas 12 Kecerdasan Buatan
+ytsearch12:pembahasan soal Kecerdasan Buatan informatika sma kelas 12
 
-## kurmerdeka | kelas 12 | materi kelas 12
-ytsearch18:tik sma kelas 12 kurikulum merdeka
-ytsearch18:tik sma kelas 12 merdeka belajar
-ytsearch15:materi tik sma kelas 12 semester 2
+## kurmerdeka | kelas 12 | Kecerdasan Buatan
+ytsearch12:tik sma kelas 12 kurikulum merdeka Kecerdasan Buatan
+
+## k13 | kelas 12 | Keamanan Siber
+ytsearch12:informatika sma kelas 12 Keamanan Siber
+ytsearch12:pembahasan soal Keamanan Siber informatika sma kelas 12
+
+## kurmerdeka | kelas 12 | Keamanan Siber
+ytsearch12:tik sma kelas 12 kurikulum merdeka Keamanan Siber
+
+## k13 | kelas 12 | Proyek Informatika
+ytsearch12:informatika sma kelas 12 Proyek Informatika
+ytsearch12:pembahasan soal Proyek Informatika informatika sma kelas 12
+
+## kurmerdeka | kelas 12 | Proyek Informatika
+ytsearch12:tik sma kelas 12 kurikulum merdeka Proyek Informatika
 
 ## ktsp2006 | kelas 12 | materi kelas 12
 ytsearch12:informatika kelas 12 ktsp

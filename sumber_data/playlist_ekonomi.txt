@@ -1,45 +1,79 @@
 # label: ekonomi | no: 13 | rumpun: sosial_ekonomi
 # mapel: Ekonomi & Akuntansi
 # aturan: '## <kurikulum> | kelas <10-12> | <bab>' lalu 'ytsearchN:query' atau URL
+# kurikulum yang dikenal: k13, kurmerdeka, ktsp2006
 # silakan tambah playlist/video manual di bawah seksi yang sesuai
 
-## k13 | kelas 10 | materi kelas 10
-ytsearch18:ekonomi sma kelas 10 kurikulum 2013
-ytsearch18:ekonomi sma kelas 10 k13 pembahasan soal
-ytsearch15:materi ekonomi sma kelas 10 semester 1
+## k13 | kelas 10 | Konsep Ilmu Ekonomi
+ytsearch12:ekonomi sma kelas 10 Konsep Ilmu Ekonomi
+ytsearch12:pembahasan soal Konsep Ilmu Ekonomi ekonomi sma kelas 10
 
-## kurmerdeka | kelas 10 | materi kelas 10
-ytsearch18:akuntansi sma kelas 10 kurikulum merdeka
-ytsearch18:akuntansi sma kelas 10 merdeka belajar
-ytsearch15:materi akuntansi sma kelas 10 semester 2
+## kurmerdeka | kelas 10 | Konsep Ilmu Ekonomi
+ytsearch12:akuntansi sma kelas 10 kurikulum merdeka Konsep Ilmu Ekonomi
+
+## k13 | kelas 10 | Permintaan dan Penawaran
+ytsearch12:ekonomi sma kelas 10 Permintaan dan Penawaran
+ytsearch12:pembahasan soal Permintaan dan Penawaran ekonomi sma kelas 10
+
+## kurmerdeka | kelas 10 | Permintaan dan Penawaran
+ytsearch12:akuntansi sma kelas 10 kurikulum merdeka Permintaan dan Penawaran
+
+## k13 | kelas 10 | Pasar
+ytsearch12:ekonomi sma kelas 10 Pasar
+ytsearch12:pembahasan soal Pasar ekonomi sma kelas 10
+
+## kurmerdeka | kelas 10 | Pasar
+ytsearch12:akuntansi sma kelas 10 kurikulum merdeka Pasar
 
 ## ktsp2006 | kelas 10 | materi kelas 10
 ytsearch12:ekonomi kelas 10 ktsp
 ytsearch12:ekonomi kelas 10 ktsp 2006
 
-## k13 | kelas 11 | materi kelas 11
-ytsearch18:ekonomi sma kelas 11 kurikulum 2013
-ytsearch18:ekonomi sma kelas 11 k13 pembahasan soal
-ytsearch15:materi ekonomi sma kelas 11 semester 1
+## k13 | kelas 11 | Pendapatan Nasional
+ytsearch12:ekonomi sma kelas 11 Pendapatan Nasional
+ytsearch12:pembahasan soal Pendapatan Nasional ekonomi sma kelas 11
 
-## kurmerdeka | kelas 11 | materi kelas 11
-ytsearch18:akuntansi sma kelas 11 kurikulum merdeka
-ytsearch18:akuntansi sma kelas 11 merdeka belajar
-ytsearch15:materi akuntansi sma kelas 11 semester 2
+## kurmerdeka | kelas 11 | Pendapatan Nasional
+ytsearch12:akuntansi sma kelas 11 kurikulum merdeka Pendapatan Nasional
+
+## k13 | kelas 11 | Inflasi dan Kebijakan Moneter
+ytsearch12:ekonomi sma kelas 11 Inflasi dan Kebijakan Moneter
+ytsearch12:pembahasan soal Inflasi dan Kebijakan Moneter ekonomi sma kelas 11
+
+## kurmerdeka | kelas 11 | Inflasi dan Kebijakan Moneter
+ytsearch12:akuntansi sma kelas 11 kurikulum merdeka Inflasi dan Kebijakan Moneter
+
+## k13 | kelas 11 | APBN
+ytsearch12:ekonomi sma kelas 11 APBN
+ytsearch12:pembahasan soal APBN ekonomi sma kelas 11
+
+## kurmerdeka | kelas 11 | APBN
+ytsearch12:akuntansi sma kelas 11 kurikulum merdeka APBN
 
 ## ktsp2006 | kelas 11 | materi kelas 11
 ytsearch12:ekonomi kelas 11 ktsp
 ytsearch12:ekonomi kelas 11 ktsp 2006
 
-## k13 | kelas 12 | materi kelas 12
-ytsearch18:ekonomi sma kelas 12 kurikulum 2013
-ytsearch18:ekonomi sma kelas 12 k13 pembahasan soal
-ytsearch15:materi ekonomi sma kelas 12 semester 1
+## k13 | kelas 12 | Akuntansi Dasar
+ytsearch12:ekonomi sma kelas 12 Akuntansi Dasar
+ytsearch12:pembahasan soal Akuntansi Dasar ekonomi sma kelas 12
 
-## kurmerdeka | kelas 12 | materi kelas 12
-ytsearch18:akuntansi sma kelas 12 kurikulum merdeka
-ytsearch18:akuntansi sma kelas 12 merdeka belajar
-ytsearch15:materi akuntansi sma kelas 12 semester 2
+## kurmerdeka | kelas 12 | Akuntansi Dasar
+ytsearch12:akuntansi sma kelas 12 kurikulum merdeka Akuntansi Dasar
+
+## k13 | kelas 12 | Jurnal Umum
+ytsearch12:ekonomi sma kelas 12 Jurnal Umum
+ytsearch12:pembahasan soal Jurnal Umum ekonomi sma kelas 12
+
+## kurmerdeka | kelas 12 | Jurnal Umum
+ytsearch12:akuntansi sma kelas 12 kurikulum merdeka Jurnal Umum
+
+## k13 | kelas 12 | Laporan Keuangan
+ytsearch12:ekonomi sma kelas 12 Laporan Keuangan
+ytsearch12:pembahasan soal Laporan Keuangan ekonomi sma kelas 12
+
+## kurmerdeka | kelas 12 | Laporan Keuangan
+ytsearch12:akuntansi sma kelas 12 kurikulum merdeka Laporan Keuangan
 
 ## ktsp2006 | kelas 12 | materi kelas 12
 ytsearch12:ekonomi kelas 12 ktsp

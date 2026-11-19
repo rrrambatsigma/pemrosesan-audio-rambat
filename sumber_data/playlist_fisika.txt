@@ -1,45 +1,93 @@
 # label: fisika | no: 9 | rumpun: eksakta_teknologi
 # mapel: Fisika
 # aturan: '## <kurikulum> | kelas <10-12> | <bab>' lalu 'ytsearchN:query' atau URL
+# kurikulum yang dikenal: k13, kurmerdeka, ktsp2006
 # silakan tambah playlist/video manual di bawah seksi yang sesuai
 
-## k13 | kelas 10 | materi kelas 10
-ytsearch18:fisika sma kelas 10 kurikulum 2013
-ytsearch18:fisika sma kelas 10 k13 pembahasan soal
-ytsearch15:materi fisika sma kelas 10 semester 1
+## k13 | kelas 10 | Besaran dan Pengukuran
+ytsearch12:fisika sma kelas 10 Besaran dan Pengukuran
+ytsearch12:pembahasan soal Besaran dan Pengukuran fisika sma kelas 10
 
-## kurmerdeka | kelas 10 | materi kelas 10
-ytsearch18:fisika kelas 10 kurikulum merdeka
-ytsearch18:fisika kelas 10 merdeka belajar
-ytsearch15:materi fisika kelas 10 semester 2
+## kurmerdeka | kelas 10 | Besaran dan Pengukuran
+ytsearch12:fisika kelas 10 kurikulum merdeka Besaran dan Pengukuran
+
+## k13 | kelas 10 | Vektor
+ytsearch12:fisika sma kelas 10 Vektor
+ytsearch12:pembahasan soal Vektor fisika sma kelas 10
+
+## kurmerdeka | kelas 10 | Vektor
+ytsearch12:fisika kelas 10 kurikulum merdeka Vektor
+
+## k13 | kelas 10 | Gerak Lurus
+ytsearch12:fisika sma kelas 10 Gerak Lurus
+ytsearch12:pembahasan soal Gerak Lurus fisika sma kelas 10
+
+## kurmerdeka | kelas 10 | Gerak Lurus
+ytsearch12:fisika kelas 10 kurikulum merdeka Gerak Lurus
+
+## k13 | kelas 10 | Hukum Newton
+ytsearch12:fisika sma kelas 10 Hukum Newton
+ytsearch12:pembahasan soal Hukum Newton fisika sma kelas 10
+
+## kurmerdeka | kelas 10 | Hukum Newton
+ytsearch12:fisika kelas 10 kurikulum merdeka Hukum Newton
 
 ## ktsp2006 | kelas 10 | materi kelas 10
 ytsearch12:fisika dasar kelas 10 ktsp
 ytsearch12:fisika dasar kelas 10 ktsp 2006
 
-## k13 | kelas 11 | materi kelas 11
-ytsearch18:fisika sma kelas 11 kurikulum 2013
-ytsearch18:fisika sma kelas 11 k13 pembahasan soal
-ytsearch15:materi fisika sma kelas 11 semester 1
+## k13 | kelas 11 | Fluida
+ytsearch12:fisika sma kelas 11 Fluida
+ytsearch12:pembahasan soal Fluida fisika sma kelas 11
 
-## kurmerdeka | kelas 11 | materi kelas 11
-ytsearch18:fisika kelas 11 kurikulum merdeka
-ytsearch18:fisika kelas 11 merdeka belajar
-ytsearch15:materi fisika kelas 11 semester 2
+## kurmerdeka | kelas 11 | Fluida
+ytsearch12:fisika kelas 11 kurikulum merdeka Fluida
+
+## k13 | kelas 11 | Suhu dan Kalor
+ytsearch12:fisika sma kelas 11 Suhu dan Kalor
+ytsearch12:pembahasan soal Suhu dan Kalor fisika sma kelas 11
+
+## kurmerdeka | kelas 11 | Suhu dan Kalor
+ytsearch12:fisika kelas 11 kurikulum merdeka Suhu dan Kalor
+
+## k13 | kelas 11 | Gelombang
+ytsearch12:fisika sma kelas 11 Gelombang
+ytsearch12:pembahasan soal Gelombang fisika sma kelas 11
+
+## kurmerdeka | kelas 11 | Gelombang
+ytsearch12:fisika kelas 11 kurikulum merdeka Gelombang
+
+## k13 | kelas 11 | Termodinamika
+ytsearch12:fisika sma kelas 11 Termodinamika
+ytsearch12:pembahasan soal Termodinamika fisika sma kelas 11
+
+## kurmerdeka | kelas 11 | Termodinamika
+ytsearch12:fisika kelas 11 kurikulum merdeka Termodinamika
 
 ## ktsp2006 | kelas 11 | materi kelas 11
 ytsearch12:fisika dasar kelas 11 ktsp
 ytsearch12:fisika dasar kelas 11 ktsp 2006
 
-## k13 | kelas 12 | materi kelas 12
-ytsearch18:fisika sma kelas 12 kurikulum 2013
-ytsearch18:fisika sma kelas 12 k13 pembahasan soal
-ytsearch15:materi fisika sma kelas 12 semester 1
+## k13 | kelas 12 | Listrik Statis
+ytsearch12:fisika sma kelas 12 Listrik Statis
+ytsearch12:pembahasan soal Listrik Statis fisika sma kelas 12
 
-## kurmerdeka | kelas 12 | materi kelas 12
-ytsearch18:fisika kelas 12 kurikulum merdeka
-ytsearch18:fisika kelas 12 merdeka belajar
-ytsearch15:materi fisika kelas 12 semester 2
+## kurmerdeka | kelas 12 | Listrik Statis
+ytsearch12:fisika kelas 12 kurikulum merdeka Listrik Statis
+
+## k13 | kelas 12 | Induksi Elektromagnetik
+ytsearch12:fisika sma kelas 12 Induksi Elektromagnetik
+ytsearch12:pembahasan soal Induksi Elektromagnetik fisika sma kelas 12
+
+## kurmerdeka | kelas 12 | Induksi Elektromagnetik
+ytsearch12:fisika kelas 12 kurikulum merdeka Induksi Elektromagnetik
+
+## k13 | kelas 12 | Fisika Modern
+ytsearch12:fisika sma kelas 12 Fisika Modern
+ytsearch12:pembahasan soal Fisika Modern fisika sma kelas 12
+
+## kurmerdeka | kelas 12 | Fisika Modern
+ytsearch12:fisika kelas 12 kurikulum merdeka Fisika Modern
 
 ## ktsp2006 | kelas 12 | materi kelas 12
 ytsearch12:fisika dasar kelas 12 ktsp
