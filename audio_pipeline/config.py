@@ -7,6 +7,7 @@ hardcoded yang salah (dulu: ``00_SumberData`` padahal foldernya
 
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 
@@ -32,6 +33,17 @@ MANIFEST = DATA_DIR / "manifest.csv"
 FAILURES = DATA_DIR / "failures.csv"
 REPORTS_DIR = DATA_DIR / "reports"
 LOCK_FILE = DATA_DIR / ".scrape.lock"
+ENV_FILE = ROOT / ".env"
+
+# --------------------------------------------------------------------------- #
+# Hugging Face Hub (mode raw langsung ke HF)
+# --------------------------------------------------------------------------- #
+HUB_STAGING = TMP_DIR / "hub"              # audio transit, dihapus setelah commit
+HUB_PREFIX = "raw"                         # raw/<label>/<kelas>_<kur>/<clip_id>.wav
+HUB_MANIFEST_NAME = "manifest.csv"         # ikut di-commit sebagai provenans
+HUB_TOKEN_KEYS = ("HF_TOKEN", "HUGGINGFACE_TOKEN", "HF_API_KEY")
+HUB_RETRIES = 4
+HUB_DEFAULT_NAME = "audio-sma-21-mapel-raw"
 
 SOURCE_INVENTORY = REPORTS_DIR / "source_inventory.csv"
 SOURCE_PLAYLISTS = REPORTS_DIR / "source_playlists.csv"
@@ -89,14 +101,40 @@ FIELDS = [
     "qc_gate", "qc_score", "qc_flags", "reviewed",
     # provenans
     "yt_dlp_version", "downloaded_at",
+    # Hugging Face (diisi hub.py setelah commit)
+    "hub_repo", "hub_path", "hub_status", "hub_bytes", "hub_commit", "hub_at",
 ]
 
 FAILURE_FIELDS = ["video_id", "label", "stage", "error", "attempts", "last_at"]
 
 NUMERIC_FIELDS = {
     "label_no", "kelas", "clip_index", "clip_start_sec", "clip_sec",
-    "duration_src_sec", "sr", "channels", "bytes", "qc_score",
+    "duration_src_sec", "sr", "channels", "bytes", "qc_score", "hub_bytes",
 }
+
+
+def load_env(path: Path | None = None) -> None:
+    """Muat ``.env`` sederhana (KEY=VALUE) tanpa dependensi tambahan.
+
+    Nilai yang sudah ada di environment tidak ditimpa, jadi
+    ``$env:HF_TOKEN`` tetap menang atas isi file.
+    """
+    p = Path(path or ENV_FILE)
+    if not p.exists():
+        return
+    try:
+        lines = p.read_text(encoding="utf-8-sig").splitlines()
+    except OSError:
+        return
+    for line in lines:
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        key = key.strip().lstrip("export ").strip()
+        value = value.strip().strip('"').strip("'")
+        if key and value and not os.environ.get(key):
+            os.environ[key] = value
 
 
 def setup_console() -> None:

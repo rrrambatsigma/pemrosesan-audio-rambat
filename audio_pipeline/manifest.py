@@ -109,6 +109,13 @@ def validate(rows: dict[str, dict]) -> list[str]:
         if r.get("status") == "ok":
             if not fp:
                 problems.append(f"{cid}: status ok tanpa filepath")
+            elif fp.startswith("hf://"):
+                if r.get("hub_status") != "uploaded":
+                    problems.append(
+                        f"{cid}: filepath hf:// tapi hub_status bukan uploaded"
+                    )
+                if not r.get("hub_path"):
+                    problems.append(f"{cid}: hub_path kosong")
             elif fp in seen_files:
                 problems.append(f"{cid}: filepath sama dengan {seen_files[fp]}")
             else:
@@ -127,8 +134,20 @@ def validate(rows: dict[str, dict]) -> list[str]:
 # query bantu
 # --------------------------------------------------------------------------- #
 def ok_rows(rows: dict[str, dict]) -> list[dict]:
-    return [r for r in rows.values()
-            if r.get("status") == "ok" and (ROOT / (r.get("filepath") or "_")).exists()]
+    """Baris siap pakai: sudah di HF, atau berkas lokalnya masih ada."""
+    out = []
+    for r in rows.values():
+        if r.get("status") != "ok":
+            continue
+        if r.get("hub_status") == "uploaded":
+            out.append(r)
+            continue
+        fp = str(r.get("filepath") or "_")
+        if fp.startswith("hf://"):
+            continue
+        if (ROOT / fp).exists():
+            out.append(r)
+    return out
 
 
 def done_videos(rows: dict[str, dict]) -> set[str]:

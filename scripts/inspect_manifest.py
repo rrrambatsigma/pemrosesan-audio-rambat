@@ -44,20 +44,28 @@ def main(argv=None) -> int:
         vids = len({r["video_id"] for r in ok if r["label"] == label})
         print(f"{label:<24}{n:>6}{vids:>7}")
 
-    missing = [r for r in ok if not (ROOT / (r.get("filepath") or "_")).exists()]
-    print(f"\nFile hilang: {len(missing)}")
+    missing = [r for r in ok
+               if not str(r.get("filepath") or "").startswith("hf://")
+               and not (ROOT / (r.get("filepath") or "_")).exists()]
+    remote = sum(1 for r in ok
+                 if str(r.get("filepath") or "").startswith("hf://"))
+    print(f"\nFile hilang: {len(missing)} | di HF: {remote}")
 
     sample = ok[: a.detail] if a.detail else []
     if sample:
         print()
         for r in sample:
-            p = ROOT / (r.get("filepath") or "_")
-            try:
-                info = sf.info(str(p))
-                meta = (f"{info.duration:.1f}s {info.samplerate}Hz "
-                        f"{info.channels}ch")
-            except Exception:  # noqa: BLE001
-                meta = "TIDAK TERBACA"
+            fp = str(r.get("filepath") or "")
+            if fp.startswith("hf://"):
+                meta = "di Hugging Face"
+            else:
+                p = ROOT / fp
+                try:
+                    info = sf.info(str(p))
+                    meta = (f"{info.duration:.1f}s {info.samplerate}Hz "
+                            f"{info.channels}ch")
+                except Exception:  # noqa: BLE001
+                    meta = "TIDAK TERBACA"
             print(f"{r['clip_id']:<28} mulai {r.get('clip_start_sec'):>5}s | "
                   f"{meta:<22} | {r['label']} k{r['kelas']} {r['kurikulum']}")
     return 0

@@ -24,9 +24,10 @@ from datetime import datetime
 from pathlib import Path
 
 from . import youtube
-from .config import (CLIPS_PER_VIDEO, CLIP_SEC, INTRO_SKIP_S, LOCK_FILE,
-                     LOCK_STALE_H, MIN_VIDEO_SEC, OUTRO_SKIP_S, RAW_DIR,
-                     SAMPLE_RATE, TMP_DIR, ensure_dirs)
+from .config import (CLIPS_PER_VIDEO, CLIP_SEC, HUB_STAGING, INTRO_SKIP_S,
+                     LOCK_FILE, LOCK_STALE_H, MIN_VIDEO_SEC, OUTRO_SKIP_S,
+                     RAW_DIR, SAMPLE_RATE, TMP_DIR, ensure_dirs)
+from .hub import HubError
 from .manifest import (clips_of_video, load, load_failures, make_clip_id,
                        next_seq, record_failure, save, save_failures)
 from .registry import Label
@@ -127,15 +128,24 @@ def release_lock(path: Path = LOCK_FILE) -> None:
 # --------------------------------------------------------------------------- #
 # berkas klip
 # --------------------------------------------------------------------------- #
-def clip_path(label: str, kelas: int, kur: str, clip_id: str) -> Path:
-    return RAW_DIR / label / f"{int(kelas)}_{kur}" / f"{clip_id}.wav"
+def clip_path(label: str, kelas: int, kur: str, clip_id: str,
+              base: Path | None = None) -> Path:
+    root = Path(base) if base else RAW_DIR
+    return root / label / f"{int(kelas)}_{kur}" / f"{clip_id}.wav"
 
 
-def _file_ok(row: dict | None) -> bool:
-    """Cek murah: file ada dan ukurannya sama dengan catatan manifest."""
+def _artifact_ok(row: dict | None, hub_enabled: bool = False) -> bool:
+    """Baris siap dipakai? Sudah di HF dihitung selesai walau lokal kosong."""
     if not row or row.get("status") != "ok":
         return False
-    p = Path(row.get("filepath") or "")
+    if row.get("hub_status") == "uploaded":
+        return True
+    if hub_enabled:
+        return False          # wajib benar-benar sudah masuk HF
+    fp = str(row.get("filepath") or "")
+    if fp.startswith("hf://"):
+        return False
+    p = Path(fp)
     if not p.is_absolute():
         from .config import ROOT
         p = ROOT / p
@@ -148,11 +158,12 @@ def _file_ok(row: dict | None) -> bool:
     return not expected or p.stat().st_size == expected
 
 
-def _video_complete(rows: dict[str, dict], video_id: str, n_clips: int) -> bool:
+def _video_complete(rows: dict[str, dict], video_id: str, n_clips: int,
+                    hub_enabled: bool = False) -> bool:
     have = clips_of_video(rows, video_id)
     if len(have) < n_clips:
         return False
-    return all(_file_ok(have.get(i)) for i in range(n_clips))
+    return all(_artifact_ok(have.get(i), hub_enabled) for i in range(n_clips))
 
 
 # --------------------------------------------------------------------------- #
@@ -164,14 +175,21 @@ def process_video(cand: Candidate, meta: Label, rows: dict[str, dict],
                   only_cc: bool = False, keep_source: bool = True,
                   refresh_probe: bool = False,
                   verify_sha: bool = False,
-                  raw_only: bool = False) -> dict:
-    """Unduh/potong satu video. Mengembalikan statistik kecil."""
+                  raw_only: bool = False, hub=None,
+                  keep_local: bool = True, wav_sr: int | None = 16000,
+                  wav_mono: bool = True) -> dict:
+    """Unduh/potong satu video. Mengembalikan statistik kecil.
+
+    Kalau ``hub`` diberikan (HubSink), hasil langsung di-commit ke Hugging
+    Face dan file sementara dihapus setelah commit sukses.
+    """
     vid = cand.video_id
     stat = {"video": vid, "skipped": False, "new_clips": 0,
-            "reused_clips": 0, "failed": False, "error": ""}
+            "reused_clips": 0, "failed": False, "upload_failed": False,
+            "error": ""}
 
     expected = 1 if raw_only else clips_per_video
-    if _video_complete(rows, vid, expected):
+    if _video_complete(rows, vid, expected, hub is not None):
         stat["skipped"] = True
         return stat
 
@@ -193,30 +211,49 @@ def process_video(cand: Candidate, meta: Label, rows: dict[str, dict],
     existing = clips_of_video(rows, vid)
 
     if raw_only:
-        # satu berkas audio utuh per video, tanpa segmentasi
+        # satu berkas audio utuh (WAV) per video, tanpa segmentasi
         old = existing.get(0)
-        if old and _file_ok(old):
+        if old and _artifact_ok(old, hub is not None):
             stat["reused_clips"] = 1
             return stat
+
+        staging = (HUB_STAGING / vid) if (hub is not None and not keep_local) else None
         try:
-            src = youtube.download_source(vid, browser=browser, raw=True)
+            src = youtube.download_source(vid, browser=browser, raw=True,
+                                          to_dir=staging, wav_sr=wav_sr,
+                                          wav_mono=wav_mono)
         except youtube.YoutubeError as e:
             stat.update(failed=True, error=str(e))
             return stat
+
         if old and old.get("clip_id"):
             clip_id = old["clip_id"]
         else:
             seq = seq_state.get(cand.label, 1)
             seq_state[cand.label] = seq + 1
             clip_id = make_clip_id(cand.label, cand.kelas, cand.kurikulum, seq)
+
+        try:
+            sr, channels = youtube.audio_info(src)
+        except Exception:  # noqa: BLE001 - format tak terbaca
+            sr, channels = SAMPLE_RATE, 1
         row = _row(cand, meta, info, clip_id, 0, 0, duration,
                    status="ok", error="", filepath=src.as_posix(),
                    size=src.stat().st_size, sha=youtube.sha256_file(src))
         row["url"] = row["video_url"]          # utuh, bukan deep link ?t=
         row["clip_sec"] = round(float(duration or 0), 2)
-        row["sr"] = ""                          # sample rate asli (opus)
-        row["channels"] = ""
+        row["sr"] = sr
+        row["channels"] = channels
         rows[clip_id] = row
+
+        if hub is not None:
+            hub.enqueue(row, src)
+            try:
+                hub.flush(rows)
+            except HubError as e:
+                stat["upload_failed"] = True
+                stat["error"] = str(e)[:200]
+                return stat
         stat["new_clips"] = 1
         return stat
 
@@ -233,13 +270,16 @@ def process_video(cand: Candidate, meta: Label, rows: dict[str, dict],
         stat.update(failed=True, error=str(e))
         return stat
 
+    staging = (HUB_STAGING / vid / "clips") if (hub is not None and not keep_local) else None
+    produced: list[tuple[dict, Path]] = []
     for i, start in enumerate(windows):
         old = existing.get(i)
-        if old and _file_ok(old) and not verify_sha:
-            stat["reused_clips"] += 1
-            continue
-        if old and _file_ok(old) and verify_sha:
-            p = Path(old["filepath"])
+        if old and _artifact_ok(old, hub is not None):
+            fp = str(old.get("filepath") or "")
+            if not verify_sha or fp.startswith("hf://"):
+                stat["reused_clips"] += 1
+                continue
+            p = Path(fp)
             if not p.is_absolute():
                 from .config import ROOT
                 p = ROOT / p
@@ -254,7 +294,8 @@ def process_video(cand: Candidate, meta: Label, rows: dict[str, dict],
             seq_state[cand.label] = seq + 1
             clip_id = make_clip_id(cand.label, cand.kelas, cand.kurikulum, seq)
 
-        out = clip_path(cand.label, cand.kelas, cand.kurikulum, clip_id)
+        out = clip_path(cand.label, cand.kelas, cand.kurikulum, clip_id,
+                        base=staging)
         try:
             size, real_sec = youtube.cut(src, out, start, clip_sec)
         except youtube.YoutubeError as e:
@@ -269,10 +310,22 @@ def process_video(cand: Candidate, meta: Label, rows: dict[str, dict],
             status="ok", error="", filepath=out.as_posix(),
             size=size, sha=youtube.sha256_file(out),
         )
+        produced.append((rows[clip_id], out))
         stat["new_clips"] += 1
 
+    if hub is not None and produced:
+        for row, path in produced:
+            hub.enqueue(row, path)
+        try:
+            hub.flush(rows)
+        except HubError as e:
+            stat["upload_failed"] = True
+            stat["error"] = str(e)[:200]
+            return stat
+
     if not keep_source:
-        youtube.source_path(vid).unlink(missing_ok=True)
+        youtube.source_path(vid, "wav" if raw_only else "opus").unlink(
+            missing_ok=True)
 
     if stat["new_clips"] == 0 and stat["reused_clips"] < len(windows):
         stat.update(failed=True, error=stat["error"] or "tidak ada klip baru")
@@ -328,6 +381,8 @@ def _row(cand: Candidate, meta: Label, info: dict, clip_id: str, index: int,
         "reviewed": "",
         "yt_dlp_version": info.get("yt_dlp_version") or "",
         "downloaded_at": datetime.now().isoformat(timespec="seconds"),
+        "hub_repo": "", "hub_path": "", "hub_status": "",
+        "hub_bytes": "", "hub_commit": "", "hub_at": "",
     }
 
 
@@ -342,10 +397,14 @@ def run(plan: list[Candidate], labels: dict[str, Label], *,
         verify_sha: bool = False, sleep: tuple[float, float] = (4.0, 10.0),
         batch_size: int = 25, batch_pause: float = 90.0,
         cooldown: float = 300.0, max_consecutive_fails: int = 5,
-        progress=print, raw_only: bool = False) -> dict:
+        progress=print, raw_only: bool = False, hub=None,
+        keep_local: bool = True, wav_sr: int | None = 16000,
+        wav_mono: bool = True) -> dict:
     """Jalankan satu sesi. Aman dihentikan kapan saja (Ctrl+C)."""
     ensure_dirs()
     rows = load()
+    if hub is not None:
+        hub.reconcile(rows)
     failures = load_failures()
     # bersihkan catatan gagal untuk video yang ternyata sudah selesai
     done_now = {r["video_id"] for r in rows.values()
@@ -365,6 +424,7 @@ def run(plan: list[Candidate], labels: dict[str, Label], *,
     stats = Counter()
     stats["videos_planned"] = len(plan)
     consec = 0
+    upload_consec = 0
 
     for n, cand in enumerate(plan, 1):
         touch_lock()
@@ -381,7 +441,8 @@ def run(plan: list[Candidate], labels: dict[str, Label], *,
                 clips_per_video=clips_per_video, clip_sec=clip_sec,
                 browser=browser, only_cc=only_cc, keep_source=keep_source,
                 refresh_probe=refresh_probe, verify_sha=verify_sha,
-                raw_only=raw_only,
+                raw_only=raw_only, hub=hub, keep_local=keep_local,
+                wav_sr=wav_sr, wav_mono=wav_mono,
             )
         except KeyboardInterrupt:
             progress("\n[STOP] dihentikan manual; kemajuan disimpan.")
@@ -392,6 +453,18 @@ def run(plan: list[Candidate], labels: dict[str, Label], *,
                   "reused_clips": 0, "skipped": False}
 
         stats["videos_done"] += 1
+        if st.get("upload_failed"):
+            upload_consec += 1
+            save(rows)
+            progress(f"[{n}/{len(plan)}] [UPLOAD GAGAL] {cand.label:<20} "
+                     f"{cand.video_id}  {st['error'][:70]} — file sementara "
+                     f"disimpan untuk diulang")
+            if upload_consec >= 3:
+                progress("[STOP] 3 upload gagal beruntun — periksa token/"
+                         "jaringan/repo HF. Audio sementara tidak dihapus.")
+                break
+            continue
+        upload_consec = 0
         if st["failed"]:
             stats["videos_failed"] += 1
             record_failure(failures, cand.video_id, cand.label, "process",
@@ -431,9 +504,27 @@ def run(plan: list[Candidate], labels: dict[str, Label], *,
                 progress(f"      -- istirahat {pause:.0f} dtk --")
                 time.sleep(pause)
 
+    if hub is not None:
+        try:
+            hub.flush(rows, force=True)
+        except HubError as e:
+            progress(f"[hub] commit akhir gagal: {str(e)[:160]}")
     save(rows)
     save_failures(failures)
-    shutil.rmtree(TMP_DIR, ignore_errors=True)
+
+    # Bersihkan sisa yt-dlp. Folder hub/ hanya dihapus kalau kosong, supaya
+    # berkas yang gagal di-upload bisa dicoba lagi tanpa mengunduh ulang.
+    shutil.rmtree(TMP_DIR / "yt", ignore_errors=True)
+    if hub is not None and HUB_STAGING.exists():
+        for d in HUB_STAGING.iterdir():
+            if d.is_dir() and not any(p.is_file() for p in d.rglob("*")):
+                shutil.rmtree(d, ignore_errors=True)
+    elif hub is None:
+        shutil.rmtree(TMP_DIR, ignore_errors=True)
+
     keys = ("videos_planned", "videos_done", "videos_ok", "videos_skipped",
-            "videos_failed", "videos_failed_before", "clips_new", "clips_reused")
+            "videos_failed", "videos_failed_before", "clips_new",
+            "clips_reused", "hub_uploaded", "hub_upload_bytes", "hub_failed")
+    if hub is not None:
+        stats.update(hub.counters())
     return {k: int(stats.get(k, 0)) for k in keys}

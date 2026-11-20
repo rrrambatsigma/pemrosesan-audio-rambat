@@ -152,7 +152,7 @@ def test_raw_only_satu_berkas_per_video(tmp_path, monkeypatch):
     src_dir = tmp_path / "src"
     src_dir.mkdir()
 
-    def fake_download(vid, browser=None, quality="48", raw=False):
+    def fake_download(vid, browser=None, quality="48", raw=False, **kw):
         p = src_dir / f"{vid}.opus"
         p.write_bytes(b"x" * 4096)
         return p

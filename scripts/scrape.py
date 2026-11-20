@@ -21,6 +21,7 @@ import sys
 import time
 
 import _bootstrap  # noqa: F401
+from audio_pipeline import hub as hub_mod
 from audio_pipeline import scrape
 from audio_pipeline.config import (CLIPS_PER_VIDEO, CLIP_SEC, MAX_CHANNEL_FRAC,
                                    MIN_VIDEO_SEC, SRC_DIR, TARGET_PER_LABEL,
@@ -47,8 +48,12 @@ def main(argv=None) -> None:
     ap.add_argument("--target-per-label", type=int, default=TARGET_PER_LABEL)
     ap.add_argument("--clips-per-video", type=int, default=CLIPS_PER_VIDEO)
     ap.add_argument("--clip-seconds", type=float, default=CLIP_SEC)
+    ap.add_argument("--clips", action="store_true",
+                    help="mode klip 60 detik (default: raw utuh tanpa potong)")
     ap.add_argument("--raw-only", action="store_true",
-                    help="simpan audio utuh per video, tanpa segmentasi/klip")
+                    help="alias lama; raw sekarang default")
+    ap.add_argument("--wav-original", action="store_true",
+                    help="WAV kualitas asli (sample rate & kanal sumber)")
     ap.add_argument("--min-video-sec", type=float, default=MIN_VIDEO_SEC)
     ap.add_argument("--max-channel-frac", type=float, default=MAX_CHANNEL_FRAC)
     ap.add_argument("--max-per-run", type=int, default=0,
@@ -65,12 +70,27 @@ def main(argv=None) -> None:
     ap.add_argument("--only-cc", action="store_true",
                     help="hanya video berlisensi Creative Commons")
     ap.add_argument("--drop-source", action="store_true",
-                    help="hapus audio sumber setelah dipotong (hemat disk)")
+                    help="hapus audio sumber setelah dipotong (mode klip)")
     ap.add_argument("--refresh-search", action="store_true")
     ap.add_argument("--refresh-probe", action="store_true")
     ap.add_argument("--retry-failed", action="store_true")
     ap.add_argument("--verify-sha", action="store_true",
                     help="verifikasi sha256 file lama (lebih lambat)")
+
+    # --- Hugging Face (raw langsung ke HF) ---
+    ap.add_argument("--hub-repo", default=hub_mod.resolve_repo() or None,
+                    metavar="USER/REPO",
+                    help="repo dataset HF tujuan (default dari HF_DATASET_REPO)")
+    ap.add_argument("--hub-public", action="store_true",
+                    help="jadikan repo publik (default privat)")
+    ap.add_argument("--hub-flush", type=int, default=1, metavar="N",
+                    help="commit ke HF tiap N video (default 1 = tiap video)")
+    ap.add_argument("--keep-local", action="store_true",
+                    help="jangan hapus audio setelah commit (default: hapus)")
+    ap.add_argument("--no-hub", action="store_true",
+                    help="matikan upload; simpan audio di lokal seperti dulu")
+    ap.add_argument("--hub-verify", action="store_true",
+                    help="cek daftar berkas remote saat mulai (lebih lambat)")
 
     ap.add_argument("--sleep-min", type=float, default=4.0)
     ap.add_argument("--sleep-max", type=float, default=10.0)
@@ -85,6 +105,9 @@ def main(argv=None) -> None:
 
     if a.sleep_min > a.sleep_max:
         a.sleep_min, a.sleep_max = a.sleep_max, a.sleep_min
+    a.raw_only = not a.clips
+    wav_sr = None if a.wav_original else 16000
+    wav_mono = not a.wav_original
     if a.raw_only:
         a.clips_per_video = 1
     if a.clips_per_video < 1:
@@ -93,6 +116,20 @@ def main(argv=None) -> None:
         sys.exit("--clip-seconds minimal 10")
 
     ensure_dirs()
+    if not a.no_hub and not (a.hub_repo or "").strip():
+        auto = hub_mod.default_repo()
+        if auto:
+            a.hub_repo = auto
+            print(f"[hub] repo otomatis dari token: {auto}")
+        elif a.dry_run:
+            a.hub_repo = hub_mod.resolve_repo() or "<akun-hf>/<repo>"
+        else:
+            sys.exit(
+                "tidak bisa menentukan repo HF (jaringan/token).\n"
+                "  isi .env:  HF_DATASET_REPO=username/nama-repo\n"
+                "  atau:      --hub-repo username/nama-repo\n"
+                "  atau:      --no-hub (simpan audio di lokal)"
+            )
     try:
         labels = load_registry()
     except RegistryError as e:
@@ -146,9 +183,18 @@ def main(argv=None) -> None:
         return
 
     if a.raw_only:
-        print(f"\n[3/4] mode raw: {len(ordered)} berkas audio utuh "
-              f"(±{len(ordered) * 10 / 1000:.1f} GB opus) | "
-              f"unduhan ±{len(ordered) * 10 / 1000:.1f} GB")
+        est_sec = sum(float(c.duration or 0) for c in ordered) or len(ordered) * 1200
+        rate = (wav_sr or 44100) * (1 if wav_mono else 2) * 2
+        est_gb = est_sec * rate / 1e9
+        print(f"\n[3/4] mode raw: {len(ordered)} WAV utuh "
+              f"(±{est_sec / 3600:.1f} jam, ±{est_gb:.1f} GB WAV "
+              f"{wav_sr or 44100} Hz {'mono' if wav_mono else 'stereo'})")
+        if not a.no_hub and a.hub_repo:
+            print(f"      langsung ke HF: {a.hub_repo} "
+                  f"({'publik' if a.hub_public else 'privat'}), "
+                  f"lokal dihapus setelah commit")
+        else:
+            print("      [i] HF nonaktif — audio menetap di data/source/")
     else:
         est_clips = len(ordered) * a.clips_per_video
         print(f"\n[3/4] perkiraan: {est_clips} klip "
@@ -164,6 +210,26 @@ def main(argv=None) -> None:
         return
     if not a.yes and input("\nLanjut unduh? [y/N] ").strip().lower() != "y":
         return
+
+    sink = None
+    if not a.no_hub:
+        if (a.hub_repo or "").strip():
+            try:
+                sink = hub_mod.HubSink(
+                    a.hub_repo.strip(), private=not a.hub_public,
+                    batch=a.hub_flush, keep_local=a.keep_local,
+                    verify=a.hub_verify,
+                )
+                sink.ensure_repo()
+            except hub_mod.HubError as e:
+                sys.exit(f"[hub] {e}")
+        else:
+            sys.exit(
+                "repo HF belum diisi — audio tidak akan disimpan lokal.\n"
+                "  isi .env:  HF_DATASET_REPO=username/nama-repo\n"
+                "  atau:      --hub-repo username/nama-repo\n"
+                "  (pakai --no-hub kalau memang ingin menyimpan di lokal)"
+            )
 
     # 3) eksekusi
     started = time.time()
@@ -193,6 +259,10 @@ def main(argv=None) -> None:
             cooldown=a.cooldown,
             max_consecutive_fails=a.max_consecutive_fails,
             raw_only=a.raw_only,
+            hub=sink,
+            keep_local=a.keep_local,
+            wav_sr=wav_sr,
+            wav_mono=wav_mono,
         )
     finally:
         scrape.release_lock()
@@ -206,6 +276,11 @@ def main(argv=None) -> None:
     print(f"  video gagal    : {stats.get('videos_failed', 0)}")
     print(f"  klip baru      : {stats.get('clips_new', 0)}")
     print(f"  klip dipakai ulang: {stats.get('clips_reused', 0)}")
+    if sink is not None:
+        print(f"  terkirim ke HF : {stats.get('hub_uploaded', 0)} berkas "
+              f"({stats.get('hub_upload_bytes', 0) / 1e9:.2f} GB)")
+        print(f"  gagal upload   : {stats.get('hub_failed', 0)}")
+        print(f"  repo           : https://huggingface.co/datasets/{sink.repo_id}")
     print("\nJalankan lagi perintah yang sama untuk melanjutkan.")
     print("Audit link : python scripts/export_links.py")
 

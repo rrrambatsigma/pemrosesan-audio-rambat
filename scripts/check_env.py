@@ -59,7 +59,8 @@ def main() -> int:
         print("nvidia-smi tidak ada (tidak wajib untuk scraping)")
 
     section("Paket Python")
-    need = ["yt_dlp", "soundfile", "numpy", "librosa", "pyloudnorm"]
+    need = ["yt_dlp", "soundfile", "numpy", "librosa", "pyloudnorm",
+            "huggingface_hub"]
     optional = ["torch", "transformers", "pandas", "pytest"]
     for name in need + optional:
         try:
@@ -72,6 +73,30 @@ def main() -> int:
             print(f"{name:14}: TIDAK ADA ({flag})")
             if name in need:
                 ok = False
+
+    section("Hugging Face")
+    from audio_pipeline import hub as hub_mod
+
+    token = hub_mod.resolve_token()
+    repo = hub_mod.resolve_repo()
+    print(f"token  : {'ada' if token else 'TIDAK ADA (isi HF_API_KEY di .env)'}")
+    print(f"repo   : {repo or 'belum diisi (HF_DATASET_REPO)'}")
+    if token:
+        try:
+            from huggingface_hub import HfApi
+
+            api = HfApi(token=token)
+            me = api.whoami()
+            print(f"akun   : {me.get('name')}")
+            if repo:
+                try:
+                    api.repo_info(repo, repo_type="dataset")
+                    print("status : repo sudah ada")
+                except Exception:  # noqa: BLE001
+                    print("status : repo belum ada (dibuat otomatis saat scrape)")
+        except Exception as e:  # noqa: BLE001
+            print(f"token  : DITOLAK ({type(e).__name__}: {e})")
+            ok = False
 
     section("Status proyek")
     ensure_dirs()

@@ -9,6 +9,10 @@ yt-dlp>=2026.10.26      # pembaca metadata + unduh; update bila kena bot-check
 soundfile>=0.14.0       # WAV I/O
 numpy>=2.0
 
+# --- Hugging Face (audio langsung ke HF) ---
+huggingface_hub>=2.4    # commit dataset per video
+# hf_transfer           # opsional: upload lebih cepat (HF_HUB_ENABLE_HF_TRANSFER=1)
+
 # --- QC audio (scripts/qc.py) ---
 librosa>=0.11.0
 pyloudnorm>=0.1.1

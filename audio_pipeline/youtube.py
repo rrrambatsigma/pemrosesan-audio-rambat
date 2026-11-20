@@ -1,4 +1,4 @@
-"""Akses YouTube: probe metadata, unduh audio sumber, potong jendela klip.
+﻿"""Akses YouTube: probe metadata, unduh audio sumber, potong jendela klip.
 
 Prinsip:
 - satu video diunduh **sekali** (``data/source/<id>.opus``), lalu dipotong
@@ -47,6 +47,12 @@ def sha256_file(path: str | Path, block: int = 1 << 20) -> str:
 def audio_duration(path: str | Path) -> float:
     info = sf.info(str(path))
     return info.frames / info.samplerate if info.samplerate else 0.0
+
+
+def audio_info(path: str | Path) -> tuple[int, int]:
+    """(sample_rate, channels) dari berkas audio."""
+    info = sf.info(str(path))
+    return int(info.samplerate or 0), int(info.channels or 0)
 
 
 def _opts(browser: str | None, extra: dict | None = None) -> dict:
@@ -114,32 +120,70 @@ def probe(video_id: str, *, refresh: bool = False,
 # --------------------------------------------------------------------------- #
 # unduh audio sumber
 # --------------------------------------------------------------------------- #
-def source_path(video_id: str) -> Path:
-    return SOURCE_DIR / f"{video_id}.opus"
+def source_path(video_id: str, ext: str = "opus") -> Path:
+    return SOURCE_DIR / f"{video_id}.{ext}"
 
 
-def have_source(video_id: str, min_bytes: int = 20_000) -> bool:
-    p = source_path(video_id)
+def have_source(video_id: str, min_bytes: int = 20_000,
+                ext: str = "opus") -> bool:
+    p = source_path(video_id, ext)
     return p.exists() and p.stat().st_size >= min_bytes
 
 
-def download_source(video_id: str, *, browser: str | None = None,
-                    quality: str = "48", raw: bool = False) -> Path:
-    """Unduh audio penuh ke ``data/source/<id>.opus`` (atomik, idempoten).
+def _has_audio(path: Path, min_bytes: int = 20_000) -> bool:
+    return path.exists() and path.stat().st_size >= min_bytes
 
-    ``raw=True`` menyimpan audio utuh pada sample rate aslinya (tanpa
-    downmix/downsample) untuk dataset yang tidak butuh segmentasi.
+
+def to_wav(src: Path, dst: Path, *, sr: int | None = 16000,
+            mono: bool = True) -> None:
+    """Konversi cadangan kalau postprocessor tidak menghasilkan WAV."""
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    cmd = [shutil.which("ffmpeg") or "ffmpeg", "-hide_banner", "-loglevel",
+           "error", "-nostdin", "-i", str(src), "-vn"]
+    if sr:
+        cmd += ["-ar", str(int(sr))]
+    if mono:
+        cmd += ["-ac", "1"]
+    cmd += ["-c:a", "pcm_s16le", "-f", "wav", "-y", str(dst)]
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode != 0 or not _has_audio(dst, 1000):
+        dst.unlink(missing_ok=True)
+        raise YoutubeError(f"ffmpeg konversi WAV gagal: {(r.stderr or '')[:180]}")
+
+
+def download_source(video_id: str, *, browser: str | None = None,
+                    quality: str = "48", raw: bool = False,
+                    to_dir: str | Path | None = None,
+                    wav_sr: int | None = 16000,
+                    wav_mono: bool = True) -> Path:
+    """Unduh audio penuh sekali, atomik, idempoten.
+
+    ``raw=True`` menghasilkan **WAV utuh** (default 16 kHz mono PCM16) â€”
+    dipakai mode raw yang langsung dikirim ke Hugging Face.
+    ``to_dir`` mengarahkan hasil ke folder transit (mis. ``data/_tmp/hub``).
     """
-    final = source_path(video_id)
-    if have_source(video_id):
+    ext = "wav" if raw else "opus"
+    base = Path(to_dir) if to_dir else SOURCE_DIR
+    final = base / f"{video_id}.{ext}"
+    if _has_audio(final):
         return final
     if not shutil.which("ffmpeg"):
         raise YoutubeError("ffmpeg tidak ada di PATH")
 
-    SOURCE_DIR.mkdir(parents=True, exist_ok=True)
-    tmp = TMP_DIR / video_id
+    base.mkdir(parents=True, exist_ok=True)
+    tmp = TMP_DIR / "yt" / f"{video_id}_{ext}"
     shutil.rmtree(tmp, ignore_errors=True)
     tmp.mkdir(parents=True)
+
+    if raw:
+        codec, args = "wav", []
+        if wav_sr:
+            args += ["-ar", str(int(wav_sr))]
+        if wav_mono:
+            args += ["-ac", "1"]
+    else:
+        codec, args = "opus", ["-ar", "16000", "-ac", "1"]
+
     opts = _opts(browser, {
         "skip_download": False,
         "format": "bestaudio/best",
@@ -147,24 +191,33 @@ def download_source(video_id: str, *, browser: str | None = None,
         "retries": 3,
         "postprocessors": [{
             "key": "FFmpegExtractAudio",
-            "preferredcodec": "opus",
-            "preferredquality": "64" if raw else quality,
+            "preferredcodec": codec,
+            "preferredquality": None if raw else quality,
         }],
     })
-    if not raw:
-        opts["postprocessor_args"] = {"extractaudio": ["-ar", "16000", "-ac", "1"]}
+    if args:
+        opts["postprocessor_args"] = {"extractaudio": args}
     try:
         with YoutubeDL(opts) as ydl:
             ydl.extract_info(f"https://www.youtube.com/watch?v={video_id}",
                              download=True)
-        made = sorted(tmp.glob("*.opus"))
-        if not made:
-            raise YoutubeError("postprocessor tidak menghasilkan .opus")
+        made = sorted(tmp.glob(f"*.{ext}"))
+        if not made:                       # cadangan: konversi manual
+            others = [p for p in tmp.iterdir()
+                      if p.is_file() and not p.name.endswith((".part", ".ytdl"))]
+            if not others:
+                raise YoutubeError("yt-dlp tidak menghasilkan berkas audio")
+            made = [max(others, key=lambda p: p.stat().st_size)]
+            if raw:
+                to_wav(made[0], tmp / f"{video_id}.wav",
+                        sr=wav_sr, mono=wav_mono)
+                made = [tmp / f"{video_id}.wav"]
         final.parent.mkdir(parents=True, exist_ok=True)
         shutil.move(str(made[0]), str(final))
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
-    if not have_source(video_id):
+
+    if not _has_audio(final):
         raise YoutubeError("file hasil unduhan terlalu kecil / kosong")
     return final
 

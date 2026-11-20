@@ -183,11 +183,16 @@ def write_coverage(rows: dict[str, dict], labels: dict[str, Label],
 
 def verify_local(rows: dict[str, dict], deep: bool = False) -> dict:
     """Cek integritas file lokal terhadap manifest (tanpa jaringan)."""
-    res = {"total": 0, "ok": 0, "missing": [], "size_mismatch": [],
-           "sha_mismatch": []}
+    res = {"total": 0, "ok": 0, "remote": 0, "missing": [],
+           "size_mismatch": [], "sha_mismatch": []}
     for r in _ok(rows):
         res["total"] += 1
-        p = ROOT / (r.get("filepath") or "_")
+        fp = str(r.get("filepath") or "")
+        if fp.startswith("hf://"):
+            res["remote"] += 1          # sudah pindah ke Hugging Face
+            res["ok"] += 1
+            continue
+        p = ROOT / fp
         if not p.exists():
             res["missing"].append(r.get("clip_id"))
             continue

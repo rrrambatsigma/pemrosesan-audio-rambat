@@ -1,1 +1,30 @@
 ﻿video_id,label,stage,error,attempts,last_at
+-KuiEjEJP90,antropologi,process,probe: DownloadError: ERROR: [youtube] -KuiEjEJP90: This video is not available,1,2026-11-20T10:31:11
+286GtSFxsXs,bahasa_inggris,process,"probe: DownloadError: ERROR: [youtube] 286GtSFxsXs: Unable to download API page: HTTPSConnection(host='www.youtube.com', port=443): Failed to resolve 'www.youtube.com' ([Errno 11001] getaddrinfo failed) (caused by Transp",1,2026-11-20T13:25:14
+AGb8T8VFBVw,biologi,process,probe: DownloadError: ERROR: [youtube] AGb8T8VFBVw: This video is not available,1,2026-11-20T14:42:33
+ATtiS0m4dnk,antropologi,process,"probe: DownloadError: ERROR: [youtube] ATtiS0m4dnk: Unable to download API page: HTTPSConnection(host='www.youtube.com', port=443): Failed to resolve 'www.youtube.com' ([Errno 11001] getaddrinfo failed) (caused by Transp",1,2026-11-20T10:47:50
+Dxc8xmBscBA,bahasa_inggris,process,probe: DownloadError: ERROR: [youtube] Dxc8xmBscBA: This video is not available,1,2026-11-20T13:16:46
+JYqGqrIJvto,bahasa_jawa,process,probe: DownloadError: ERROR: [youtube] JYqGqrIJvto: This video is not available,1,2026-11-20T14:22:03
+JgK4NKigPek,bahasa_jawa,process,probe: DownloadError: ERROR: [youtube] JgK4NKigPek: This video is not available,1,2026-11-20T14:20:45
+Js1vP5BtySI,bahasa_indonesia,process,probe: DownloadError: ERROR: [youtube] Js1vP5BtySI: This video is not available,1,2026-11-20T11:13:08
+PFe70OOzJBA,bahasa_jawa,process,probe: DownloadError: ERROR: [youtube] PFe70OOzJBA: This video is not available,1,2026-11-20T14:26:05
+PN7avIGGgWw,antropologi,process,probe: DownloadError: ERROR: [youtube] PN7avIGGgWw: This video is not available,1,2026-11-20T10:46:59
+Pkd7AvAPiO4,bahasa_inggris_lanjut,process,probe: DownloadError: ERROR: [youtube] Pkd7AvAPiO4: This video is not available,1,2026-11-20T14:00:03
+QRaJ8tqHlNs,bahasa_jawa,process,probe: DownloadError: ERROR: [youtube] QRaJ8tqHlNs: This video is not available,1,2026-11-20T14:23:26
+SR0-x6E9lv0,bahasa_jawa,process,probe: DownloadError: ERROR: [youtube] SR0-x6E9lv0: This video is not available,1,2026-11-20T14:06:34
+__X4tEnv57Q,bahasa_jawa,process,probe: DownloadError: ERROR: [youtube] __X4tEnv57Q: This video is not available,1,2026-11-20T14:17:58
+_gJoXFwjeMA,bahasa_indonesia,process,DownloadError: ERROR: unable to download video data: HTTP Error 403: Forbidden,1,2026-11-20T10:51:17
+ak4iRMHvIG4,bahasa_inggris,process,"probe: DownloadError: ERROR: [youtube] ak4iRMHvIG4: Unable to download API page: HTTPSConnection(host='www.youtube.com', port=443): Failed to resolve 'www.youtube.com' ([Errno 11001] getaddrinfo failed) (caused by Transp",1,2026-11-20T13:24:23
+hbiwS_aKarY,bahasa_jawa,process,probe: DownloadError: ERROR: [youtube] hbiwS_aKarY: This video is not available,1,2026-11-20T14:10:55
+hym5YG4v6Bg,biologi,process,DownloadError: ERROR: unable to download video data: HTTP Error 403: Forbidden,1,2026-11-20T14:37:15
+iWzdN0FDlck,bahasa_inggris,process,DownloadError: ERROR: unable to download video data: HTTP Error 403: Forbidden,1,2026-11-20T11:37:13
+jZfU61gE8T8,bahasa_jawa,process,terlalu pendek (479 s),1,2026-11-20T14:11:48
+lRDkk903Mm8,bahasa_indonesia,process,DownloadError: ERROR: unable to download video data: HTTP Error 403: Forbidden,1,2026-11-20T11:17:43
+mhv2eVxz-Qg,antropologi,process,probe: DownloadError: ERROR: [youtube] mhv2eVxz-Qg: This video is not available,1,2026-11-20T10:29:54
+neJ-leExPbc,antropologi,process,probe: DownloadError: ERROR: [youtube] neJ-leExPbc: This video is not available,1,2026-11-20T10:40:24
+q52WbOmAeTc,antropologi,process,probe: DownloadError: ERROR: [youtube] q52WbOmAeTc: This video is not available,1,2026-11-20T10:40:56
+qlvl850yY7M,bahasa_jawa,process,DownloadError: ERROR: [youtube] qlvl850yY7M: Requested format is not available. Use --list-formats for a list of available formats,1,2026-11-20T14:07:42
+sgzQR7Vhv80,biologi,process,DownloadError: ERROR: unable to download video data: HTTP Error 403: Forbidden,1,2026-11-20T14:52:41
+wVbwIamvxT8,antropologi,process,probe: DownloadError: ERROR: [youtube] wVbwIamvxT8: This video is not available,1,2026-11-20T10:44:06
+z_PKNT_n69U,bahasa_inggris,process,DownloadError: ERROR: unable to download video data: HTTP Error 403: Forbidden,1,2026-11-20T13:30:31
+zqcoaBBZavA,antropologi,process,DownloadError: ERROR: unable to download video data: HTTP Error 403: Forbidden,1,2026-11-20T10:23:27
