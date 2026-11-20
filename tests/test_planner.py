@@ -1,4 +1,5 @@
-from audio_pipeline.planner import cells_for, kelas_from_title
+from audio_pipeline.planner import (build_plan, cells_for, kelas_from_title,
+                                    remaining_targets)
 from audio_pipeline.registry import Label
 from audio_pipeline.search import Candidate
 from audio_pipeline.planner import select_label
@@ -55,3 +56,26 @@ def test_batas_channel_tetap_dihormati():
     cands = [_c(f"vid{i:08d}", 10, "Fisika SMA", ch="UC1") for i in range(60)]
     plan = select_label(cands, target=20, max_channel_frac=0.20)
     assert len(plan) <= max(3, math.ceil(20 * 0.20))
+
+
+LABELS = {"fisika": Label(9, "fisika", "eksakta_teknologi", "IPA", "id",
+                          ("fisika",))}
+
+
+def test_sisa_kuota_dikurangi_video_selesai():
+    assert remaining_targets(LABELS, {"fisika": 98}, 100) == {"fisika": 2}
+    assert remaining_targets(LABELS, {"fisika": 130}, 100) == {"fisika": 0}
+
+
+def test_build_plan_hanya_merencanakan_sisa_target():
+    cands = [_c(f"vid{i:08d}", 10, "Fisika SMA", ch=f"UC{i % 15}")
+             for i in range(200)]
+    plan = build_plan(cands, LABELS, 100, done_per_label={"fisika": 98})
+    assert len(plan["fisika"]) == 2
+
+
+def test_build_plan_kosong_saat_target_terpenuhi():
+    cands = [_c(f"vid{i:08d}", 10, "Fisika SMA", ch=f"UC{i % 15}")
+             for i in range(200)]
+    plan = build_plan(cands, LABELS, 100, done_per_label={"fisika": 130})
+    assert plan["fisika"] == []

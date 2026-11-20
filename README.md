@@ -2,9 +2,10 @@
 
 Pipeline akuisisi: YouTube → audio sumber → klip 60 detik → manifest → jejak audit `links_yt.txt`.
 
-Target: **2.100 video rencana** (100 x 21 label) → ±2.000 hasil bersih setelah
-sebagian video gagal. Tiap video menghasilkan 1 klip inti + 3 klip bonus,
-tersebar di kelas 10–12 dan kurikulum K13 / Kurikulum Merdeka / KTSP 2006.
+Target: **1.512 video rencana** (72 x 21 label) ≈ 1.500 video. Dua mode:
+
+- **raw** (`--raw-only`): satu berkas audio utuh per video, tanpa segmentasi
+- **klip** (default): 1 klip inti + 3 klip bonus per video, 60 detik
 
 ## Environment
 
@@ -49,8 +50,10 @@ $py = "C:\Users\Asus\miniconda3\envs\audio-ds\python.exe"
 & $py scripts/verify_sources.py                # isi & bab tiap file
 & $py scripts/sources_audit.py                 # kandidat cukup per label?
 & $py scripts/scrape.py --only fisika --limit-videos 1 --yes   # uji 1 video
-& $py scripts/scrape.py --all --max-per-run 180 --yes          # sesi harian
+& $py scripts/scrape.py --all --max-per-run 1512 --yes          # sesi harian
+& $py scripts/scrape.py --all --raw-only --max-per-run 1512 --yes  # audio utuh
 & $py scripts/qc.py --stages basic --workers 4
+& $py scripts/qc.py --raw --scan-dir data\source --stages basic --workers 4
 & $py scripts/export_links.py --check
 ```
 

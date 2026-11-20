@@ -139,3 +139,44 @@ def test_catatan_gagal_lama_dibersihkan(tmp_path, monkeypatch):
 
     scrape.run([CAND], LABELS, **kwargs)
     assert manifest.load_failures() == {}
+
+
+def test_raw_only_satu_berkas_per_video(tmp_path, monkeypatch):
+    """Mode raw: satu file audio utuh per video, ffmpeg cut tidak dipanggil."""
+    _setup(tmp_path, monkeypatch)
+    monkeypatch.setattr(youtube, "probe", lambda vid, refresh=False, browser=None: {
+        "video_id": vid, "title": "T", "channel": "C", "channel_id": "UC1",
+        "channel_url": "", "license": "", "duration": 1200,
+        "yt_dlp_version": "test"})
+
+    src_dir = tmp_path / "src"
+    src_dir.mkdir()
+
+    def fake_download(vid, browser=None, quality="48", raw=False):
+        p = src_dir / f"{vid}.opus"
+        p.write_bytes(b"x" * 4096)
+        return p
+
+    monkeypatch.setattr(youtube, "download_source", fake_download)
+    monkeypatch.setattr(youtube, "sha256_file", lambda p: "d" * 64)
+    cut_calls: list = []
+    monkeypatch.setattr(youtube, "cut", lambda *a, **k: cut_calls.append(1))
+
+    kwargs = dict(raw_only=True, sleep=(0, 0), batch_size=0,
+                  progress=lambda *a, **k: None)
+    st = scrape.run([CAND], LABELS, **kwargs)
+    assert st["videos_ok"] == 1
+    assert st["videos_failed"] == 0
+    assert cut_calls == []
+
+    rows = manifest.load()
+    assert len(rows) == 1
+    row = next(iter(rows.values()))
+    assert row["filepath"].endswith(".opus")
+    assert float(row["clip_sec"]) == 1200.0
+    assert row["clip_start_sec"] == "0"
+    assert row["url"] == row["video_url"]
+
+    st2 = scrape.run([CAND], LABELS, **kwargs)
+    assert st2["videos_skipped"] == 1
+    assert len(manifest.load()) == 1

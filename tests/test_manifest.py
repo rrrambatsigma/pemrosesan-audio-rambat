@@ -66,9 +66,25 @@ def test_clip_id_format():
 
 
 def test_done_videos(tmp_path, monkeypatch):
-    rows = {"fisika-k10-k13-0001": _row()}
+    # path di tmp (bukan path dataset asli) supaya uji tidak bergantung isi repo
+    rows = {"fisika-k10-k13-0001": _row(filepath=str(tmp_path / "belum-ada.wav"))}
     assert manifest.done_videos(rows) == set()  # file tidak ada
     p = tmp_path / "x.wav"
     p.write_bytes(b"0" * 10)
     rows["fisika-k10-k13-0001"]["filepath"] = str(p)
     assert manifest.done_videos(rows) == {"abcdefghijk"}
+
+
+def test_done_videos_per_label_menghitung_video_unik(tmp_path):
+    p1 = tmp_path / "a.wav"
+    p2 = tmp_path / "b.wav"
+    p1.write_bytes(b"0")
+    p2.write_bytes(b"0")
+    rows = {
+        # dua klip dari video yang sama -> tetap dihitung satu
+        "fisika-k10-k13-0001": _row(filepath=str(p1)),
+        "fisika-k10-k13-0002": _row("fisika-k10-k13-0002", filepath=str(p2)),
+        "kimia-k10-k13-0001": _row("kimia-k10-k13-0001", label="kimia",
+                                   video_id="zzzzzzzzzzz", filepath=str(p1)),
+    }
+    assert manifest.done_videos_per_label(rows) == {"fisika": 1, "kimia": 1}

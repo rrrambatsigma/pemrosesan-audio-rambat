@@ -55,7 +55,7 @@ MAX_VIDEO_SEC = 4 * 3600
 # --------------------------------------------------------------------------- #
 # Target dataset
 # --------------------------------------------------------------------------- #
-TARGET_PER_LABEL = 100     # 100 x 21 = 2.100 video rencana -> ~2.000 hasil bersih
+TARGET_PER_LABEL = 72      # 72 x 21 = 1.512 video (target ~1.500)
 MAX_CHANNEL_FRAC = 0.20    # maksimum 20% video satu label dari satu channel
 MIN_CHANNELS_PER_LABEL = 12
 KELAS = (10, 11, 12)
@@ -65,7 +65,7 @@ KURIKULUM = ("k13", "kurmerdeka", "ktsp2006")
 KUR_WEIGHT = {"k13": 0.42, "kurmerdeka": 0.42, "ktsp2006": 0.16}
 
 CACHE_TTL_H = 24
-LOCK_STALE_H = 12
+LOCK_STALE_H = 2           # heartbeat tiap video; lock mati cepat kedaluwarsa
 
 BLOCK_HINTS = ("429", "too many requests", "sign in to confirm",
                "confirm you're not a bot", "http error 403")

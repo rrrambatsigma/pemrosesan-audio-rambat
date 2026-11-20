@@ -25,8 +25,10 @@ from audio_pipeline import scrape
 from audio_pipeline.config import (CLIPS_PER_VIDEO, CLIP_SEC, MAX_CHANNEL_FRAC,
                                    MIN_VIDEO_SEC, SRC_DIR, TARGET_PER_LABEL,
                                    ensure_dirs, setup_console)
-from audio_pipeline.manifest import load, load_failures
-from audio_pipeline.planner import build_plan, describe, flatten
+from audio_pipeline.manifest import (done_videos, done_videos_per_label, load,
+                                     load_failures)
+from audio_pipeline.planner import (build_plan, describe, flatten,
+                                    remaining_targets)
 from audio_pipeline.registry import RegistryError, load as load_registry
 from audio_pipeline.search import expand_items
 from audio_pipeline.sources import parse_file
@@ -45,6 +47,8 @@ def main(argv=None) -> None:
     ap.add_argument("--target-per-label", type=int, default=TARGET_PER_LABEL)
     ap.add_argument("--clips-per-video", type=int, default=CLIPS_PER_VIDEO)
     ap.add_argument("--clip-seconds", type=float, default=CLIP_SEC)
+    ap.add_argument("--raw-only", action="store_true",
+                    help="simpan audio utuh per video, tanpa segmentasi/klip")
     ap.add_argument("--min-video-sec", type=float, default=MIN_VIDEO_SEC)
     ap.add_argument("--max-channel-frac", type=float, default=MAX_CHANNEL_FRAC)
     ap.add_argument("--max-per-run", type=int, default=0,
@@ -81,6 +85,8 @@ def main(argv=None) -> None:
 
     if a.sleep_min > a.sleep_max:
         a.sleep_min, a.sleep_max = a.sleep_max, a.sleep_min
+    if a.raw_only:
+        a.clips_per_video = 1
     if a.clips_per_video < 1:
         sys.exit("--clips-per-video minimal 1")
     if a.clip_seconds < 10:
@@ -115,7 +121,8 @@ def main(argv=None) -> None:
 
     # 2) rencana, membuang yang sudah selesai / gagal
     rows = load()
-    done = {r.get("video_id") for r in rows.values() if r.get("status") == "ok"}
+    done = done_videos(rows)
+    done_per_label = done_videos_per_label(rows)
     failures = load_failures()
     blocked = set() if a.retry_failed else set(failures)
     exclude = done | blocked
@@ -123,23 +130,31 @@ def main(argv=None) -> None:
     plan = build_plan(cands, labels, a.target_per_label, only=only,
                       exclude_videos=exclude,
                       max_channel_frac=a.max_channel_frac,
-                      min_sec=a.min_video_sec)
+                      min_sec=a.min_video_sec,
+                      done_per_label=done_per_label)
+    targets = remaining_targets(labels, done_per_label,
+                                a.target_per_label, only)
     ordered = flatten(plan)
     if a.limit_videos:
         ordered = ordered[: a.limit_videos]
 
     print(f"[2/4] selesai sekarang: {len(done)} video | gagal: {len(failures)} "
           f"| rencana baru: {len(ordered)} video")
-    print(describe({k: v for k, v in plan.items()}, labels))
+    print(describe(plan, labels, targets))
     if not ordered:
         print("\n[ok] tidak ada yang perlu diunduh (idempoten).")
         return
 
-    est_clips = len(ordered) * a.clips_per_video
-    print(f"\n[3/4] perkiraan: {est_clips} klip "
-          f"({est_clips * a.clip_seconds / 3600:.1f} jam, "
-          f"{est_clips * a.clip_seconds * 32000 / 1e9:.1f} GB WAV) | "
-          f"unduhan ±{len(ordered) * 8 / 1000:.1f} GB")
+    if a.raw_only:
+        print(f"\n[3/4] mode raw: {len(ordered)} berkas audio utuh "
+              f"(±{len(ordered) * 10 / 1000:.1f} GB opus) | "
+              f"unduhan ±{len(ordered) * 10 / 1000:.1f} GB")
+    else:
+        est_clips = len(ordered) * a.clips_per_video
+        print(f"\n[3/4] perkiraan: {est_clips} klip "
+              f"({est_clips * a.clip_seconds / 3600:.1f} jam, "
+              f"{est_clips * a.clip_seconds * 32000 / 1e9:.1f} GB WAV) | "
+              f"unduhan ±{len(ordered) * 8 / 1000:.1f} GB")
     if a.dry_run:
         print("\n[dry-run] 10 video pertama:")
         for c in ordered[:10]:
@@ -158,8 +173,9 @@ def main(argv=None) -> None:
         sys.exit(str(e))
 
     try:
-        print(f"\n[4/4] mulai: {len(ordered)} video "
-              f"({a.clips_per_video} klip x {a.clip_seconds:.0f} dtk)")
+        mode = "1 berkas utuh/video" if a.raw_only else (
+            f"{a.clips_per_video} klip x {a.clip_seconds:.0f} dtk")
+        print(f"\n[4/4] mulai: {len(ordered)} video ({mode})")
         stats = scrape.run(
             ordered, labels,
             clips_per_video=a.clips_per_video,
@@ -176,6 +192,7 @@ def main(argv=None) -> None:
             batch_pause=a.batch_pause,
             cooldown=a.cooldown,
             max_consecutive_fails=a.max_consecutive_fails,
+            raw_only=a.raw_only,
         )
     finally:
         scrape.release_lock()

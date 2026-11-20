@@ -17,7 +17,8 @@ import math
 import re
 from collections import Counter, defaultdict
 
-from .config import KUR_WEIGHT, MAX_CHANNEL_FRAC, MIN_VIDEO_SEC, KELAS, KURIKULUM
+from .config import (KUR_WEIGHT, MAX_CHANNEL_FRAC, MIN_VIDEO_SEC,
+                     TARGET_PER_LABEL, KELAS, KURIKULUM)
 from .registry import Label
 from .search import Candidate
 
@@ -140,13 +141,36 @@ def select_label(cands: list[Candidate], target: int,
     return chosen
 
 
+def remaining_targets(labels: dict[str, Label],
+                      done_per_label: dict[str, int] | None = None,
+                      target_per_label: int = TARGET_PER_LABEL,
+                      only: list[str] | None = None) -> dict[str, int]:
+    """Sisa kuota tiap label: target dikurangi video yang sudah selesai.
+
+    Inilah yang membuat rencana konvergen ke nol. Tanpa ini, setiap run
+    mengejar 100 video *baru* per label selamanya.
+    """
+    done = done_per_label or {}
+    slugs = sorted((s for s in labels if not only or s in only),
+                   key=lambda s: labels[s].no)
+    return {slug: max(0, target_per_label - int(done.get(slug, 0) or 0))
+            for slug in slugs}
+
+
 def build_plan(cands: list[Candidate], labels: dict[str, Label],
                target_per_label: int,
                only: list[str] | None = None,
                exclude_videos: set[str] | None = None,
                max_channel_frac: float = MAX_CHANNEL_FRAC,
-               min_sec: float = MIN_VIDEO_SEC) -> dict[str, list[Candidate]]:
-    """Rencana per label, sudah membuang video yang selesai/gagal."""
+               min_sec: float = MIN_VIDEO_SEC,
+               done_per_label: dict[str, int] | None = None
+               ) -> dict[str, list[Candidate]]:
+    """Rencana per label, sudah membuang video yang selesai/gagal.
+
+    Kuota yang dipakai adalah **sisa** target (lihat ``remaining_targets``),
+    bukan target penuh, sehingga menjalankan ulang setelah target terpenuhi
+    menghasilkan rencana kosong.
+    """
     exclude = exclude_videos or set()
     by_label: dict[str, list[Candidate]] = defaultdict(list)
     for c in cands:
@@ -154,13 +178,10 @@ def build_plan(cands: list[Candidate], labels: dict[str, Label],
             continue
         by_label[c.label].append(c)
 
-    slugs = sorted(
-        (s for s in labels if not only or s in only),
-        key=lambda s: labels[s].no,
-    )
+    targets = remaining_targets(labels, done_per_label, target_per_label, only)
     plan: dict[str, list[Candidate]] = {}
-    for slug in slugs:
-        plan[slug] = select_label(by_label.get(slug, []), target_per_label,
+    for slug, want in targets.items():
+        plan[slug] = select_label(by_label.get(slug, []), want,
                                   max_channel_frac, min_sec)
     return plan
 
@@ -178,14 +199,14 @@ def flatten(plan: dict[str, list[Candidate]]) -> list[Candidate]:
 
 
 def describe(plan: dict[str, list[Candidate]], labels: dict[str, Label],
-             target: int | None = None) -> str:
-    """Ringkasan teks: target vs kandidat vs channel per label."""
-    from .config import TARGET_PER_LABEL
-    target = target or TARGET_PER_LABEL
+             targets: dict[str, int] | None = None) -> str:
+    """Ringkasan teks: sisa target vs kandidat vs channel per label."""
+    targets = targets or {}
     lines = [f"{'label':<24}{'rencana':>8}{'channel':>9}{'k13':>6}"
              f"{'km':>6}{'ktsp':>6}   catatan"]
     for slug in sorted(plan, key=lambda s: labels[s].no):
         items = plan[slug]
+        target = int(targets.get(slug, TARGET_PER_LABEL))
         kur = Counter(c.kurikulum for c in items)
         ch = len({c.channel_id or c.channel for c in items})
         note = ""

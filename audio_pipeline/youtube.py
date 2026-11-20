@@ -124,8 +124,12 @@ def have_source(video_id: str, min_bytes: int = 20_000) -> bool:
 
 
 def download_source(video_id: str, *, browser: str | None = None,
-                    quality: str = "48") -> Path:
-    """Unduh audio penuh ke ``data/source/<id>.opus`` (atomik, idempoten)."""
+                    quality: str = "48", raw: bool = False) -> Path:
+    """Unduh audio penuh ke ``data/source/<id>.opus`` (atomik, idempoten).
+
+    ``raw=True`` menyimpan audio utuh pada sample rate aslinya (tanpa
+    downmix/downsample) untuk dataset yang tidak butuh segmentasi.
+    """
     final = source_path(video_id)
     if have_source(video_id):
         return final
@@ -144,10 +148,11 @@ def download_source(video_id: str, *, browser: str | None = None,
         "postprocessors": [{
             "key": "FFmpegExtractAudio",
             "preferredcodec": "opus",
-            "preferredquality": quality,
+            "preferredquality": "64" if raw else quality,
         }],
-        "postprocessor_args": {"extractaudio": ["-ar", "16000", "-ac", "1"]},
     })
+    if not raw:
+        opts["postprocessor_args"] = {"extractaudio": ["-ar", "16000", "-ac", "1"]}
     try:
         with YoutubeDL(opts) as ydl:
             ydl.extract_info(f"https://www.youtube.com/watch?v={video_id}",

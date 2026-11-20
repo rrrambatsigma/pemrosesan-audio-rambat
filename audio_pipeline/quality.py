@@ -632,10 +632,10 @@ def warn_flags(row: dict, th: dict | None = None) -> list[str]:
     f: list[str] = []
 
     sr = _num(row.get("sr"))
-    if sr is not None and sr != w["sr_expected"]:
+    if w.get("sr_expected") and sr is not None and sr != w["sr_expected"]:
         f.append("sr_bukan_16k")
     ch = _num(row.get("channels"))
-    if ch is not None and ch != w["channels_expected"]:
+    if w.get("channels_expected") and ch is not None and ch != w["channels_expected"]:
         f.append("bukan_mono")
     snr = _num(row.get("snr_db"))
     if snr is not None and snr < w["snr_min_db"]:

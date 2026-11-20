@@ -40,22 +40,84 @@ class LockBusy(RuntimeError):
 # --------------------------------------------------------------------------- #
 # lock (satu penulis)
 # --------------------------------------------------------------------------- #
+PID_STILL_ACTIVE = 259  # GetExitCodeProcess: proses belum selesai
+
+
+def _pid_alive(pid: int) -> bool:
+    """True kalau PID masih hidup (tanpa dependensi tambahan)."""
+    if pid <= 0:
+        return False
+    if os.name == "nt":
+        import ctypes
+        from ctypes import wintypes
+
+        k32 = ctypes.windll.kernel32
+        handle = k32.OpenProcess(0x1000, False, pid)  # QUERY_LIMITED_INFORMATION
+        if not handle:
+            return False
+        try:
+            code = wintypes.DWORD()
+            if not k32.GetExitCodeProcess(handle, ctypes.byref(code)):
+                return False
+            return code.value == PID_STILL_ACTIVE
+        finally:
+            k32.CloseHandle(handle)
+    try:
+        os.kill(pid, 0)
+    except ProcessLookupError:
+        return False
+    except PermissionError:
+        return True
+    return True
+
+
+def _lock_pid(path: Path) -> int:
+    try:
+        return int(path.read_text(encoding="utf-8").split()[0])
+    except (OSError, ValueError, IndexError):
+        return 0
+
+
 def acquire_lock(path: Path = LOCK_FILE, stale_hours: float = LOCK_STALE_H) -> None:
     ensure_dirs()
     if path.exists():
         age_h = (time.time() - path.stat().st_mtime) / 3600
-        if age_h < stale_hours:
+        pid = _lock_pid(path)
+        if pid == 0 and age_h * 3600 < 60:
             raise LockBusy(
-                f"{path.name} masih ada (umur {age_h:.1f} jam) — proses lain "
-                f"mungkin berjalan. Hapus manual kalau yakin tidak ada."
+                f"{path.name} baru dibuat (isi belum lengkap) — coba lagi sebentar."
             )
-        print(f"[i] lock basi ({age_h:.1f} jam) diambil alih")
+        alive = _pid_alive(pid)
+        if alive and age_h < stale_hours:
+            raise LockBusy(
+                f"{path.name} masih dipegang PID {pid} (umur {age_h:.1f} jam) — "
+                f"proses lain masih berjalan. Tunggu atau hentikan proses itu."
+            )
+        why = (f"PID {pid} sudah tidak aktif" if pid and not alive
+               else f"umur {age_h:.1f} jam")
+        try:
+            path.unlink()
+        except FileNotFoundError:
+            pass
+        except OSError as e:
+            raise LockBusy(f"tidak bisa mengambil alih {path.name}: {e}") from e
+        print(f"[i] lock basi ({why}) diambil alih")
     fd = os.open(path, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
     try:
         os.write(fd, f"{os.getpid()} {datetime.now().isoformat(timespec='seconds')}"
                  .encode())
     finally:
         os.close(fd)
+
+
+def touch_lock(path: Path = LOCK_FILE) -> None:
+    """Heartbeat: segarkan mtime lock selama sesi berjalan."""
+    try:
+        if _lock_pid(path) != os.getpid():
+            return
+        os.utime(path, None)
+    except OSError:
+        pass
 
 
 def release_lock(path: Path = LOCK_FILE) -> None:
@@ -101,13 +163,15 @@ def process_video(cand: Candidate, meta: Label, rows: dict[str, dict],
                   clip_sec: float, browser: str | None,
                   only_cc: bool = False, keep_source: bool = True,
                   refresh_probe: bool = False,
-                  verify_sha: bool = False) -> dict:
+                  verify_sha: bool = False,
+                  raw_only: bool = False) -> dict:
     """Unduh/potong satu video. Mengembalikan statistik kecil."""
     vid = cand.video_id
     stat = {"video": vid, "skipped": False, "new_clips": 0,
             "reused_clips": 0, "failed": False, "error": ""}
 
-    if _video_complete(rows, vid, clips_per_video):
+    expected = 1 if raw_only else clips_per_video
+    if _video_complete(rows, vid, expected):
         stat["skipped"] = True
         return stat
 
@@ -126,6 +190,36 @@ def process_video(cand: Candidate, meta: Label, rows: dict[str, dict],
         stat.update(failed=True, error=f"terlalu pendek ({duration} s)")
         return stat
 
+    existing = clips_of_video(rows, vid)
+
+    if raw_only:
+        # satu berkas audio utuh per video, tanpa segmentasi
+        old = existing.get(0)
+        if old and _file_ok(old):
+            stat["reused_clips"] = 1
+            return stat
+        try:
+            src = youtube.download_source(vid, browser=browser, raw=True)
+        except youtube.YoutubeError as e:
+            stat.update(failed=True, error=str(e))
+            return stat
+        if old and old.get("clip_id"):
+            clip_id = old["clip_id"]
+        else:
+            seq = seq_state.get(cand.label, 1)
+            seq_state[cand.label] = seq + 1
+            clip_id = make_clip_id(cand.label, cand.kelas, cand.kurikulum, seq)
+        row = _row(cand, meta, info, clip_id, 0, 0, duration,
+                   status="ok", error="", filepath=src.as_posix(),
+                   size=src.stat().st_size, sha=youtube.sha256_file(src))
+        row["url"] = row["video_url"]          # utuh, bukan deep link ?t=
+        row["clip_sec"] = round(float(duration or 0), 2)
+        row["sr"] = ""                          # sample rate asli (opus)
+        row["channels"] = ""
+        rows[clip_id] = row
+        stat["new_clips"] = 1
+        return stat
+
     windows = youtube.pick_windows(duration, n=clips_per_video, clip_sec=clip_sec,
                                    intro=INTRO_SKIP_S, outro=OUTRO_SKIP_S,
                                    seed=vid)
@@ -139,7 +233,6 @@ def process_video(cand: Candidate, meta: Label, rows: dict[str, dict],
         stat.update(failed=True, error=str(e))
         return stat
 
-    existing = clips_of_video(rows, vid)
     for i, start in enumerate(windows):
         old = existing.get(i)
         if old and _file_ok(old) and not verify_sha:
@@ -249,7 +342,7 @@ def run(plan: list[Candidate], labels: dict[str, Label], *,
         verify_sha: bool = False, sleep: tuple[float, float] = (4.0, 10.0),
         batch_size: int = 25, batch_pause: float = 90.0,
         cooldown: float = 300.0, max_consecutive_fails: int = 5,
-        progress=print) -> dict:
+        progress=print, raw_only: bool = False) -> dict:
     """Jalankan satu sesi. Aman dihentikan kapan saja (Ctrl+C)."""
     ensure_dirs()
     rows = load()
@@ -274,6 +367,7 @@ def run(plan: list[Candidate], labels: dict[str, Label], *,
     consec = 0
 
     for n, cand in enumerate(plan, 1):
+        touch_lock()
         if max_per_run and stats["videos_done"] >= max_per_run:
             progress(f"[i] batas --max-per-run {max_per_run} tercapai")
             break
@@ -287,6 +381,7 @@ def run(plan: list[Candidate], labels: dict[str, Label], *,
                 clips_per_video=clips_per_video, clip_sec=clip_sec,
                 browser=browser, only_cc=only_cc, keep_source=keep_source,
                 refresh_probe=refresh_probe, verify_sha=verify_sha,
+                raw_only=raw_only,
             )
         except KeyboardInterrupt:
             progress("\n[STOP] dihentikan manual; kemajuan disimpan.")

@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import random
+import threading
 import time
 from dataclasses import dataclass, asdict
 from pathlib import Path
@@ -17,6 +18,12 @@ from yt_dlp import YoutubeDL
 
 from .config import CACHE_TTL_H, SEARCH_CACHE, TMP_DIR
 from .sources import SourceItem
+
+EXTRACT_TIMEOUT_S = 25.0
+
+
+class ExtractTimeout(RuntimeError):
+    """Satu query tidak merespons dalam batas waktu (dibatalkan)."""
 
 POLITE = {
     "sleep_interval_requests": 1,
@@ -131,6 +138,33 @@ def _to_candidates(info: dict, item: SourceItem, source_url: str,
     return out
 
 
+def _extract_info(url: str, browser: str | None,
+                  timeout: float = EXTRACT_TIMEOUT_S) -> dict | None:
+    """Jalankan ekstraksi yt-dlp dengan batas waktu keras.
+
+    yt-dlp kadang menggantung di lapisan HTTP tanpa menghormati
+    ``socket_timeout``. Thread daemon + join(timeout) memastikan satu query
+    buruk tidak membekukan seluruh audit/scraping.
+    """
+    box: dict = {}
+
+    def work() -> None:
+        try:
+            with YoutubeDL(_opts(browser)) as ydl:
+                box["info"] = ydl.extract_info(url, download=False)
+        except Exception as e:  # noqa: BLE001
+            box["error"] = e
+
+    t = threading.Thread(target=work, daemon=True, name="ytdlp-extract")
+    t.start()
+    t.join(timeout)
+    if t.is_alive():
+        raise ExtractTimeout(f"tidak merespons > {timeout:.0f} dtk")
+    if "error" in box:
+        raise box["error"]
+    return box.get("info")
+
+
 def expand(item: SourceItem, cache: dict, *, refresh: bool = False,
            browser: str | None = None, polite: bool = True) -> list[Candidate]:
     """Ambil kandidat dari satu item sumber (memakai cache bila masih segar)."""
@@ -148,9 +182,14 @@ def expand(item: SourceItem, cache: dict, *, refresh: bool = False,
         source_url = item.value
         kind = "url"
 
+    # dicetak SEBELUM request: kalau layar berhenti di sini, ketahuan query mana
+    print(f"    .. {item.label} k{item.kelas} {item.kurikulum}: "
+          f"{item.value[:64]}", flush=True)
     try:
-        with YoutubeDL(_opts(browser)) as ydl:
-            info = ydl.extract_info(url, download=False)
+        info = _extract_info(url, browser)
+    except ExtractTimeout as e:
+        print(f"    [!] dilewati ({e}): {item.value[:60]}", flush=True)
+        return []
     except Exception as e:  # noqa: BLE001
         print(f"    [!] gagal baca '{source_url[:70]}': {str(e)[:90]}")
         return []

@@ -136,7 +136,10 @@ def load_manifest_map() -> dict[str, dict]:
 
 
 def discover(scan_dir: Path, manifest: dict, include_sample: bool) -> list[Path]:
-    files = sorted(p for p in scan_dir.rglob("*.wav") if p.is_file())
+    # libsndfile modern bisa membaca Ogg Opus, jadi mode raw (data/source) ikut
+    audio_ext = {".wav", ".opus", ".flac"}
+    files = sorted(p for p in scan_dir.rglob("*")
+                   if p.is_file() and p.suffix.lower() in audio_ext)
     if not include_sample:
         files = [p for p in files if not p.name.lower().startswith("sample01")]
     return files
@@ -544,6 +547,8 @@ def main(argv=None) -> None:
     ap.add_argument("--overwrite", action="store_true",
                     help="hitung ulang kolom stage yang dipilih")
     ap.add_argument("--include-sample01", action="store_true")
+    ap.add_argument("--raw", action="store_true",
+                    help="audio utuh (data/source): jangan cek 16 kHz/mono")
     ap.add_argument("--thresholds", help="file JSON berisi override ambang")
     a = ap.parse_args(argv)
 
@@ -557,6 +562,12 @@ def main(argv=None) -> None:
     if a.thresholds:
         with open(a.thresholds, encoding="utf-8") as f:
             th = merge_thresholds(THRESHOLDS, json.load(f))
+    if a.raw:
+        # mode raw: sample rate & kanal mengikuti sumber, bukan target 16 kHz mono.
+        # Rekaman ceramah YouTube umumnya bermutu pita sempit (±1,8 kHz pada
+        # 99,5% energi), jadi ambang 2,5 kHz terlalu ketat untuk mode ini.
+        th = merge_thresholds(th, {"sr_expected": 0, "channels_expected": 0,
+                                   "bandwidth_min_hz": 1500})
 
     out = Path(a.out)
     if not out.is_absolute():

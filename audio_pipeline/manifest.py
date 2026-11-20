@@ -136,6 +136,20 @@ def done_videos(rows: dict[str, dict]) -> set[str]:
     return {r["video_id"] for r in ok_rows(rows) if r.get("video_id")}
 
 
+def done_videos_per_label(rows: dict[str, dict]) -> dict[str, int]:
+    """Jumlah video unik siap pakai per label (bukan jumlah baris klip)."""
+    counts: dict[str, int] = {}
+    seen: set[str] = set()
+    for r in ok_rows(rows):
+        vid = r.get("video_id")
+        if not vid or vid in seen:
+            continue
+        seen.add(vid)
+        label = r.get("label") or ""
+        counts[label] = counts.get(label, 0) + 1
+    return counts
+
+
 def clips_of_video(rows: dict[str, dict], video_id: str) -> dict[int, dict]:
     out = {}
     for r in rows.values():
